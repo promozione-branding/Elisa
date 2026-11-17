@@ -182,7 +182,7 @@ export default function AboutUsPage() {
             <div className="absolute -left-5 -top-5 h-28 w-28 rounded-tl-[42px] border-l-[5px] border-t-[5px] border-[#8bc943]" />
             <div className="relative h-[340px] overflow-hidden rounded-[34px] sm:h-[440px]">
               <img
-                src="https://images.unsplash.com/photo-1581093458791-9d42e3c6e8c5?auto=format&fit=crop&w=1200&q=85"
+                src="/Benz-Honey Syrup Product Display.png"
                 alt="Modern pharmaceutical laboratory"
                 className="h-full w-full object-cover"
               />
