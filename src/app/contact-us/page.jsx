@@ -55,7 +55,6 @@ export default function ContactUsSection() {
   return (
     <main className="w-full overflow-hidden bg-[#f4faff] text-[#102b49]">
 
-        <Navbaar/>
       {/* Hero – intentionally no site header or footer */}
       <section className="relative isolate min-h-[390px] overflow-hidden bg-[#eaf6fd]">
         <div className="absolute inset-y-0 right-0 w-full lg:w-[58%]">
@@ -227,7 +226,6 @@ export default function ContactUsSection() {
           </div>
         </div>
       </section>
-      <Footer/>
     </main>
   );
 }
