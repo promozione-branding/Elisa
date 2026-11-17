@@ -182,12 +182,12 @@ export default function FAQSection() {
             <div className="relative w-full h-[520px] lg:h-[650px] overflow-hidden rounded-[48%_48%_42%_42%] border-[7px] border-white shadow-2xl">
 
               <Image
-                src="/images/faq-lab.jpg"
+                src="/Pharmaceutical Product Display Collection.png"
                 alt="Elisa Biotech laboratory research"
                 fill
                 priority
                 className="object-cover object-center"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="w-full"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t 
