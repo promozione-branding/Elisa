@@ -71,41 +71,7 @@ export default function Footer() {
 
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
 
-        {/* TOP CTA */}
-        {/* <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="relative -mt-1 border-b border-white/10 py-16 md:py-20 flex flex-col lg:flex-row lg:items-center justify-between gap-8"
-        >
-          <div>
-            <div className="flex items-center gap-3 mb-5">
-              <span className="w-9 h-[2px] bg-[#20B9B0]" />
-              <span className="text-xs tracking-[0.25em] uppercase text-[#47C8C0] font-bold">
-                Let's Connect
-              </span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight tracking-tight max-w-2xl">
-              Let's Build Something
-              <span className="block text-[#36C3BA]">
-                Extraordinary Together.
-              </span>
-            </h2>
-          </div>
-
-          <Link
-            href="/contact-us"
-            className="group shrink-0 inline-flex items-center gap-5 rounded-full bg-[#13A7A4] hover:bg-[#20BDB4] px-7 py-4 text-sm font-semibold transition-all duration-300 hover:-translate-y-1 shadow-[0_12px_35px_rgba(13,174,169,0.2)]"
-          >
-            Get In Touch
-            <span className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
-              <ArrowUpRight size={19} />
-            </span>
-          </Link>
-        </motion.div> */}
-
+       
         {/* MAIN FOOTER */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_0.8fr_1fr_1.2fr] gap-12 lg:gap-10 py-16 md:py-20">
 
@@ -118,18 +84,7 @@ export default function Footer() {
             className="max-w-sm"
           >
             <Link href="/" className="inline-flex items-center gap-3 mb-7">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#20C3BB] to-[#087C91] flex items-center justify-center shadow-lg">
-                <FlaskConical size={27} className="text-white" />
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold tracking-wide">
-                  ELISA BIOTECH
-                </h3>
-                <p className="text-[9px] tracking-[0.3em] text-[#42C4BC] uppercase">
-                  Private Limited
-                </p>
-              </div>
+             <img src="/Elisa (1).webp" alt="" className="bg-white rounded-2xl w-[200px]" />
             </Link>
 
             <p className="text-sm text-slate-400 leading-7">
