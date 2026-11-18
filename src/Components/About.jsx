@@ -135,7 +135,7 @@ export default function About() {
 
             <motion.div variants={reveal} className="mt-8">
               <Link
-                href="/about"
+                href="/about-us"
                 className="group inline-flex min-h-[54px] items-center gap-7 rounded-full bg-[#0b3c63] py-1.5 pl-7 pr-1.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(9,58,91,0.2)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#087f91]"
               >
                 Read More
