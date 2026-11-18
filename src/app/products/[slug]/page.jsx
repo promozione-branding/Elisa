@@ -459,7 +459,7 @@ export default async function ProductDetailPage({ params }) {
           DIRECTLY INSIDE THIS PAGE
       ====================================== */}
 
-      <section className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
+      <section className="relative overflow-hidden bg-white py-16 sm:py-10 lg:py-14">
 
         {/* BACKGROUND DECORATION */}
         <div className="pointer-events-none absolute -left-40 top-20 h-80 w-80 rounded-full bg-[#e0f2fc]/70 blur-[100px]" />
