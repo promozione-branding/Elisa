@@ -106,7 +106,7 @@ export default function AboutUsPage() {
    <Navbaar/>
 
       {/* Hero */}
-      <section className="relative isolate min-h-[570px] overflow-hidden bg-[#073b67]">
+      <section className="relative isolate  overflow-hidden bg-[#073b67] ">
         <div className="absolute inset-0 -z-10">
           <img
             src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=2000&q=85"
@@ -119,10 +119,12 @@ export default function AboutUsPage() {
         <div className="pointer-events-none absolute right-24 top-28 text-white/20">
           <Dna size={100} strokeWidth={0.7} />
         </div>
-        <div className="mx-auto grid min-h-[570px] max-w-[1380px] items-center px-5 py-20 lg:grid-cols-[1.02fr_.98fr] lg:px-10">
+        <div className="mx-auto grid  max-w-[1380px] items-center px-5 py-35 
+        lg:grid-cols-[1.02fr_.98fr] lg:px-10">
           <motion.div initial="hidden" animate="visible" variants={fadeUp} className="relative z-10 max-w-2xl">
-            <SectionLabel>About Elisa Biotech</SectionLabel>
-            <h1 className="text-4xl font-bold leading-[1.12] tracking-tight text-white sm:text-5xl lg:text-[64px]">
+           
+            <h1 className="text-4xl font-bold leading-[1.12] tracking-tight text-white sm:text-5xl
+             lg:text-[60px]">
               Better medicines.
               <span className="mt-2 block text-[#a5dc55]">Better possibilities.</span>
             </h1>
@@ -130,14 +132,7 @@ export default function AboutUsPage() {
               Elisa Biotech Pvt. Ltd. is committed to delivering high-quality,
               affordable medicines that improve healthcare and support better lives.
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <a href="#about" className="inline-flex items-center gap-3 rounded-full bg-[#8bc943] px-7 py-3.5 text-sm font-bold text-[#102e4c] transition hover:bg-white">
-                Discover Our Story <ArrowRight size={17} />
-              </a>
-              <a href="#quality" className="rounded-full border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10">
-                Our Commitment
-              </a>
-            </div>
+          
             <div className="mt-12 grid max-w-lg grid-cols-3 border-t border-white/20 pt-6">
               {[
                 ["01", "Quality first"],
@@ -211,9 +206,7 @@ export default function AboutUsPage() {
               aim to build trust with healthcare professionals, partners, and the
               communities we serve.
             </p>
-            <a href="#contact" className="mt-8 inline-flex items-center gap-3 border-b-2 border-[#8bc943] pb-2 text-sm font-bold text-[#14558b]">
-              Get to know us <ArrowRight size={17} />
-            </a>
+          
           </motion.div>
         </div>
       </section>
@@ -304,9 +297,7 @@ export default function AboutUsPage() {
                 </div>
               ))}
             </div>
-            <a href="#contact" className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#1769a7] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-900/15 transition hover:bg-[#0d426d]">
-              Connect with our team <ArrowRight size={17} />
-            </a>
+          
           </div>
         </div>
       </section>
@@ -365,7 +356,8 @@ export default function AboutUsPage() {
               support healthier communities.
             </p>
           </div>
-          <a href="mailto:info@elisabiotech.com" className="inline-flex shrink-0 items-center gap-3 rounded-full bg-[#8bc943] px-8 py-4 text-sm font-bold text-[#102e4c] transition hover:bg-white">
+          <a href="/contact-us"
+           className="inline-flex shrink-0 items-center gap-3 rounded-full bg-[#8bc943] px-8 py-4 text-sm font-bold text-[#102e4c] transition hover:bg-white">
             Contact Elisa Biotech <ArrowRight size={18} />
           </a>
         </div>
