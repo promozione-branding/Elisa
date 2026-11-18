@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
+
 import {
   ArrowLeft,
   ArrowRight,
@@ -18,6 +19,7 @@ import {
 } from "lucide-react";
 
 import { getProductBySlug, products } from "@/lib/data";
+import react from "react";
 
 export function generateStaticParams() {
   return products
@@ -105,6 +107,7 @@ export default async function ProductDetailPage({ params }) {
 
   const features = product.keyFeatures || [];
   const benefits = product.productBenefits || [];
+
 
   return (
     <main className="mt-25 min-h-screen overflow-hidden bg-[#f7fbfe] text-[#142f4c]">
@@ -381,13 +384,7 @@ export default async function ProductDetailPage({ params }) {
                   "Please contact our team for further product information."}
               </p>
 
-              <Link
-                href="/contact"
-                className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#0d4c78] px-5 py-3 text-xs font-bold text-white transition hover:bg-[#176fa7]"
-              >
-                Ask About This Product
-                <ArrowRight size={15} />
-              </Link>
+             
 
             </div>
           </div>
@@ -438,7 +435,7 @@ export default async function ProductDetailPage({ params }) {
                   </p>
 
                   <Link
-                    href="/contact"
+                    href="/contact-us"
                     className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-[#176fa7] hover:underline"
                   >
                     Contact our team
@@ -702,6 +699,8 @@ export default async function ProductDetailPage({ params }) {
           </div>
         </div>
       </section>
+
+        
 
     </main>
   );

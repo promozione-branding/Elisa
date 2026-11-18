@@ -181,7 +181,7 @@ export default function Industries() {
                   {current.description}
                 </p>
 
-                <Link
+                {/* <Link
                   href={current.href}
                   className="group mt-6 inline-flex items-center gap-4 rounded-full bg-[#08a99d] px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-white hover:text-[#102d3d]"
                 >
@@ -191,7 +191,7 @@ export default function Industries() {
                     size={18}
                     className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
                   />
-                </Link>
+                </Link> */}
               </motion.div>
             </AnimatePresence>
 

@@ -16,10 +16,9 @@ import Popup from "./Popup";
 const navItems = [
   { label: "Home", href: "/", active: true },
   { label: "About Us", href: "/about-us" },
-  { label: "Products", href: "/products", dropdown: true },
-  { label: "Quality", href: "/quality" },
+  { label: "Products", href: "/products",  },
   { label: "Articles", href: "/articles" },
-  { label: "Contact", href: "/contact-us" },
+  { label: "Contact Us", href: "/contact-us" },
 ];
 
 export default function Navbaar() {
@@ -104,15 +103,15 @@ export default function Navbaar() {
 
   {/* Call Icon */}
   <a
-    href="tel:+919876543210"
+    href="tel:+918048268766"
     aria-label="Call Elisa Biotech"
     className="grid h-11 w-11 place-items-center rounded-full border border-[#d8edf0] bg-white/80 text-[#087f8d] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-[#087f8d] hover:text-white"
   >
     <Phone size={19} />
   </a>
 
- <a
-  href="https://wa.me/919876543210"
+ <a 
+  href="https://wa.me/918048268766"
   target="_blank"
   rel="noopener noreferrer"
   aria-label="Chat on WhatsApp"
