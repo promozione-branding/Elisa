@@ -8,6 +8,8 @@ import {
   Menu,
   X,
   ChevronDown,
+  Phone,
+  MessageCircle,
 } from "lucide-react";
 
 const navItems = [
@@ -49,7 +51,7 @@ export default function Navbaar() {
         <nav
           aria-label="Main navigation"
           className={`mx-auto flex w-full max-w-[1450px] items-center gap-3 rounded-[22px] border
-             border-white/90 bg-white/[0.78] px-4 py-3 shadow-[0_12px_40px_rgba(8,74,105,0.11)] 
+             border-white/90 bg-white/[0.78] px-4 py-1 shadow-[0_12px_40px_rgba(8,74,105,0.11)] 
              backdrop-blur-2xl transition-all duration-300 sm:gap-6 sm:rounded-full sm:px-7 ${
             scrolled
               ? "min-h-[68px] bg-white/95 shadow-[0_14px_38px_rgba(8,74,105,0.15)]"
@@ -93,31 +95,59 @@ export default function Navbaar() {
             ))}
           </div>
 
-          {/* Desktop actions */}
-          <div className="hidden shrink-0 items-center gap-3 xl:flex">
-            <span className="h-10 w-px bg-gradient-to-b from-transparent via-[#058197]/50 to-transparent" />
+         {/* Desktop actions */}
+<div className="hidden shrink-0 items-center gap-3 xl:flex">
+  <span className="h-10 w-px bg-gradient-to-b from-transparent via-[#058197]/50 to-transparent" />
 
-            <button
-              type="button"
-              aria-label={searchOpen ? "Close search" : "Open search"}
-              onClick={() => setSearchOpen((value) => !value)}
-              className={`grid h-12 w-12 place-items-center rounded-full border border-white/90 shadow-inner transition-all duration-300 hover:-translate-y-0.5 ${
-                searchOpen
-                  ? "bg-[#087f8d] text-white"
-                  : "bg-white/70 text-[#0b405c] hover:bg-[#e7f8fb]"
-              }`}
-            >
-              {searchOpen ? <X size={21} /> : <Search size={21} />}
-            </button>
+  {/* Call Icon */}
+  <a
+    href="tel:+919876543210"
+    aria-label="Call Elisa Biotech"
+    className="grid h-11 w-11 place-items-center rounded-full border border-[#d8edf0] bg-white/80 text-[#087f8d] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-[#087f8d] hover:text-white"
+  >
+    <Phone size={19} />
+  </a>
 
-            <Link
-              href="/contact"
-              className="inline-flex min-h-12 items-center gap-4 rounded-full bg-gradient-to-r from-[#07556b] to-[#078e9e] px-6 text-[13px] font-extrabold text-white shadow-[0_9px_23px_rgba(3,112,130,0.2)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_28px_rgba(3,112,130,0.27)]"
-            >
-              Get in Touch
-              <ArrowUpRight size={18} />
-            </Link>
-          </div>
+ <a
+  href="https://wa.me/919876543210"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chat on WhatsApp"
+  className="grid h-11 w-11 place-items-center rounded-full border border-[#25D366]/20 bg-white text-[#25D366] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-[#25D366] hover:text-white"
+>
+  <svg
+    viewBox="0 0 32 32"
+    className="h-[23px] w-[23px] fill-current"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M16.01 3C8.84 3 3 8.83 3 16c0 2.29.6 4.53 1.74 6.5L3 29l6.66-1.7A13 13 0 1 0 16.01 3Zm0 23.5c-2 0-3.96-.54-5.67-1.57l-.4-.24-3.95 1.04 1.06-3.85-.26-.4A10.48 10.48 0 1 1 16.01 26.5Zm5.75-7.85c-.31-.16-1.83-.9-2.12-1-.28-.1-.49-.16-.7.16-.2.31-.8 1-.98 1.2-.18.21-.36.24-.67.08-.31-.15-1.31-.48-2.5-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.48.13-.63.14-.13.31-.36.46-.54.16-.18.21-.31.31-.52.1-.2.05-.39-.02-.54-.08-.16-.7-1.69-.96-2.31-.25-.6-.5-.52-.7-.53h-.59c-.2 0-.54.08-.82.39-.28.31-1.08 1.05-1.08 2.56 0 1.52 1.1 2.98 1.26 3.19.15.2 2.17 3.31 5.27 4.64.74.32 1.32.51 1.77.65.74.24 1.41.21 1.94.13.59-.09 1.83-.75 2.09-1.48.26-.72.26-1.34.18-1.47-.08-.13-.28-.21-.59-.36Z" />
+  </svg>
+</a>
+
+  {/* Search */}
+  <button
+    type="button"
+    aria-label={searchOpen ? "Close search" : "Open search"}
+    onClick={() => setSearchOpen((value) => !value)}
+    className={`grid h-11 w-11 place-items-center rounded-full border border-white/90 shadow-inner transition-all duration-300 hover:-translate-y-0.5 ${
+      searchOpen
+        ? "bg-[#087f8d] text-white"
+        : "bg-white/70 text-[#0b405c] hover:bg-[#e7f8fb]"
+    }`}
+  >
+    {searchOpen ? <X size={20} /> : <Search size={20} />}
+  </button>
+
+  {/* Get in Touch */}
+  <Link
+    href="/contact"
+    className="inline-flex min-h-12 items-center gap-3 rounded-full bg-gradient-to-r 
+    from-[#07556b] to-[#078e9e] px-5 text-[13px] font-extrabold text-white shadow-[0_9px_23px_rgba(3,112,130,0.2)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_28px_rgba(3,112,130,0.27)]"
+  >
+    Get in Touch
+    <ArrowUpRight size={18} />
+  </Link>
+</div>
 
           {/* Mobile menu button */}
           <button

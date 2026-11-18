@@ -52,7 +52,8 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative isolate min-h-[100svh] overflow-hidden bg-[#f8fcff] text-[#102f4e] lg:h-[100svh] lg:min-h-[680px]"
+      className="relative isolate min-h-[100svh] overflow-hidden bg-[#f8fcff] 
+      text-[#102f4e] "
     >
       {/* Background atmosphere */}
       <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_78%_42%,#d8f4fb_0%,transparent_42%),linear-gradient(115deg,#ffffff_0%,#f7fbff_56%,#eaf8fc_100%)]" />

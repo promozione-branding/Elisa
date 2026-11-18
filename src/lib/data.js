@@ -7,205 +7,109 @@
  */
 
 export const products = [
-  // ==================== GASTROINTESTINAL MEDICINES ====================
-  // {
-  //   id: 1,
-  //   slug: "esomeprazole-40-mg-tablets",    
-  //   name: "Esomeprazole 40 Mg Tablets",
-  //   brand: "Esmo-40",
-  //   category: "Gastrointestinal Medicines",
-  //   price: 925,
-  //   unit: "Stripe",
-  //   composition: "Esomeprazole 40 mg",
-  //   packaging: "10*10 Tablets",
-  //   strength: "40 mg",
-  //   image: "/images/esomeprazole-40mg.jpg",
-  //   description: "Esomeprazole 40 mg tablets for acid reflux and GERD."
-  // },
-  // {
-  //   id: 2,
-  //   slug: "pantoprazole-sodium-injection",
-  //   name: "Pantoprazole Sodium Injection",
-  //   brand: "panpari-40",
-  //   category: "Gastrointestinal Medicines",
-  //   price: 56.65,
-  //   unit: "Piece",
-  //   composition: "Pantoprazole Sodium 40 mg",
-  //   packaging: "1 ml Vial",
-  //   strength: "40 mg",
-  //   image: "/images/pantoprazole-injection.jpg",
-  //   description: "Pantoprazole Sodium Injection 40 mg for intravenous use."
-  // },
-  // {
-  //   id: 3,
-  //   slug: "pantoprazole-sodium-tablet",
-  //   name: "Pantoprazole Sodium Tablet",
-  //   brand: "Elisa Biotech",
-  //   category: "Gastrointestinal Medicines",
-  //   price: 97.5,
-  //   unit: "Strip",
-  //   composition: "Pantoprazole 40mg",
-  //   packaging: "Strips",
-  //   strength: "40 mg",
-  //   image: "/images/pantoprazole-tablet.jpg",
-  //   description: "Pantoprazole 40 mg tablets for gastric acid reduction."
-  // },
-  // {
-  //   id: 4,
-  //   slug: "pantoprazole-domperidone-capsule",
-  //   name: "Pantoprazole Domperidone Capsule",
-  //   brand: "Elisa Biotech",
-  //   category: "Gastrointestinal Medicines",
-  //   price: 127.5,
-  //   unit: "Strip",
-  //   composition: "Pantoprazole 40 mg + Domperidone 30 mg",
-  //   packaging: "10*10 Capsules",
-  //   strength: "40 mg + 30 mg",
-  //   image: "/images/pantoprazole-domperidone.jpg",
-  //   description: "Combination capsule for acid reflux and nausea."
-  // },
-  // {
-  //   id: 5,
-  //   slug: "magnesium-hydroxide-oral-suspension",
-  //   name: "Magnesium Hydroxide Oral Suspension",
-  //   brand: "Elisa Biotech",
-  //   category: "Gastrointestinal Medicines",
-  //   price: 117,
-  //   unit: "Bottle",
-  //   composition: "Magnesium Hydroxide 400 mg/5 ml",
-  //   packaging: "170 ml PET Bottle",
-  //   strength: "400 mg/5 ml",
-  //   image: "/images/magnesium-hydroxide.jpg",
-  //   description: "Mint flavoured antacid oral suspension."
-  // },
-  // {
-  //   id: 6,
-  //   slug: "omeprazole-20mg-capsules",
-  //   name: "Omeprazole 20mg Capsules",
-  //   brand: "Elisa Biotech",
-  //   category: "Gastrointestinal Medicines",
-  //   price: 48,
-  //   unit: "Strip",
-  //   composition: "Omeprazole 20 mg",
-  //   packaging: "20*15 Capsules",
-  //   strength: "20 mg",
-  //   image: "/images/omeprazole-20mg.jpg",
-  //   description: "Omeprazole 20 mg capsules for peptic ulcers and GERD."
-  // },
-  // {
-  //   id: 7,
-  //   slug: "sucralfate-oxetacaine-suspension",
-  //   name: "Sucralfate Oxetacaine Suspension",
-  //   brand: "Elisa Biotech",
-  //   category: "Gastrointestinal Medicines",
-  //   price: 297.5,
-  //   unit: "Bottle",
-  //   composition: "Sucralfate + Oxetacaine",
-  //   packaging: "200 ml Bottle",
-  //   strength: "1 g/10 ml",
-  //   image: "/images/sucralfate-oxetacaine.jpg",
-  //   description: "Sucralfate Oxetacaine suspension for ulcer protection."
-  // },
-  // {
-  //   id: 8,
-  //   slug: "esomeprazole-levosulpiride-capsules",
-  //   name: "Esomeprazole Levosulpiride Capsules",
-  //   brand: "Esmo-LS",
-  //   category: "Gastrointestinal Medicines",
-  //   price: 225,
-  //   unit: "Strip",
-  //   composition: "Esomeprazole 40mg + Levosulpiride 75mg",
-  //   packaging: "1*10 Capsules",
-  //   strength: "40 mg + 75 mg",
-  //   image: "/images/esmo-ls.jpg",
-  //   description: "Esomeprazole + Levosulpiride for GERD with motility issues."
-  // },
-  // {
-  //   id: 9,
-  //   slug: "esomeprazole-domperidone-capsules",
-  //   name: "Esomeprazole Domperidone Capsules",
-  //   brand: "Esmo-DSR",
-  //   category: "Gastrointestinal Medicines",
-  //   price: 117.5,
-  //   unit: "Strip",
-  //   composition: "Esomeprazole 40 mg + Domperidone 30 mg",
-  //   packaging: "Strips",
-  //   strength: "40 mg + 30 mg",
-  //   image: "/images/esmo-dsr.jpg",
-  //   description: "Sustained release combination for acid control and nausea."
-  // },
-  // {
-  //   id: 10,
-  //   slug: "rabeprazole-domperidone-capsule",
-  //   name: "Rabeprazole Domperidone Capsule",
-  //   brand: "Elisa Biotech",
-  //   category: "Gastrointestinal Medicines",
-  //   price: 107.5,
-  //   unit: "Strip",
-  //   composition: "Rabeprazole 20mg + Domperidone 30mg",
-  //   packaging: "10 capsules (SR)",
-  //   strength: "20 mg + 30 mg",
-  //   image: "/images/rabeprazole-domperidone.jpg",
-  //   description: "Rabeprazole + Domperidone SR capsules."
-  // },
-  // {
-  //   id: 11,
-  //   slug: "albendazole-200mg-suspension",
-  //   name: "Albendazole 200mg Suspension",
-  //   brand: "Bond",
-  //   category: "Gastrointestinal Medicines",
-  //   price: 20,
-  //   unit: "Bottle",
-  //   composition: "Albendazole 200 mg",
-  //   packaging: "10 ml",
-  //   strength: "200 mg/5 ml",
-  //   image: "/images/albendazole-suspension.jpg",
-  //   description: "Albendazole oral suspension for worm infestations."
-  // },
-  // {
-  //   id: 12,
-  //   slug: "lactulose-solution-usp",
-  //   name: "Lactulose Solution USP",
-  //   brand: "Eziluk",
-  //   category: "Gastrointestinal Medicines",
-  //   price: 387.5,
-  //   unit: "Bottle",
-  //   composition: "Lactulose 667 mg/ml",
-  //   packaging: "300 ml",
-  //   strength: "667 mg/ml",
-  //   image: "/images/lactulose.jpg",
-  //   description: "Lactulose solution for constipation and hepatic encephalopathy."
-  // },
+ {
+    id: 4,
+    slug: "lactulose-solution-usp",
+    shortdescription: "Lactulose solution for constipation and hepatic encephalopathy.",
+    name: "Lactulose Solution USP",
+    brand: "Eziluk",
+    category: "Gastrointestinal Medicines",
+    price: 387.5,
+    unit: "Bottle",
+    composition: "Lactulose 667 mg/ml",
+    packaging: "300 ml",
+    strength: "667 mg/ml",
+    image: "/4.webp",
 
-  // // ==================== ANTI-INFLAMMATORY & ANTICOLD ====================
-  // {
-  //   id: 13,
-  //   slug: "aceclofenac-paracetamol-serratiopeptidase-tablet",
-  //   name: "Aceclofenac Paracetamol Serratiopeptidase Tablet",
-  //   brand: "Nugesia-3",
-  //   category: "Anti-inflammatory & Anticold",
-  //   price: 117.5,
-  //   unit: "Strip",
-  //   composition: "Aceclofenac 100mg + Paracetamol 325mg + Serratiopeptidase 15mg",
-  //   packaging: "10*10 Tablets",
-  //   strength: "100+325+15 mg",
-  //   image: "/images/nugesia-3.jpg",
-  //   description: "Triple combination for pain, inflammation and swelling."
-  // },
-  // {
-  //   id: 14,
-  //   slug: "aceclofenac-100mg-paracetamol-325-mg-tablets",
-  //   name: "Aceclofenac 100mg + Paracetamol 325 mg Tablets",
-  //   brand: "Nugesia-AC",
-  //   category: "Anti-inflammatory & Anticold",
-  //   price: 65,
-  //   unit: "Box",
-  //   composition: "Aceclofenac 100mg + Paracetamol 325 mg",
-  //   packaging: "10*10 Tablets",
-  //   strength: "100+325 mg",
-  //   image: "/images/nugesia-ac.jpg",
-  //   description: "Aceclofenac + Paracetamol for pain and fever."
-  // },
+    description: "Lactulose Solution USP is an osmotic laxative formulated to help manage constipation by drawing water into the bowel and softening stools. It supports regular bowel movements and helps ease discomfort associated with constipation. Lactulose is also prescribed for the management of hepatic encephalopathy by helping reduce the absorption of ammonia from the intestine. Suitable for use under medical supervision.",
+
+    keyFeatures: [
+      "Osmotic laxative formulation.",
+      "Helps soften stools and promote regular bowel movements.",
+      "Supports the management of chronic constipation.",
+      "Used in the management of hepatic encephalopathy.",
+      "Helps reduce intestinal ammonia absorption.",
+      "Convenient oral liquid formulation."
+    ],
+
+    productBenefits: [
+      "Constipation Management: Helps relieve constipation by increasing water content in the stool.",
+      "Improved Bowel Movement: Supports smoother and more regular bowel movements.",
+      "Digestive Comfort: Helps reduce discomfort associated with hard stools.",
+      "Hepatic Support: Helps manage hepatic encephalopathy when prescribed by a healthcare professional.",
+      "Easy Administration: Liquid formulation allows convenient oral administration."
+    ]
+  },
+
+  // ==================== ANTI-INFLAMMATORY & ANTICOLD ====================
+
+  {
+    id: 5,
+    slug: "aceclofenac-paracetamol-serratiopeptidase-tablet",
+    name: "Aceclofenac Paracetamol Serratiopeptidase Tablet",
+    shortdescription: "Triple combination for pain, inflammation and swelling.",
+    description: "Aceclofenac, Paracetamol and Serratiopeptidase Tablets are a combination formulation used to manage pain, inflammation and swelling associated with various musculoskeletal conditions. Aceclofenac helps reduce inflammation and pain, while Paracetamol provides additional pain-relieving action. Serratiopeptidase is an enzyme used as part of the formulation to support the management of swelling and inflammation. This combination is intended for use as prescribed by a healthcare professional.",
+    brand: "Nugesia-3",
+    category: "Anti-inflammatory & Anticold",
+    price: 117.5,
+    unit: "Strip",
+    composition: "Aceclofenac 100mg + Paracetamol 325mg + Serratiopeptidase 15mg",
+    packaging: "10*10 Tablets",
+    strength: "100+325+15 mg",
+    image: "/2.webp",
+
+    keyFeatures: [
+      "Triple-combination formulation.",
+      "Contains Aceclofenac, Paracetamol and Serratiopeptidase.",
+      "Helps manage pain and inflammation.",
+      "Supports the management of swelling.",
+      "Used for musculoskeletal discomfort.",
+      "Convenient tablet dosage form."
+    ],
+
+    productBenefits: [
+      "Pain Relief: Helps manage pain associated with various inflammatory conditions.",
+      "Inflammation Management: Aceclofenac helps reduce inflammation and discomfort.",
+      "Swelling Management: Serratiopeptidase is included to support the management of swelling.",
+      "Combined Action: Three active ingredients provide complementary therapeutic actions.",
+      "Musculoskeletal Support: Used in managing pain associated with muscles and joints."
+    ]
+  },
+
+  {
+    id: 6,
+    slug: "aceclofenac-100mg-paracetamol-325-mg-tablets",
+    name: "Aceclofenac 100mg + Paracetamol 325 mg Tablets",
+    shortdescription: "Aceclofenac + Paracetamol combination for pain and fever management.",
+    description: "Aceclofenac 100mg + Paracetamol 325mg Tablets are formulated to help manage pain, inflammation and fever associated with different conditions. Aceclofenac is a non-steroidal anti-inflammatory drug (NSAID) that helps reduce inflammation, pain and swelling, while Paracetamol provides additional analgesic and antipyretic action. This combination may be prescribed for musculoskeletal pain, joint discomfort and other painful inflammatory conditions under medical supervision.",
+
+    brand: "Nugesia-AC",
+    category: "Anti-inflammatory & Anticold",
+    price: 65,
+    unit: "Box",
+    composition: "Aceclofenac 100mg + Paracetamol 325 mg",
+    packaging: "10*10 Tablets",
+    strength: "100+325 mg",
+    image: "/1.webp",
+
+    keyFeatures: [
+      "Dual-action pain relief formulation.",
+      "Contains Aceclofenac 100mg and Paracetamol 325mg.",
+      "Helps manage pain and inflammation.",
+      "Supports relief from joint and muscular discomfort.",
+      "Provides antipyretic action.",
+      "Convenient oral tablet formulation."
+    ],
+
+    productBenefits: [
+      "Pain Management: Helps relieve mild to moderate pain as prescribed.",
+      "Inflammation Control: Aceclofenac helps reduce inflammatory symptoms.",
+      "Fever Management: Paracetamol helps reduce elevated body temperature.",
+      "Joint Comfort: Supports the management of pain associated with joint conditions.",
+      "Complementary Action: Combines anti-inflammatory and analgesic properties."
+    ]
+  },
+
   {
     id: 1,
     slug: "paracetamol-diclofenac-potassium-tablets",
@@ -218,8 +122,29 @@ export const products = [
     packaging: "10 tablets",
     strength: "325+50+250 mg",
     image: "/Actagesic-MR Tablets Product Pack.webp",
-    description: "Muscle relaxant combination tablet."
+    shortdescription: "Combination tablet for muscular pain, inflammation and muscle spasms.",
+
+    description: "Actagesic-MR is a combination formulation containing Paracetamol, Diclofenac Potassium and Chlorzoxazone. It is used for the management of painful musculoskeletal conditions associated with muscle spasms, inflammation and discomfort. Paracetamol helps relieve pain, Diclofenac Potassium helps reduce pain and inflammation, and Chlorzoxazone acts as a muscle relaxant to help relieve muscle spasms. It is intended for use under the guidance of a healthcare professional.",
+
+    keyFeatures: [
+      "Triple-action combination formulation.",
+      "Contains Paracetamol 325mg.",
+      "Contains Diclofenac Potassium 50mg.",
+      "Contains Chlorzoxazone 250mg.",
+      "Helps manage muscular pain and inflammation.",
+      "Supports relief from painful muscle spasms.",
+      "Convenient tablet dosage form."
+    ],
+
+    productBenefits: [
+      "Muscle Pain Relief: Helps manage discomfort associated with muscular conditions.",
+      "Muscle Relaxation: Chlorzoxazone helps relieve painful muscle spasms.",
+      "Inflammation Management: Diclofenac Potassium helps reduce inflammation and swelling.",
+      "Pain Management: Paracetamol provides additional analgesic action.",
+      "Combined Formulation: Offers complementary actions for managing musculoskeletal discomfort."
+    ]
   },
+
   {
     id: 2,
     slug: "levosalbutamol-ambroxol-guaiphenesin-syrup",
@@ -232,8 +157,30 @@ export const products = [
     packaging: "100 ml",
     strength: "1+30+50 mg",
     image: "/Benz-LS Cough Syrup Product Display.webp",
-    description: "Cough syrup for productive cough and bronchospasm."
+
+    shortdescription: "Combination cough syrup for productive cough and respiratory congestion.",
+
+    description: "Levosalbutamol, Ambroxol and Guaiphenesin Syrup is a combination respiratory formulation used to manage productive cough associated with excessive mucus and bronchospasm. Levosalbutamol helps relax the airway muscles and improve airflow, Ambroxol helps loosen and thin thick mucus, while Guaiphenesin acts as an expectorant to facilitate mucus clearance. This combination supports respiratory comfort and helps make coughing more productive. Use as directed by a healthcare professional.",
+
+    keyFeatures: [
+      "Triple-action respiratory formulation.",
+      "Contains Levosalbutamol, Ambroxol and Guaiphenesin.",
+      "Helps loosen and clear thick mucus.",
+      "Supports easier expectoration.",
+      "Helps relieve bronchospasm.",
+      "Designed for productive cough management.",
+      "Convenient oral syrup formulation."
+    ],
+
+    productBenefits: [
+      "Airway Support: Levosalbutamol helps relax airway muscles and improve airflow.",
+      "Mucus Thinning: Ambroxol helps loosen thick and sticky mucus.",
+      "Expectorant Action: Guaiphenesin helps facilitate the removal of mucus through coughing.",
+      "Respiratory Comfort: Supports relief from congestion associated with productive cough.",
+      "Combined Action: Provides complementary respiratory benefits through three active ingredients."
+    ]
   },
+
   {
     id: 3,
     slug: "etoricoxib-tablet-90mg",
@@ -245,51 +192,29 @@ export const products = [
     composition: "Etoricoxib 90 mg",
     packaging: "10*10 Tablets",
     strength: "90 mg",
-    image: "/Etoxizip 90 Tablet Packaging.webp",
-    description: "Selective COX-2 inhibitor for pain and inflammation."
-  },
-  // {
-  //   id: 18,
-  //   slug: "etoricoxib-thiocolchicoside-tablet",
-  //   name: "Etoricoxib Thiocolchicoside Tablet",
-  //   brand: "Etoxizip-MR",
-  //   category: "Anti-inflammatory & Anticold",
-  //   price: 3250,
-  //   unit: "Strip",
-  //   composition: "Etoricoxib 60 mg + Thiocolchicoside 4 mg",
-  //   packaging: "Strips",
-  //   strength: "60+4 mg",
-  //   image: "/images/etoxizip-mr.jpg",
-  //   description: "Etoricoxib with muscle relaxant for musculoskeletal pain."
-  // },
-  // {
-  //   id: 19,
-  //   slug: "nimesulide-100mg-paracetamol-325mg-tablet",
-  //   name: "Nimesulide 100 mg + Paracetamol 325 mg Tablet",
-  //   brand: "Elisa Biotech",
-  //   category: "Anti-inflammatory & Anticold",
-  //   price: 63,
-  //   unit: "Strip",
-  //   composition: "Nimesulide 100 mg + Paracetamol 325 mg",
-  //   packaging: "20*10 Tablets",
-  //   strength: "100+325 mg",
-  //   image: "/images/nimesulide-paracetamol.jpg",
-  //   description: "Nimesulide + Paracetamol for pain and fever."
-  // },
-  // {
-  //   id: 20,
-  //   slug: "diclofenac-potassium-serratiopeptidase-tablet",
-  //   name: "Diclofenac Potassium Serratiopeptidase Tablet",
-  //   brand: "Nugesia-SP",
-  //   category: "Anti-inflammatory & Anticold",
-  //   price: 81.5,
-  //   unit: "Strip",
-  //   composition: "Diclofenac Potassium 50 mg + Serratiopeptidase",
-  //   packaging: "10*10 Tablets",
-  //   strength: "50 mg",
-  //   image: "/images/nugesia-sp.jpg",
-  //   description: "Anti-inflammatory with proteolytic enzyme."
-  // },
+    image: "/3.webp",
+
+    shortdescription: "Selective COX-2 inhibitor for pain and inflammation management.",
+
+    description: "Etoricoxib 90mg Tablets contain a selective cyclooxygenase-2 (COX-2) inhibitor belonging to the non-steroidal anti-inflammatory drug (NSAID) category. It works by reducing the production of prostaglandins, which are responsible for pain and inflammation in the body. It is prescribed for the management of pain and inflammatory conditions, including certain types of arthritis and musculoskeletal disorders. The medicine should be used strictly according to medical advice.",
+
+    keyFeatures: [
+      "Selective COX-2 inhibitor formulation.",
+      "Contains Etoricoxib 90mg.",
+      "Helps reduce pain and inflammation.",
+      "Used in the management of certain arthritic conditions.",
+      "Supports relief from musculoskeletal discomfort.",
+      "Convenient oral tablet formulation."
+    ],
+
+    productBenefits: [
+      "Pain Management: Helps relieve pain associated with inflammatory conditions.",
+      "Inflammation Reduction: Reduces prostaglandin production involved in inflammatory responses.",
+      "Joint Comfort: Supports the management of discomfort associated with certain forms of arthritis.",
+      "Targeted Action: Selectively inhibits the COX-2 enzyme.",
+      "Mobility Support: Helps manage pain that may interfere with everyday movement."
+    ]
+  }
   
 ];
 

@@ -257,7 +257,7 @@ export default function Products() {
                       <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-white/65">
                         {product.eyebrow}
                       </p>
-                      <h3 className="text-lg font-bold leading-tight text-white sm:text-xl">
+                      <h3 className="text-[55px] font-bold leading-tight text-white sm:text-xl">
                         {product.name}
                       </h3>
                     </div>
@@ -266,49 +266,65 @@ export default function Products() {
               })}
             </div>
 
-            {/* SLIDER CONTROLS */}
-            <div className="mt-5 flex items-center justify-between gap-5">
-              <div className="flex items-center gap-3">
-                <motion.button
-                  type="button"
-                  onClick={previous}
-                  whileHover={{ scale: 1.08, x: -3 }}
-                  whileTap={{ scale: 0.9 }}
-                  aria-label="Previous product"
-                  className="grid h-11 w-11 place-items-center rounded-full border border-white/45 text-white transition-colors hover:border-[#12bbb6] hover:bg-[#12bbb6]"
-                >
-                  <ArrowLeft size={19} />
-                </motion.button>
+         {/* SLIDER CONTROLS */}
+<div className="relative z-30 mt-5 flex items-center justify-between gap-5">
 
-                <motion.button
-                  type="button"
-                  onClick={next}
-                  whileHover={{ scale: 1.08, x: 3 }}
-                  whileTap={{ scale: 0.9 }}
-                  aria-label="Next product"
-                  className="grid h-11 w-11 place-items-center rounded-full border border-white/45 text-white transition-colors hover:border-[#12bbb6] hover:bg-[#12bbb6]"
-                >
-                  <ArrowRight size={19} />
-                </motion.button>
+  <div className="flex items-center gap-3">
 
-                <div className="ml-2 hidden h-[2px] w-28 overflow-hidden bg-white/25 sm:block">
-                  <motion.div
-                    className="h-full bg-[#14c2bd]"
-                    animate={{
-                      width: `${((activeIndex + 1) / products.length) * 100}%`,
-                    }}
-                    transition={{ duration: 0.5 }}
-                  />
-                </div>
-              </div>
+    {/* Previous */}
+    <motion.button
+      type="button"
+      onClick={previous}
+      whileHover={{ scale: 1.08, x: -3 }}
+      whileTap={{ scale: 0.9 }}
+      aria-label="Previous product"
+      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/45 bg-white/10 text-white transition-all duration-300 hover:border-[#12bbb6] hover:bg-[#12bbb6]"
+    >
+      <ArrowLeft
+        className="!block !h-5 !w-5 shrink-0"
+        stroke="currentColor"
+        strokeWidth={2.5}
+        fill="none"
+      />
+    </motion.button>
 
-              <div className="flex items-center gap-2 text-sm font-semibold text-white/60">
-                <span className="text-2xl text-white">
-                  {activeProduct.id}
-                </span>
-                / {String(products.length).padStart(2, "0")}
-              </div>
-            </div>
+    {/* Next */}
+    <motion.button
+      type="button"
+      onClick={next}
+      whileHover={{ scale: 1.08, x: 3 }}
+      whileTap={{ scale: 0.9 }}
+      aria-label="Next product"
+      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/45 bg-white/10 text-white transition-all duration-300 hover:border-[#12bbb6] hover:bg-[#12bbb6]"
+    >
+      <ArrowRight
+        className="!block !h-5 !w-5 shrink-0"
+        stroke="currentColor"
+        strokeWidth={2.5}
+        fill="none"
+      />
+    </motion.button>
+
+    {/* Progress bar */}
+    <div className="ml-2 hidden h-[2px] w-28 overflow-hidden bg-white/25 sm:block">
+      <motion.div
+        className="h-full bg-[#14c2bd]"
+        animate={{
+          width: `${((activeIndex + 1) / products.length) * 100}%`,
+        }}
+        transition={{ duration: 0.5 }}
+      />
+    </div>
+  </div>
+
+  {/* Counter */}
+  <div className="flex items-center gap-2 text-sm font-semibold text-white/60">
+    <span className="text-2xl text-white">
+      {activeProduct.id}
+    </span>
+    / {String(products.length).padStart(2, "0")}
+  </div>
+</div>
 
             {/* SCROLL HINT */}
             <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">

@@ -47,7 +47,7 @@ export default function FAQSection() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#F1F8FA] flex items-center py-16 lg:py-12">
+    <section className="relative min-h-screen overflow-hidden bg-[#F1F8FA] flex items-center py-10 lg:py-12">
 
       {/* Background details */}
       <div className="absolute top-0 left-0 w-80 h-80 bg-cyan-200/20 rounded-full blur-[100px]" />
@@ -57,117 +57,10 @@ export default function FAQSection() {
 
         <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 xl:gap-16 items-center">
 
-          {/* LEFT CONTENT */}
-          <div className="relative z-10">
-
-            <motion.div
-              initial={{ opacity: 0, x: -25 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-3 mb-6"
-            >
-              <span className="w-12 h-[3px] bg-[#07999B]" />
-              <span className="text-xs sm:text-sm uppercase tracking-[0.24em] font-bold text-[#527080]">
-                Frequently Asked Questions
-              </span>
-            </motion.div>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="text-[42px] sm:text-5xl xl:text-[52px] leading-[1.08] 
-              font-bold tracking-tight text-[#092B40]"
-            >
-              Have Questions?
-              <span className="block text-[#07999B]">
-                We've Got Answers.
-              </span>
-            </motion.h2>
 
 
 
-            {/* FAQ ACCORDION */}
-            <div className="space-y-3">
-              {faqs.map((faq, index) => {
-                const isActive = active === index;
-
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 18 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.45,
-                      delay: index * 0.08,
-                    }}
-                    className={`overflow-hidden rounded-2xl transition-all duration-300 ${
-                      isActive
-                        ? "bg-white shadow-[0_12px_35px_rgba(9,43,64,0.10)]"
-                        : "bg-white/90 hover:bg-white shadow-sm"
-                    }`}
-                  >
-                    <button
-                      onClick={() =>
-                        setActive(isActive ? -1 : index)
-                      }
-                      aria-expanded={isActive}
-                      className={`w-full flex items-center gap-4 px-5 py-4 text-left transition-all ${
-                        isActive
-                          ? "bg-gradient-to-r from-[#07506B] to-[#087D89] text-white"
-                          : "text-[#102E42]"
-                      }`}
-                    >
-                      <span
-                        className={`w-11 h-11 shrink-0 rounded-full flex items-center justify-center font-bold ${
-                          isActive
-                            ? "bg-[#12A8A6] text-white"
-                            : "bg-[#DDF1F1] text-[#07506B]"
-                        }`}
-                      >
-                        Q
-                      </span>
-
-                      <span className="flex-1 text-[15px] sm:text-[17px] font-semibold">
-                        {faq.question}
-                      </span>
-
-                      <span className="shrink-0">
-                        {isActive ? (
-                          <Minus size={21} />
-                        ) : (
-                          <Plus size={21} />
-                        )}
-                      </span>
-                    </button>
-
-                    <AnimatePresence initial={false}>
-                      {isActive && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{
-                            duration: 0.35,
-                            ease: "easeInOut",
-                          }}
-                          className="overflow-hidden"
-                        >
-                          <p className="px-6 sm:px-8 py-5 pl-[76px] text-sm sm:text-[15px] leading-7 text-[#536879]">
-                            {faq.answer}
-                          </p>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* RIGHT IMAGE */}
+          {/* Left IMAGE */}
           <motion.div
             initial={{ opacity: 0, scale: 0.94, x: 30 }}
             whileInView={{ opacity: 1, scale: 1, x: 0 }}
@@ -259,6 +152,116 @@ export default function FAQSection() {
               <Dna size={90} strokeWidth={0.8} />
             </div>
           </motion.div>
+          {/* RIGHT CONTENT */}
+          <div className="relative z-10">
+
+            <motion.div
+              initial={{ opacity: 0, x: -25 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 mb-6"
+            >
+              <span className="w-12 h-[3px] bg-[#07999B]" />
+              <span className="text-xs sm:text-sm uppercase tracking-[0.24em] font-bold text-[#527080]">
+                Frequently Asked Questions
+              </span>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="text-[42px] sm:text-5xl xl:text-[45px] leading-[1.08] 
+              font-bold tracking-tight py-2 text-[#092B40]"
+            >
+              Have Questions?
+              <span className="block text-[#07999B]">
+                We've Got Answers.
+              </span>
+            </motion.h2>
+
+
+
+            {/* FAQ ACCORDION */}
+            <div className="space-y-3">
+              {faqs.map((faq, index) => {
+                const isActive = active === index;
+
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.45,
+                      delay: index * 0.08,
+                    }}
+                    className={`overflow-hidden rounded-2xl transition-all duration-300 ${
+                      isActive
+                        ? "bg-white shadow-[0_12px_35px_rgba(9,43,64,0.10)]"
+                        : "bg-white/90 hover:bg-white shadow-sm"
+                    }`}
+                  >
+                    <button
+                      onClick={() =>
+                        setActive(isActive ? -1 : index)
+                      }
+                      aria-expanded={isActive}
+                      className={`w-full flex items-center gap-4 px-5 py-4 text-left transition-all ${
+                        isActive
+                          ? "bg-gradient-to-r from-[#07506B] to-[#087D89] text-white"
+                          : "text-[#102E42]"
+                      }`}
+                    >
+                      <span
+                        className={`w-11 h-11 shrink-0 rounded-full flex items-center justify-center font-bold ${
+                          isActive
+                            ? "bg-[#12A8A6] text-white"
+                            : "bg-[#DDF1F1] text-[#07506B]"
+                        }`}
+                      >
+                        Q
+                      </span>
+
+                      <span className="flex-1 text-[15px] sm:text-[17px] font-semibold">
+                        {faq.question}
+                      </span>
+
+                      <span className="shrink-0">
+                        {isActive ? (
+                          <Minus size={21} />
+                        ) : (
+                          <Plus size={21} />
+                        )}
+                      </span>
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isActive && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{
+                            duration: 0.35,
+                            ease: "easeInOut",
+                          }}
+                          className="overflow-hidden"
+                        >
+                          <p className="px-6 sm:px-8 py-5 pl-[76px] text-sm sm:text-[15px] leading-7 text-[#536879]">
+                            {faq.answer}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
 
         </div>
       </div>

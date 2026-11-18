@@ -64,7 +64,8 @@ export default function ContactCTA() {
   return (
     <section
       id="contact"
-      className="relative isolate min-h-[100svh] overflow-hidden bg-[#f4faff] text-[#102f50] lg:h-[100svh] lg:min-h-[700px]"
+      className="relative isolate  overflow-hidden bg-[#f4faff]
+       text-[#102f50]"
     >
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 -z-20 bg-[linear-gradient(112deg,#ffffff_0%,#f4faff_48%,#e7f6fc_100%)]" />

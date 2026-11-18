@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ShieldCheck,
@@ -16,6 +17,8 @@ import {
   Dna,
   HeartPulse,
 } from "lucide-react";
+import ContactPopup from "./Popup";
+import { useFormState } from "react-dom";
 
 const highlights = [
   {
@@ -52,6 +55,8 @@ const containerVariants = {
 };
 
 export default function Hero() {
+
+    const [showPopup, setShowPopup] = useState(false);
   return (
     <section className="relative isolate overflow-hidden bg-[#f5fbfc] text-[#102d49]">
 
@@ -138,16 +143,15 @@ export default function Hero() {
               </span>
             </Link>
 
-            <Link
-              href="/about-us"
+            <button  onClick={() => setShowPopup(true)}
               className="group inline-flex min-h-[58px] items-center gap-3 rounded-xl border border-[#8198ac] bg-white/80 px-8 text-sm font-semibold text-[#173b5b] transition-all duration-300 hover:-translate-y-1 hover:border-[#07518a] hover:bg-[#07518a] hover:text-white"
             >
-              About Us
+              Get a Quote
               <ArrowUpRight
                 size={17}
                 className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
               />
-            </Link>
+            </button>
           </motion.div>
 
           {/* HIGHLIGHTS */}
@@ -368,6 +372,12 @@ export default function Hero() {
         animate={{ width: "100%" }}
         transition={{ duration: 1.8, delay: 0.5 }}
       />
+
+       {showPopup && (
+        <ContactPopup
+          onClose={() => setShowPopup(false)}
+        />
+      )}
     </section>
   );
 }
