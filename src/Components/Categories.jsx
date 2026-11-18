@@ -8,6 +8,9 @@ import {
   ArrowUpRight,
   Plus,
   FlaskConical,
+  ArrowUpLeft,
+  ArrowLeft,
+  ArrowRight
 } from "lucide-react";
 
 const categories = [
@@ -302,7 +305,10 @@ export default function Categories() {
               aria-label="Previous category"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D6E5E7] bg-white text-[#0B5269] transition-all hover:bg-[#0B5269] hover:text-white"
             >
-           
+             <ArrowLeft
+                    size={19}
+                    className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                  />
             </button>
 
             <button
@@ -312,6 +318,11 @@ export default function Categories() {
               aria-label="Next category"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0B9395] text-white transition-all hover:bg-[#076B7C]"
             >
+
+               <ArrowRight
+                    size={19}
+                    className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                  />
         
             </button>
           </div>

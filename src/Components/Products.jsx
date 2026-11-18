@@ -4,7 +4,11 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ArrowUpRight,
+} from "lucide-react";
 
 const products = [
   {
@@ -57,37 +61,43 @@ export default function Products() {
 
   const activeProduct = products[activeIndex];
 
- const selectProduct = (index) => {
-  setActiveIndex(index);
+  // Select product and scroll its card into view
+  const selectProduct = (index) => {
+    const safeIndex =
+      (index + products.length) % products.length;
 
-  const container = cardContainerRef.current;
-  const card = container?.children[index];
+    setActiveIndex(safeIndex);
 
-  if (!container || !card) return;
+    requestAnimationFrame(() => {
+      const container = cardContainerRef.current;
+      const card = container?.children[safeIndex];
 
-  const maxScroll = container.scrollWidth - container.clientWidth;
+      if (!container || !card) return;
 
-  const targetScroll = Math.max(
-    0,
-    Math.min(
-      card.offsetLeft - container.offsetLeft,
-      maxScroll
-    )
-  );
+      const targetScroll =
+        card.offsetLeft -
+        container.offsetLeft -
+        (container.clientWidth - card.clientWidth) / 2;
 
-  container.scrollTo({
-    left: targetScroll,
-    behavior: "smooth",
-  });
-};
+      container.scrollTo({
+        left: Math.max(
+          0,
+          Math.min(
+            targetScroll,
+            container.scrollWidth - container.clientWidth
+          )
+        ),
+        behavior: "smooth",
+      });
+    });
+  };
+
   const previous = () => {
-    selectProduct(
-      (activeIndex - 1 + products.length) % products.length
-    );
+    selectProduct(activeIndex - 1);
   };
 
   const next = () => {
-    selectProduct((activeIndex + 1) % products.length);
+    selectProduct(activeIndex + 1);
   };
 
   return (
@@ -96,17 +106,17 @@ export default function Products() {
       className="relative isolate min-h-[680px] overflow-hidden bg-[#062b49] text-white lg:h-[650px] lg:min-h-0"
     >
       {/* BACKGROUND PRODUCT IMAGE */}
-      <AnimatePresence mode="sync">
+      <AnimatePresence mode="wait">
         <motion.img
-          key={activeProduct.image}
+          key={activeIndex}
           src={activeProduct.image}
           alt={activeProduct.name}
-          initial={{ opacity: 0, scale: 1.1 }}
+          initial={{ opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{
-            opacity: { duration: 0.8, ease },
-            scale: { duration: 1.3, ease },
+            opacity: { duration: 0.7, ease },
+            scale: { duration: 1.2, ease },
           }}
           className="absolute inset-0 -z-20 h-full w-full object-cover"
         />
@@ -134,7 +144,6 @@ export default function Products() {
 
       {/* CONTENT */}
       <div className="relative mx-auto flex min-h-[680px] max-w-[1600px] flex-col justify-center px-5 py-16 sm:px-8 lg:h-full lg:min-h-0 lg:px-[3%] lg:py-10">
-
         <div className="grid items-center gap-12 lg:grid-cols-[0.82fr_1.5fr] lg:gap-10">
 
           {/* LEFT PRODUCT INFORMATION */}
@@ -155,9 +164,21 @@ export default function Products() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
-                initial={{ opacity: 0, y: 25, filter: "blur(5px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: -15, filter: "blur(4px)" }}
+                initial={{
+                  opacity: 0,
+                  y: 25,
+                  filter: "blur(5px)",
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  filter: "blur(0px)",
+                }}
+                exit={{
+                  opacity: 0,
+                  y: -15,
+                  filter: "blur(4px)",
+                }}
                 transition={{ duration: 0.5, ease }}
               >
                 <p className="mb-3 text-sm font-semibold text-[#80d5d5]">
@@ -177,6 +198,7 @@ export default function Products() {
                   className="group mt-8 inline-flex min-h-[50px] items-center gap-5 rounded-full bg-[#08a99e] px-6 text-sm font-semibold text-white shadow-[0_10px_35px_rgba(0,190,180,0.2)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#0bc0b2]"
                 >
                   Explore Product
+
                   <ArrowUpRight
                     size={19}
                     className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
@@ -190,14 +212,18 @@ export default function Products() {
               <span className="text-3xl font-bold tabular-nums text-white">
                 {activeProduct.id}
               </span>
+
               <span className="text-sm text-white/50">
                 / {String(products.length).padStart(2, "0")}
               </span>
+
               <div className="ml-3 h-[2px] w-20 overflow-hidden bg-white/20">
                 <motion.div
                   className="h-full bg-[#13c3bd]"
                   animate={{
-                    width: `${((activeIndex + 1) / products.length) * 100}%`,
+                    width: `${
+                      ((activeIndex + 1) / products.length) * 100
+                    }%`,
                   }}
                   transition={{ duration: 0.5, ease }}
                 />
@@ -207,7 +233,6 @@ export default function Products() {
 
           {/* RIGHT PRODUCT CARDS */}
           <div className="relative z-20 min-w-0">
-
             <div
               ref={cardContainerRef}
               className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
@@ -242,22 +267,16 @@ export default function Products() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#031827]/95 via-[#062b46]/15 to-transparent" />
 
                     {/* SELECTED INDICATOR */}
-                    <motion.span
-                      initial={false}
-                      animate={{
-                        opacity: selected ? 1 : 0,
-                        scale: selected ? 1 : 0.5,
-                      }}
-                      className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-white/90 text-[#087f8d] shadow-lg"
-                    >
-                      <ArrowUpRight size={19} />
-                    </motion.span>
+                  
+                  
+
 
                     <div className="absolute bottom-0 left-0 w-full p-4">
                       <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-white/65">
                         {product.eyebrow}
                       </p>
-                      <h3 className="text-[55px] font-bold leading-tight text-white sm:text-xl">
+
+                      <h3 className="text-xl font-bold leading-tight text-white sm:text-2xl">
                         {product.name}
                       </h3>
                     </div>
@@ -266,65 +285,64 @@ export default function Products() {
               })}
             </div>
 
-         {/* SLIDER CONTROLS */}
-<div className="relative z-30 mt-5 flex items-center justify-between gap-5">
+            {/* SLIDER CONTROLS */}
+            <div className="relative z-50 mt-5 flex w-full items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
 
-  <div className="flex items-center gap-3">
+                {/* PREVIOUS BUTTON */}
+                <motion.button
+                  type="button"
+                  onClick={previous}
+                  whileHover={{ scale: 1.08, x: -3 }}
+                  whileTap={{ scale: 0.92 }}
+                  aria-label="Previous product"
+                  className="relative z-50 flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/50 bg-white/15 text-white opacity-100 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-[#12bbb6] hover:bg-[#12bbb6]"
+                >
+                  <ChevronLeft
+                    size={26}
+                    strokeWidth={2.8}
+                    className="block h-[26px] w-[26px] text-b;l"
+                  />
+                </motion.button>
 
-    {/* Previous */}
-    <motion.button
-      type="button"
-      onClick={previous}
-      whileHover={{ scale: 1.08, x: -3 }}
-      whileTap={{ scale: 0.9 }}
-      aria-label="Previous product"
-      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/45 bg-white/10 text-white transition-all duration-300 hover:border-[#12bbb6] hover:bg-[#12bbb6]"
-    >
-      <ArrowLeft
-        className="!block !h-5 !w-5 shrink-0"
-        stroke="currentColor"
-        strokeWidth={2.5}
-        fill="none"
-      />
-    </motion.button>
+                {/* NEXT BUTTON */}
+                <motion.button
+                  type="button"
+                  onClick={next}
+                  whileHover={{ scale: 1.08, x: 3 }}
+                  whileTap={{ scale: 0.92 }}
+                  aria-label="Next product"
+                  className="relative z-50 flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/50 bg-white/15 text-white opacity-100 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-[#12bbb6] hover:bg-[#12bbb6]"
+                >
+                  <ChevronRight
+                    size={26}
+                    strokeWidth={2.8}
+                    className="block h-[26px] w-[26px] text-black"
+                  />
+                </motion.button>
 
-    {/* Next */}
-    <motion.button
-      type="button"
-      onClick={next}
-      whileHover={{ scale: 1.08, x: 3 }}
-      whileTap={{ scale: 0.9 }}
-      aria-label="Next product"
-      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/45 bg-white/10 text-white transition-all duration-300 hover:border-[#12bbb6] hover:bg-[#12bbb6]"
-    >
-      <ArrowRight
-        className="!block !h-5 !w-5 shrink-0"
-        stroke="currentColor"
-        strokeWidth={2.5}
-        fill="none"
-      />
-    </motion.button>
+                {/* PROGRESS BAR */}
+                <div className="ml-2 hidden h-[2px] w-28 overflow-hidden bg-white/25 sm:block">
+                  <motion.div
+                    className="h-full bg-[#14c2bd]"
+                    animate={{
+                      width: `${
+                        ((activeIndex + 1) / products.length) * 100
+                      }%`,
+                    }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </div>
+              </div>
 
-    {/* Progress bar */}
-    <div className="ml-2 hidden h-[2px] w-28 overflow-hidden bg-white/25 sm:block">
-      <motion.div
-        className="h-full bg-[#14c2bd]"
-        animate={{
-          width: `${((activeIndex + 1) / products.length) * 100}%`,
-        }}
-        transition={{ duration: 0.5 }}
-      />
-    </div>
-  </div>
-
-  {/* Counter */}
-  <div className="flex items-center gap-2 text-sm font-semibold text-white/60">
-    <span className="text-2xl text-white">
-      {activeProduct.id}
-    </span>
-    / {String(products.length).padStart(2, "0")}
-  </div>
-</div>
+              {/* COUNTER */}
+              <div className="flex items-center gap-2 text-sm font-semibold text-white/60">
+                <span className="text-2xl text-white">
+                  {activeProduct.id}
+                </span>
+                / {String(products.length).padStart(2, "0")}
+              </div>
+            </div>
 
             {/* SCROLL HINT */}
             <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">
