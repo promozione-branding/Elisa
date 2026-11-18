@@ -11,6 +11,7 @@ import {
   Phone,
   MessageCircle,
 } from "lucide-react";
+import Popup from "./Popup";
 
 const navItems = [
   { label: "Home", href: "/", active: true },
@@ -22,6 +23,8 @@ const navItems = [
 ];
 
 export default function Navbaar() {
+
+   const [popupOpen, setPopupOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -139,14 +142,14 @@ export default function Navbaar() {
   </button>
 
   {/* Get in Touch */}
-  <Link
-    href="/contact"
+  <button
+ onClick={() => setPopupOpen(true)}
     className="inline-flex min-h-12 items-center gap-3 rounded-full bg-gradient-to-r 
     from-[#07556b] to-[#078e9e] px-5 text-[13px] font-extrabold text-white shadow-[0_9px_23px_rgba(3,112,130,0.2)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_28px_rgba(3,112,130,0.27)]"
   >
     Get in Touch
     <ArrowUpRight size={18} />
-  </Link>
+  </button>
 </div>
 
           {/* Mobile menu button */}
@@ -250,6 +253,10 @@ export default function Navbaar() {
           Science · Innovation · Better Health
         </p>
       </aside>
+         <Popup
+        isOpen={popupOpen}
+        onClose={() => setPopupOpen(false)}
+      />
     </>
   );
 }

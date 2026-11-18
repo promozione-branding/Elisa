@@ -17,8 +17,8 @@ import {
   Dna,
   HeartPulse,
 } from "lucide-react";
-import ContactPopup from "./Popup";
 import { useFormState } from "react-dom";
+import Popup from "./Popup";
 
 const highlights = [
   {
@@ -55,8 +55,7 @@ const containerVariants = {
 };
 
 export default function Hero() {
-
-    const [showPopup, setShowPopup] = useState(false);
+ const [popupOpen, setPopupOpen] = useState(false);
   return (
     <section className="relative isolate overflow-hidden bg-[#f5fbfc] text-[#102d49]">
 
@@ -143,7 +142,7 @@ export default function Hero() {
               </span>
             </Link>
 
-            <button  onClick={() => setShowPopup(true)}
+            <button   onClick={() => setPopupOpen(true)}
               className="group inline-flex min-h-[58px] items-center gap-3 rounded-xl border border-[#8198ac] bg-white/80 px-8 text-sm font-semibold text-[#173b5b] transition-all duration-300 hover:-translate-y-1 hover:border-[#07518a] hover:bg-[#07518a] hover:text-white"
             >
               Get a Quote
@@ -373,11 +372,10 @@ export default function Hero() {
         transition={{ duration: 1.8, delay: 0.5 }}
       />
 
-       {showPopup && (
-        <ContactPopup
-          onClose={() => setShowPopup(false)}
-        />
-      )}
+          <Popup
+        isOpen={popupOpen}
+        onClose={() => setPopupOpen(false)}
+      />
     </section>
   );
 }

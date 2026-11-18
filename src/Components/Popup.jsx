@@ -2,562 +2,273 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { X, User, Phone, MapPin, Mail, MessageSquare, Send } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { X, ArrowRight, CheckCircle2 } from "lucide-react";
 
-export default function ContactPopup({ onClose }) {
-  const [isOpen, setIsOpen] = useState(true);
-  const [submitted, setSubmitted] = useState(false);
+export default function Popup({
+  isOpen,
+  onClose,
+  productName = "",
+}) {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    product: productName,
+    message: "",
+  });
 
-  const closePopup = () => {
-    setIsOpen(false);
-    onClose?.();
-  };
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
+    setFormData((prev) => ({
+      ...prev,
+      product: productName || "",
+    }));
+  }, [productName]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
     const handleEscape = (e) => {
-      if (e.key === "Escape") closePopup();
+      if (e.key === "Escape") onClose();
     };
 
-    document.addEventListener("keydown", handleEscape);
     document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleEscape);
 
     return () => {
-      document.removeEventListener("keydown", handleEscape);
       document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleEscape);
     };
-  }, []);
+  }, [isOpen, onClose]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "phone" && !/^\d{0,20}$/.test(value)) {
+      return;
+    }
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  if (!isOpen) return null;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    if (!/^\d{10,20}$/.test(formData.phone)) {
+      setError("Please enter a valid mobile number (10–20 digits).");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "Something went wrong.");
+      }
+
+      setSuccess(true);
+
+      setTimeout(() => {
+        setSuccess(false);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          product: "",
+          message: "",
+        });
+        onClose();
+      }, 2000);
+    } catch (err) {
+      setError(err.message || "Unable to submit enquiry.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <div className="elisa-popup-overlay" onClick={closePopup}>
-      <div
-        className="elisa-popup"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button
-          className="elisa-close"
-          onClick={closePopup}
-          aria-label="Close popup"
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onMouseDown={(e) => {
+            if (e.target === e.currentTarget) onClose();
+          }}
         >
-          <X size={27} />
-        </button>
-
-        {/* LEFT CONTENT */}
-        <div className="elisa-popup-left">
-          <div className="elisa-logo">
-            <div className="elisa-logo-icon">
-              <span>✦</span>
-            </div>
-            <div>
-              <h2>Elisa</h2>
-              <p>Biotech Pvt. Ltd.</p>
-            </div>
-          </div>
-
-          <div className="elisa-left-content">
-            <div className="elisa-line"></div>
-
-            <h3>Get in Touch</h3>
-
-            <p>
-              For Product Enquiry, Pricing or Any Assistance
-            </p>
-          </div>
-
-          <div className="elisa-medicine-image">
-            <img
-              src="/images/medicine-popup.png"
-              alt="Pharmaceutical medicines"
-            />
-          </div>
-
-          <div className="elisa-blue-wave"></div>
-        </div>
-
-        {/* RIGHT FORM */}
-        <div className="elisa-popup-right">
-          {submitted ? (
-            <div className="elisa-success">
-              <div className="success-icon">✓</div>
-              <h2>Thank You!</h2>
-              <p>
-                Your enquiry has been received successfully.
-                Our team will contact you soon.
-              </p>
-              <button onClick={closePopup}>
-                Close
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              <div className="elisa-form-group">
-                <User />
-                <input
-                  type="text"
-                  placeholder="Your Name *"
-                  required
-                />
-              </div>
-
-              <div className="elisa-form-group">
-                <Phone />
-                <input
-                  type="tel"
-                  placeholder="Mobile Number *"
-                  pattern="[0-9+\-\s]{10,15}"
-                  required
-                />
-              </div>
-
-              <div className="elisa-form-group">
-                <Mail />
-                <input
-                  type="email"
-                  placeholder="Email ID *"
-                  required
-                />
-              </div>
-
-              <div className="elisa-form-group">
-                <MapPin />
-                <input
-                  type="text"
-                  placeholder="Your Place / City *"
-                  required
-                />
-              </div>
-
-              <div className="elisa-form-group elisa-message">
-                <MessageSquare />
-                <textarea
-                  placeholder="Your Message (Optional)"
-                  rows="3"
-                />
-              </div>
-
+          <motion.div
+            initial={{ opacity: 0, y: 40, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 30, scale: 0.96 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="relative w-full max-w-2xl overflow-hidden rounded-2xl bg-white shadow-2xl"
+          >
+            {/* Header */}
+            <div className="relative bg-[#0B2E63] px-6 py-3 md:px-5">
               <button
-                type="submit"
-                className="elisa-submit"
+                type="button"
+                onClick={onClose}
+                aria-label="Close enquiry form"
+                className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
               >
-                <Send size={22} />
-                Submit Enquiry
+                <X size={20} />
               </button>
-            </form>
-          )}
-        </div>
-      </div>
 
-      <style jsx>{`
-        .elisa-popup-overlay {
-          position: fixed;
-          inset: 0;
-          z-index: 99999;
-          background: rgba(8, 22, 43, 0.68);
-          backdrop-filter: blur(7px);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 20px;
-          animation: fadeIn 0.3s ease;
-        }
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[3px] text-blue-200">
+                Let's Connect
+              </p>
 
-        .elisa-popup {
-          width: 100%;
-          max-width: 1320px;
-          min-height: 650px;
-          display: grid;
-          grid-template-columns: 38% 62%;
-          background: #fff;
-          border-radius: 28px;
-          overflow: visible;
-          position: relative;
-          box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
-          animation: popupIn 0.4s ease;
-        }
+              <h2 className="text-2xl font-bold text-white md:text-3xl">
+                Get In Touch With Us
+              </h2>
 
-        .elisa-close {
-          position: absolute;
-          right: -22px;
-          top: -22px;
-          width: 58px;
-          height: 58px;
-          border: none;
-          border-radius: 50%;
-          background: #fff;
-          color: #082d60;
-          display: grid;
-          place-items: center;
-          cursor: pointer;
-          z-index: 10;
-          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-          transition: 0.3s;
-        }
+            
+            </div>
 
-        .elisa-close:hover {
-          transform: rotate(90deg);
-          background: #eaf4ff;
-        }
+            {/* Form */}
+            <div className="p-4 md:p-5">
+              {success ? (
+                <div className="flex flex-col items-center justify-center py-12 text-center">
+                  <CheckCircle2
+                    size={55}
+                    className="mb-4 text-green-600"
+                  />
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    Thank You!
+                  </h3>
+                  <p className="mt-2 text-gray-500">
+                    Your enquiry has been submitted successfully.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                    <div>
+                      <label className="mb-2 block text-sm font-semibold text-gray-700">
+                        Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Enter your name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition focus:border-[#0B2E63] focus:bg-white"
+                      />
+                    </div>
 
-        .elisa-popup-left {
-          background: linear-gradient(145deg, #eaf6ff, #f8fcff);
-          border-radius: 28px 0 0 28px;
-          padding: 70px 45px 40px;
-          position: relative;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-        }
+                    <div>
+                      <label className="mb-2 block text-sm font-semibold text-gray-700">
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition focus:border-[#0B2E63] focus:bg-white"
+                      />
+                    </div>
 
-        .elisa-logo {
-          display: flex;
-          align-items: center;
-          gap: 15px;
-          position: relative;
-          z-index: 2;
-        }
+                    <div>
+                      <label className="mb-2 block text-sm font-semibold text-gray-700">
+                        Mobile Number *
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        placeholder="Enter mobile number"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        required
+                        inputMode="numeric"
+                        maxLength={20}
+                        className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition focus:border-[#0B2E63] focus:bg-white"
+                      />
+                    </div>
 
-        .elisa-logo-icon {
-          width: 85px;
-          height: 85px;
-          background: linear-gradient(145deg, #0d71d5, #0b3978);
-          color: white;
-          border-radius: 50% 50% 50% 8px;
-          display: grid;
-          place-items: center;
-          font-size: 42px;
-          transform: rotate(-12deg);
-        }
+                    <div>
+                      <label className="mb-2 block text-sm font-semibold text-gray-700">
+                        Product / Service
+                      </label>
+                      <input
+                        type="text"
+                        name="product"
+                        placeholder="Enter product name"
+                        value={formData.product}
+                        onChange={handleChange}
+                        className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition focus:border-[#0B2E63] focus:bg-white"
+                      />
+                    </div>
+                  </div>
 
-        .elisa-logo-icon span {
-          transform: rotate(12deg);
-        }
+                  <div>
+                    <label className="mb-2 block text-sm font-semibold text-gray-700">
+                      Your Message *
+                    </label>
+                    <textarea
+                      name="message"
+                      rows={4}
+                      placeholder="Tell us about your requirements..."
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      className="w-full resize-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition focus:border-[#0B2E63] focus:bg-white"
+                    />
+                  </div>
 
-        .elisa-logo h2 {
-          color: #0862b9;
-          font-size: 55px;
-          font-weight: 800;
-          line-height: 1;
-          margin: 0;
-        }
+                  {error && (
+                    <p role="alert" className="text-sm text-red-600">
+                      {error}
+                    </p>
+                  )}
 
-        .elisa-logo p {
-          color: #102c52;
-          font-size: 19px;
-          margin: 5px 0 0;
-        }
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="group flex w-full items-center justify-center gap-3 rounded-lg bg-[#0B2E63] px-6 py-4 text-sm font-semibold text-white transition hover:bg-[#164582] disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    {loading ? "Submitting..." : "Submit Enquiry"}
+                    {!loading && (
+                      <ArrowRight
+                        size={18}
+                        className="transition-transform group-hover:translate-x-1"
+                      />
+                    )}
+                  </button>
 
-        .elisa-left-content {
-          margin-top: 65px;
-          position: relative;
-          z-index: 2;
-        }
-
-        .elisa-line {
-          width: 120px;
-          height: 4px;
-          border-radius: 10px;
-          background: #0b4c98;
-          margin: 0 auto 30px;
-        }
-
-        .elisa-left-content h3 {
-          font-size: 40px;
-          color: #092c5b;
-          font-weight: 750;
-          margin: 0 0 15px;
-        }
-
-        .elisa-left-content p {
-          color: #18385f;
-          font-size: 23px;
-          line-height: 1.5;
-          max-width: 370px;
-          margin: 0 auto;
-        }
-
-        .elisa-medicine-image {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 220px;
-          z-index: 1;
-        }
-
-        .elisa-medicine-image img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center;
-        }
-
-        .elisa-blue-wave {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 24px;
-          background: #0879d4;
-          z-index: 2;
-        }
-
-        .elisa-popup-right {
-          padding: 65px 65px 55px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .elisa-popup-right form {
-          width: 100%;
-          max-width: 700px;
-        }
-
-        .elisa-form-group {
-          display: flex;
-          align-items: center;
-          gap: 22px;
-          width: 100%;
-          min-height: 72px;
-          border: 1.5px solid #d4d9e4;
-          border-radius: 16px;
-          padding: 0 28px;
-          margin-bottom: 25px;
-          background: #fff;
-          transition: 0.25s;
-        }
-
-        .elisa-form-group:focus-within {
-          border-color: #0873cc;
-          box-shadow: 0 0 0 3px rgba(8, 115, 204, 0.09);
-        }
-
-        .elisa-form-group :global(svg) {
-          color: #093d78;
-          width: 25px;
-          min-width: 25px;
-          height: 25px;
-        }
-
-        .elisa-form-group input,
-        .elisa-form-group textarea {
-          width: 100%;
-          border: none;
-          outline: none;
-          background: transparent;
-          color: #183354;
-          font-family: inherit;
-          font-size: 20px;
-        }
-
-        .elisa-form-group input::placeholder,
-        .elisa-form-group textarea::placeholder {
-          color: #737c8e;
-        }
-
-        .elisa-message {
-          min-height: 155px;
-          align-items: flex-start;
-          padding-top: 24px;
-        }
-
-        .elisa-message textarea {
-          resize: vertical;
-          min-height: 100px;
-        }
-
-        .elisa-submit {
-          width: 75%;
-          min-height: 78px;
-          margin: 12px auto 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 18px;
-          border: none;
-          border-radius: 50px;
-          background: linear-gradient(100deg, #07356f, #0864b5);
-          color: white;
-          font-size: 23px;
-          font-weight: 700;
-          cursor: pointer;
-          transition: 0.3s;
-        }
-
-        .elisa-submit:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 10px 25px rgba(5, 65, 130, 0.25);
-        }
-
-        .elisa-success {
-          text-align: center;
-          max-width: 450px;
-          color: #12345a;
-        }
-
-        .success-icon {
-          width: 75px;
-          height: 75px;
-          margin: 0 auto 20px;
-          border-radius: 50%;
-          background: #e5f4eb;
-          color: #16864a;
-          display: grid;
-          place-items: center;
-          font-size: 40px;
-        }
-
-        .elisa-success h2 {
-          font-size: 32px;
-        }
-
-        .elisa-success p {
-          line-height: 1.7;
-          color: #637083;
-        }
-
-        .elisa-success button {
-          background: #084b91;
-          color: white;
-          padding: 14px 35px;
-          border: none;
-          border-radius: 30px;
-          cursor: pointer;
-        }
-
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-
-        @keyframes popupIn {
-          from { opacity: 0; transform: translateY(25px) scale(0.97); }
-          to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        @media (max-width: 900px) {
-          .elisa-popup {
-            max-width: 600px;
-            grid-template-columns: 1fr;
-            max-height: 90vh;
-            overflow-y: auto;
-          }
-
-          .elisa-popup-left {
-            min-height: 300px;
-            padding: 35px 25px 120px;
-            border-radius: 28px 28px 0 0;
-          }
-
-          .elisa-logo h2 {
-            font-size: 40px;
-          }
-
-          .elisa-logo-icon {
-            width: 60px;
-            height: 60px;
-          }
-
-          .elisa-left-content {
-            margin-top: 30px;
-          }
-
-          .elisa-left-content h3 {
-            font-size: 29px;
-          }
-
-          .elisa-left-content p {
-            font-size: 17px;
-          }
-
-          .elisa-medicine-image {
-            height: 110px;
-          }
-
-          .elisa-popup-right {
-            padding: 35px 25px;
-          }
-
-          .elisa-close {
-            right: 12px;
-            top: 12px;
-            width: 42px;
-            height: 42px;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .elisa-popup-overlay {
-            padding: 12px;
-          }
-
-          .elisa-popup {
-            max-height: 94vh;
-            border-radius: 20px;
-          }
-
-          .elisa-popup-left {
-            min-height: 260px;
-            padding: 30px 20px 90px;
-          }
-
-          .elisa-logo h2 {
-            font-size: 35px;
-          }
-
-          .elisa-logo p {
-            font-size: 14px;
-          }
-
-          .elisa-left-content {
-            margin-top: 22px;
-          }
-
-          .elisa-left-content h3 {
-            font-size: 25px;
-          }
-
-          .elisa-left-content p {
-            font-size: 15px;
-          }
-
-          .elisa-popup-right {
-            padding: 28px 18px;
-          }
-
-          .elisa-form-group {
-            min-height: 58px;
-            padding: 0 15px;
-            gap: 12px;
-            margin-bottom: 15px;
-            border-radius: 12px;
-          }
-
-          .elisa-form-group input,
-          .elisa-form-group textarea {
-            font-size: 15px;
-          }
-
-          .elisa-message {
-            min-height: 115px;
-            padding-top: 18px;
-          }
-
-          .elisa-submit {
-            width: 100%;
-            min-height: 60px;
-            font-size: 17px;
-          }
-        }
-      `}</style>
-    </div>
+                  <p className="text-center text-xs text-gray-400">
+                    Your information will only be used to respond to your enquiry.
+                  </p>
+                </form>
+              )}
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
