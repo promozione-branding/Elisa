@@ -21,11 +21,12 @@ export default function Home() {
     <Products/>
      <StatsSection/>
      <CertificateSection/>
-    <AboutCTA/>
+    
      <Categories/> 
 <WhyChooseUs/>
  <CategoryMarquee/>
     <Industries/>
+    <AboutCTA/>
     <Testimonials/>
      <FAQSection/>
      <ContactCTA/>
