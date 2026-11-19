@@ -19,7 +19,7 @@ export const products = [
     composition: "Lactulose 667 mg/ml",
     packaging: "300 ml",
     strength: "667 mg/ml",
-    image: "/4.webp",
+    image: "product/Eziluk Lactulose Medicine Set_No_Leaves.webp",
 
     description: "Lactulose Solution USP is an osmotic laxative formulated to help manage constipation by drawing water into the bowel and softening stools. It supports regular bowel movements and helps ease discomfort associated with constipation. Lactulose is also prescribed for the management of hepatic encephalopathy by helping reduce the absorption of ammonia from the intestine. Suitable for use under medical supervision.",
 
@@ -56,7 +56,7 @@ export const products = [
     composition: "Aceclofenac 100mg + Paracetamol 325mg + Serratiopeptidase 15mg",
     packaging: "10*10 Tablets",
     strength: "100+325+15 mg",
-    image: "/2.webp",
+    image: "product/Stairdol-SP Product Studio Showcase_No_Leaves.webp",
 
     keyFeatures: [
       "Triple-combination formulation.",
@@ -90,7 +90,7 @@ export const products = [
     composition: "Aceclofenac 100mg + Paracetamol 325 mg",
     packaging: "10*10 Tablets",
     strength: "100+325 mg",
-    image: "/1.webp",
+    image: "product/Stairdol TH Tablets Product Close-Up_No_Leaves.webp",
 
     keyFeatures: [
       "Dual-action pain relief formulation.",
@@ -121,7 +121,7 @@ export const products = [
     composition: "Paracetamol 325 mg + Diclofenac Potassium 50 mg + Chlorzoxazone 250 mg",
     packaging: "10 tablets",
     strength: "325+50+250 mg",
-    image: "/Actagesic-MR Tablets Product Pack.webp",
+    image: "product/Actagesic-MR Tablets Product Pack_No_Leaves.webp",
     shortdescription: "Combination tablet for muscular pain, inflammation and muscle spasms.",
 
     description: "Actagesic-MR is a combination formulation containing Paracetamol, Diclofenac Potassium and Chlorzoxazone. It is used for the management of painful musculoskeletal conditions associated with muscle spasms, inflammation and discomfort. Paracetamol helps relieve pain, Diclofenac Potassium helps reduce pain and inflammation, and Chlorzoxazone acts as a muscle relaxant to help relieve muscle spasms. It is intended for use under the guidance of a healthcare professional.",
@@ -156,7 +156,7 @@ export const products = [
     composition: "Levosalbutamol 1mg + Ambroxol 30mg + Guaiphenesin 50mg",
     packaging: "100 ml",
     strength: "1+30+50 mg",
-    image: "/Benz-LS Cough Syrup Product Display.webp",
+    image: "product/Benz-LS Cough Syrup Product Display_No_Leaves.webp",
 
     shortdescription: "Combination cough syrup for productive cough and respiratory congestion.",
 
@@ -192,7 +192,7 @@ export const products = [
     composition: "Etoricoxib 90 mg",
     packaging: "10*10 Tablets",
     strength: "90 mg",
-    image: "/3.webp",
+    image: "product/Etoxizip 90 Tablet Packaging_No_Leaves.webp",
 
     shortdescription: "Selective COX-2 inhibitor for pain and inflammation management.",
 

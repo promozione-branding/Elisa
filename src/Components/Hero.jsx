@@ -17,7 +17,6 @@ import {
   Dna,
   HeartPulse,
 } from "lucide-react";
-import { useFormState } from "react-dom";
 import Popup from "./Popup";
 
 const highlights = [
@@ -55,7 +54,8 @@ const containerVariants = {
 };
 
 export default function Hero() {
- const [popupOpen, setPopupOpen] = useState(false);
+  const [popupOpen, setPopupOpen] = useState(false);
+
   return (
     <section className="relative isolate overflow-hidden bg-[#f5fbfc] text-[#102d49]">
 
@@ -63,11 +63,12 @@ export default function Hero() {
       <div className="absolute inset-0 -z-30 bg-gradient-to-br from-white via-[#eefaff] to-[#d8f2f5]" />
 
       <div className="absolute -right-32 top-10 -z-20 h-[600px] w-[600px] rounded-full bg-[#8ed9e7]/30 blur-[110px]" />
-      <div className="absolute -bottom-48 -left-32 -z-20 h-[500px] w-[500px] rounded-full bg-[#d9edcf]/40 blur-[110px]" />
 
-      {/* SOFT BACKGROUND WAVES */}
+      <div className="absolute -bottom-48 -left-32 -z-20 h-[500px] w-[500px] rounded-full bg-[#b9e4f2]/40 blur-[110px]" />
+
+      {/* BACKGROUND WAVES */}
       <svg
-        className="pointer-events-none absolute bottom-0 left-0 -z-10 h-[300px] w-full opacity-60"
+        className="pointer-events-none absolute bottom-0 left-0 -z-10 h-[220px] w-full opacity-60 sm:h-[300px]"
         viewBox="0 0 1440 300"
         fill="none"
         preserveAspectRatio="none"
@@ -85,65 +86,70 @@ export default function Hero() {
       </svg>
 
       {/* MAIN CONTENT */}
-      <div className="relative mx-auto grid min-h-[680px] max-w-[1600px] items-center px-5 pb-14 pt-24 sm:px-8 lg:min-h-[740px] lg:grid-cols-[0.94fr_1.06fr] lg:px-[5%] lg:pb-16 lg:pt-20">
+      <div className="relative mx-auto grid w-full max-w-[1600px] items-center gap-2 px-5 pb-10 pt-24 sm:px-8 sm:pb-14 lg:min-h-[740px] lg:grid-cols-[0.94fr_1.06fr] lg:gap-4 lg:px-[5%] lg:pb-16 lg:pt-20">
 
         {/* LEFT CONTENT */}
         <motion.div
-          className="relative z-20 max-w-[620px]"
+          className="relative z-20 mx-auto w-full max-w-[620px] lg:mx-0"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           <motion.p
             variants={reveal}
-            className="mb-6 flex items-center gap-3 text-sm font-semibold text-[#70a957] sm:text-base"
+            className="mb-5 flex items-center gap-3 text-xs font-semibold text-[#087eaa] sm:mb-6 sm:text-base"
           >
-            <span className="h-[2px] w-9 bg-[#70a957]" />
+            <span className="h-[2px] w-8 bg-[#087eaa] sm:w-9" />
             Caring for Life. Committed to Health.
           </motion.p>
 
           <motion.h1
             variants={reveal}
-            className="text-[43px] font-bold leading-[1.08] tracking-[-0.045em] text-[#102c50] sm:text-5xl lg:text-[66px]"
+            className="text-[clamp(36px,6vw,66px)] font-bold leading-[1.1] tracking-[-0.045em] text-[#102c50]"
           >
             Trusted Medicines,
             <span className="relative mt-1 block text-[#075b91]">
               Healthier Tomorrow.
               <motion.span
-                className="absolute -bottom-2 left-0 h-[4px] rounded-full bg-[#76b65e]"
+                className="absolute -bottom-2 left-0 h-[4px] rounded-full bg-[#39a9cf]"
                 initial={{ width: 0 }}
                 animate={{ width: "68%" }}
-                transition={{ delay: 1, duration: 1, ease: "easeOut" }}
+                transition={{
+                  delay: 1,
+                  duration: 1,
+                  ease: "easeOut",
+                }}
               />
             </span>
           </motion.h1>
 
           <motion.p
             variants={reveal}
-            className="mt-8 max-w-[500px] text-[15px] leading-[1.95] text-[#687987] sm:text-base"
+            className="mt-6 max-w-[500px] text-sm leading-[1.9] text-[#687987] sm:mt-8 sm:text-base"
           >
             Elisa Biotech Pvt. Ltd. is committed to delivering
             high-quality, affordable medicines that improve
             healthcare and support better lives.
           </motion.p>
 
-          {/* CTA */}
+          {/* CTA BUTTONS */}
           <motion.div
             variants={reveal}
-            className="mt-9 flex flex-wrap gap-4"
+            className="mt-7 flex flex-wrap gap-3 sm:mt-9 sm:gap-4"
           >
             <Link
               href="/products"
-              className="group inline-flex min-h-[58px] items-center gap-4 rounded-xl bg-gradient-to-r from-[#07518a] to-[#087e99] px-7 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(7,81,138,0.2)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(7,81,138,0.3)]"
+              className="group inline-flex min-h-[52px] items-center gap-3 rounded-xl bg-gradient-to-r from-[#07518a] to-[#087e99] px-5 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(7,81,138,0.2)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(7,81,138,0.3)] sm:min-h-[58px] sm:gap-4 sm:px-7"
             >
               Our Products
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-white/15 transition-all duration-300 group-hover:rotate-45 group-hover:bg-white group-hover:text-[#07518a]">
+              <span className="grid h-8 w-8 place-items-center rounded-full bg-white/15 transition-all duration-300 group-hover:rotate-45 group-hover:bg-white group-hover:text-[#07518a] sm:h-9 sm:w-9">
                 <ArrowUpRight size={19} />
               </span>
             </Link>
 
-            <button   onClick={() => setPopupOpen(true)}
-              className="group inline-flex min-h-[58px] items-center gap-3 rounded-xl border border-[#8198ac] bg-white/80 px-8 text-sm font-semibold text-[#173b5b] transition-all duration-300 hover:-translate-y-1 hover:border-[#07518a] hover:bg-[#07518a] hover:text-white"
+            <button
+              onClick={() => setPopupOpen(true)}
+              className="group inline-flex min-h-[52px] items-center gap-2 rounded-xl border border-[#8198ac] bg-white/80 px-5 text-sm font-semibold text-[#173b5b] transition-all duration-300 hover:-translate-y-1 hover:border-[#07518a] hover:bg-[#07518a] hover:text-white sm:min-h-[58px] sm:gap-3 sm:px-8"
             >
               Get a Quote
               <ArrowUpRight
@@ -156,7 +162,7 @@ export default function Hero() {
           {/* HIGHLIGHTS */}
           <motion.div
             variants={containerVariants}
-            className="mt-12 grid max-w-[550px] grid-cols-3 border-t border-[#dce8e9] pt-7"
+            className="mt-9 grid max-w-[550px] grid-cols-3 gap-1 border-t border-[#dce8e9] pt-5 sm:mt-12 sm:gap-2 sm:pt-7"
           >
             {highlights.map((item, index) => {
               const Icon = item.icon;
@@ -165,24 +171,24 @@ export default function Hero() {
                 <motion.div
                   key={item.title}
                   variants={reveal}
-                  className={`flex items-center gap-2 sm:gap-3 ${
+                  className={`flex min-w-0 items-center gap-1.5 sm:gap-3 ${
                     index !== 0
-                      ? "border-l border-[#dce8e9] pl-3 sm:pl-5"
+                      ? "border-l border-[#dce8e9] pl-2 sm:pl-5"
                       : ""
                   }`}
                 >
                   <motion.div
                     whileHover={{ rotate: 12, scale: 1.1 }}
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#b9dcae] bg-white/80 text-[#65a34c] sm:h-12 sm:w-12"
+                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#a9d8e8] bg-white/80 text-[#087eaa] sm:h-12 sm:w-12"
                   >
-                    <Icon size={21} strokeWidth={1.8} />
+                    <Icon size={19} strokeWidth={1.8} />
                   </motion.div>
 
-                  <div>
-                    <h3 className="text-[10px] font-bold text-[#263b4b] sm:text-xs">
+                  <div className="min-w-0">
+                    <h3 className="text-[9px] font-bold text-[#263b4b] sm:text-xs">
                       {item.title}
                     </h3>
-                    <p className="mt-1 text-[9px] text-[#75838e] sm:text-[11px]">
+                    <p className="mt-1 text-[8px] leading-tight text-[#75838e] sm:text-[11px]">
                       {item.subtitle}
                     </p>
                   </div>
@@ -193,11 +199,11 @@ export default function Hero() {
         </motion.div>
 
         {/* RIGHT PRODUCT SHOWCASE */}
-        <div className="relative mt-12 flex min-h-[440px] items-center justify-center sm:min-h-[540px] lg:mt-0 lg:min-h-[610px]">
+        <div className="relative mx-auto mt-5 flex min-h-[350px] w-full max-w-[650px] items-center justify-center sm:mt-8 sm:min-h-[500px] lg:mt-0 lg:min-h-[610px]">
 
           {/* GLOW */}
           <motion.div
-            className="absolute left-1/2 top-[46%] h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#72d2e2]/35 blur-[75px] sm:h-[480px] sm:w-[480px]"
+            className="absolute left-1/2 top-[46%] h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#72d2e2]/35 blur-[65px] sm:h-[420px] sm:w-[420px] sm:blur-[75px] lg:h-[480px] lg:w-[480px]"
             animate={{
               scale: [1, 1.15, 1],
               opacity: [0.45, 0.8, 0.45],
@@ -207,31 +213,27 @@ export default function Hero() {
 
           {/* CIRCULAR ARCH */}
           <motion.div
-            className="absolute left-1/2 top-[44%] h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/90 shadow-[0_0_45px_rgba(85,187,208,0.15)] sm:h-[490px] sm:w-[490px] lg:h-[520px] lg:w-[520px]"
+            className="absolute left-1/2 top-[44%] h-[250px] w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/90 shadow-[0_0_45px_rgba(85,187,208,0.15)] sm:h-[430px] sm:w-[430px] lg:h-[520px] lg:w-[520px]"
             animate={{ rotate: 360 }}
-            transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+            transition={{
+              duration: 90,
+              repeat: Infinity,
+              ease: "linear",
+            }}
           />
 
           <motion.div
-            className="absolute left-1/2 top-[44%] h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#67b2c3]/30 sm:h-[420px] sm:w-[420px] lg:h-[455px] lg:w-[455px]"
+            className="absolute left-1/2 top-[44%] h-[215px] w-[215px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#67b2c3]/30 sm:h-[370px] sm:w-[370px] lg:h-[455px] lg:w-[455px]"
             animate={{ rotate: -360 }}
-            transition={{ duration: 75, repeat: Infinity, ease: "linear" }}
+            transition={{
+              duration: 75,
+              repeat: Infinity,
+              ease: "linear",
+            }}
           />
 
-          {/* BOTANICAL DECORATION */}
-          <div className="absolute bottom-[17%] left-[8%] z-[1] flex -rotate-12 gap-1 opacity-90">
-            <div className="h-20 w-9 rotate-[-35deg] rounded-[100%_0_100%_0] bg-gradient-to-br from-[#a4d85c] to-[#287e48] shadow-lg sm:h-28 sm:w-12" />
-            <div className="mt-5 h-24 w-10 rotate-[25deg] rounded-[100%_0_100%_0] bg-gradient-to-br from-[#c4e878] to-[#3d9855] shadow-lg sm:h-32 sm:w-14" />
-            <div className="mt-10 h-16 w-8 rotate-[55deg] rounded-[100%_0_100%_0] bg-gradient-to-br from-[#8fce56] to-[#327d49] sm:h-24 sm:w-11" />
-          </div>
-
-          <div className="absolute bottom-[18%] right-[6%] z-[1] flex rotate-12 gap-1 opacity-90">
-            <div className="h-20 w-9 rotate-[-35deg] rounded-[100%_0_100%_0] bg-gradient-to-br from-[#b5df69] to-[#39864c] shadow-lg sm:h-28 sm:w-12" />
-            <div className="mt-6 h-24 w-10 rotate-[25deg] rounded-[100%_0_100%_0] bg-gradient-to-br from-[#d0ec8b] to-[#438e50] shadow-lg sm:h-32 sm:w-14" />
-          </div>
-
           {/* MARBLE PEDESTAL */}
-          <div className="absolute bottom-[7%] left-1/2 z-[2] h-[48px] w-[76%] -translate-x-1/2 rounded-[50%] border border-white bg-gradient-to-b from-white via-[#e5f1f3] to-[#9cbcc8] shadow-[0_18px_35px_rgba(31,98,117,0.2)] sm:bottom-[8%] sm:h-[70px]">
+          <div className="absolute bottom-[5%] left-1/2 z-[2] h-[38px] w-[76%] -translate-x-1/2 rounded-[50%] border border-white bg-gradient-to-b from-white via-[#e5f1f3] to-[#9cbcc8] shadow-[0_18px_35px_rgba(31,98,117,0.2)] sm:bottom-[8%] sm:h-[70px]">
             <div className="absolute inset-x-[5%] top-1 h-[35%] rounded-[50%] bg-white/90 blur-[2px]" />
             <div className="absolute inset-x-[8%] bottom-[-12px] h-7 rounded-[50%] bg-[#75bdce]/25 blur-xl" />
           </div>
@@ -251,37 +253,41 @@ export default function Hero() {
               scale: { duration: 1.2, delay: 0.25 },
               y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
             }}
-            className="relative z-10 h-[390px] w-[95%] object-contain drop-shadow-[0_25px_25px_rgba(20,65,75,0.18)] sm:h-[500px] lg:h-[540px]"
+            className="relative z-10 h-[310px] w-[95%] object-contain drop-shadow-[0_25px_25px_rgba(20,65,75,0.18)] sm:h-[460px] lg:h-[540px]"
           />
 
-          {/* VITAMIN BADGE */}
+          {/* VITAMINS BADGE */}
           <motion.div
             animate={{ y: [0, -12, 0], rotate: [0, 3, 0] }}
             transition={{ duration: 4.5, repeat: Infinity }}
-            className="absolute left-[2%] top-[20%] z-20 flex h-[82px] w-[82px] flex-col items-center justify-center rounded-full border border-[#ffe7a0] bg-gradient-to-br from-[#fff9cf] to-[#ffdc69] text-[#173b5b] shadow-[0_0_25px_rgba(255,211,86,0.4)] sm:left-[8%] sm:h-[100px] sm:w-[100px]"
+            className="absolute left-[1%] top-[17%] z-20 flex h-[62px] w-[62px] flex-col items-center justify-center rounded-full border border-[#a9dceb] bg-gradient-to-br from-white to-[#d9f4fa] text-[#173b5b] shadow-[0_0_25px_rgba(86,190,215,0.3)] sm:left-[8%] sm:h-[100px] sm:w-[100px]"
           >
-            <Pill size={23} />
-            <span className="mt-1 text-xs font-bold">Vitamins</span>
+            <Pill size={19} className="sm:h-[23px] sm:w-[23px]" />
+            <span className="mt-1 text-[9px] font-bold sm:text-xs">
+              Vitamins
+            </span>
           </motion.div>
 
           {/* MINERALS BADGE */}
           <motion.div
             animate={{ y: [0, 12, 0], rotate: [0, -3, 0] }}
             transition={{ duration: 5, repeat: Infinity }}
-            className="absolute right-[1%] top-[38%] z-20 flex h-[78px] w-[78px] flex-col items-center justify-center rounded-full border border-[#ffe7a0] bg-gradient-to-br from-[#fff9cf] to-[#ffdc69] text-[#173b5b] shadow-[0_0_25px_rgba(255,211,86,0.4)] sm:right-[3%] sm:h-[96px] sm:w-[96px]"
+            className="absolute right-[1%] top-[36%] z-20 flex h-[62px] w-[62px] flex-col items-center justify-center rounded-full border border-[#a9dceb] bg-gradient-to-br from-white to-[#d9f4fa] text-[#173b5b] shadow-[0_0_25px_rgba(86,190,215,0.3)] sm:right-[3%] sm:h-[96px] sm:w-[96px]"
           >
-            <Dna size={23} />
-            <span className="mt-1 text-xs font-bold">Minerals</span>
+            <Dna size={19} className="sm:h-[23px] sm:w-[23px]" />
+            <span className="mt-1 text-[9px] font-bold sm:text-xs">
+              Minerals
+            </span>
           </motion.div>
 
           {/* IMMUNITY BADGE */}
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
-            className="absolute bottom-[23%] right-[3%] z-20 flex h-[82px] w-[82px] flex-col items-center justify-center rounded-full border border-[#ffe7a0] bg-gradient-to-br from-[#fff9cf] to-[#ffdc69] text-[#173b5b] shadow-[0_0_25px_rgba(255,211,86,0.4)] sm:h-[100px] sm:w-[100px]"
+            className="absolute bottom-[20%] right-[2%] z-20 flex h-[64px] w-[64px] flex-col items-center justify-center rounded-full border border-[#a9dceb] bg-gradient-to-br from-white to-[#d9f4fa] text-[#173b5b] shadow-[0_0_25px_rgba(86,190,215,0.3)] sm:h-[100px] sm:w-[100px]"
           >
-            <HeartPulse size={24} />
-            <span className="mt-1 text-center text-[11px] font-bold leading-tight">
+            <HeartPulse size={20} className="sm:h-[24px] sm:w-[24px]" />
+            <span className="mt-1 text-center text-[9px] font-bold leading-tight sm:text-[11px]">
               Immunity
               <br />
               Support
@@ -297,14 +303,18 @@ export default function Hero() {
               x: { delay: 0.8, duration: 0.8 },
               y: { delay: 1.5, duration: 4, repeat: Infinity },
             }}
-            className="absolute right-0 top-[9%] z-30 hidden items-center gap-3 rounded-2xl border border-white bg-white/90 p-4 shadow-[0_15px_40px_rgba(22,82,110,0.13)] backdrop-blur-xl sm:flex"
+            className="absolute right-0 top-[9%] z-30 hidden items-center gap-3 rounded-2xl border border-white bg-white/90 p-4 shadow-[0_15px_40px_rgba(22,82,110,0.13)] backdrop-blur-xl lg:flex"
           >
-            <div className="grid h-11 w-11 place-items-center rounded-xl bg-[#eaf6ed] text-[#65a34c]">
+            <div className="grid h-11 w-11 place-items-center rounded-xl bg-[#e5f4fa] text-[#0876aa]">
               <ShieldCheck size={23} />
             </div>
             <div>
-              <p className="text-xs font-bold text-[#183d59]">Quality Assured</p>
-              <p className="mt-1 text-[10px] text-[#82919b]">Trusted Healthcare</p>
+              <p className="text-xs font-bold text-[#183d59]">
+                Quality Assured
+              </p>
+              <p className="mt-1 text-[10px] text-[#82919b]">
+                Trusted Healthcare
+              </p>
             </div>
           </motion.div>
 
@@ -317,62 +327,79 @@ export default function Hero() {
               x: { delay: 1, duration: 0.8 },
               y: { delay: 1.7, duration: 5, repeat: Infinity },
             }}
-            className="absolute bottom-[15%] left-0 z-30 hidden items-center gap-3 rounded-2xl border border-white bg-white/90 p-4 shadow-[0_15px_40px_rgba(22,82,110,0.13)] backdrop-blur-xl sm:flex"
+            className="absolute bottom-[15%] left-0 z-30 hidden items-center gap-3 rounded-2xl border border-white bg-white/90 p-4 shadow-[0_15px_40px_rgba(22,82,110,0.13)] backdrop-blur-xl lg:flex"
           >
-            <div className="grid h-11 w-11 place-items-center rounded-xl bg-[#eaf5fb] text-[#0876aa]">
+            <div className="grid h-11 w-11 place-items-center rounded-xl bg-[#e5f4fa] text-[#0876aa]">
               <FlaskConical size={23} />
             </div>
             <div>
-              <p className="text-xs font-bold text-[#183d59]">Advanced Research</p>
-              <p className="mt-1 text-[10px] text-[#82919b]">Better Healthcare</p>
+              <p className="text-xs font-bold text-[#183d59]">
+                Advanced Research
+              </p>
+              <p className="mt-1 text-[10px] text-[#82919b]">
+                Better Healthcare
+              </p>
             </div>
           </motion.div>
 
           {/* FLOATING MEDICAL DETAILS */}
           <motion.div
-            className="absolute left-[19%] top-[11%] z-20 text-[#75b65e]"
-            animate={{ rotate: [0, 90, 180], scale: [1, 1.15, 1] }}
+            className="absolute left-[19%] top-[11%] z-20 text-[#087eaa]"
+            animate={{
+              rotate: [0, 90, 180],
+              scale: [1, 1.15, 1],
+            }}
             transition={{ duration: 8, repeat: Infinity }}
           >
-            <Plus size={25} />
+            <Plus size={22} />
           </motion.div>
 
           <motion.div
             className="absolute right-[17%] bottom-[17%] z-20 text-[#65b2c4]"
             animate={{ rotate: 360 }}
-            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+            transition={{
+              duration: 18,
+              repeat: Infinity,
+              ease: "linear",
+            }}
           >
-            <Cross size={24} />
+            <Cross size={22} />
           </motion.div>
 
           <motion.div
-            className="absolute right-[30%] top-[13%] z-20 text-[#70b65d]"
-            animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.2, 0.8] }}
+            className="absolute right-[30%] top-[13%] z-20 text-[#279ac0]"
+            animate={{
+              opacity: [0.3, 1, 0.3],
+              scale: [0.8, 1.2, 0.8],
+            }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            <Sparkles size={22} />
+            <Sparkles size={20} />
           </motion.div>
 
           <motion.div
             className="absolute bottom-[13%] left-[35%] z-20 text-[#2b94b9]"
-            animate={{ y: [0, -12, 0], opacity: [0.4, 1, 0.4] }}
+            animate={{
+              y: [0, -12, 0],
+              opacity: [0.4, 1, 0.4],
+            }}
             transition={{ duration: 4, repeat: Infinity }}
           >
-            <Activity size={24} />
+            <Activity size={22} />
           </motion.div>
-
         </div>
       </div>
 
       {/* BOTTOM ACCENT */}
       <motion.div
-        className="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-[#70a957] via-[#075b91] to-[#8dd6e3]"
+        className="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-[#087eaa] via-[#075b91] to-[#8dd6e3]"
         initial={{ width: "0%" }}
         animate={{ width: "100%" }}
         transition={{ duration: 1.8, delay: 0.5 }}
       />
 
-          <Popup
+      {/* POPUP */}
+      <Popup
         isOpen={popupOpen}
         onClose={() => setPopupOpen(false)}
       />

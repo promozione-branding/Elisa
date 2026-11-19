@@ -1,57 +1,15 @@
 
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
+import { products } from "@/lib/data";
 import {
   ChevronLeft,
   ChevronRight,
   ArrowUpRight,
 } from "lucide-react";
-
-const products = [
-  {
-    id: "01",
-    name: "Pharmaceutical Tablets",
-    eyebrow: "PHARMACEUTICAL COLLECTION",
-    title: "Pharmaceutical Tablets",
-    description:
-      "Explore our pharmaceutical tablet range, supplied through our wholesale trading portfolio.",
-    image: "/Elyvit Syru.webp",
-    href: "/products",
-  },
-  {
-    id: "02",
-    name: "Allopathic Tablets",
-    eyebrow: "ALLOPATHIC COLLECTION",
-    title: "Allopathic Medicines",
-    description:
-      "Discover our range of allopathic tablet products for pharmaceutical wholesale requirements.",
-    image: "/Elyvit Syru.webp",
-    href: "/products",
-  },
-  {
-    id: "03",
-    name: "Pharmaceutical Capsules",
-    eyebrow: "CAPSULE COLLECTION",
-    title: "Pharmaceutical Capsules",
-    description:
-      "Browse pharmaceutical capsules from our diverse product portfolio.",
-    image: "/Elyvit Syru.webp",
-    href: "/products",
-  },
-  {
-    id: "04",
-    name: "Wholesale Trading",
-    eyebrow: "ELISA BIOTECH",
-    title: "Your Wholesale Healthcare Partner",
-    description:
-      "Reliable pharmaceutical wholesale support with a focus on product selection and dependable service.",
-    image: "/Elyvit Syru.webp",
-    href: "/contact-us",
-  },
-];
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -59,12 +17,18 @@ export default function Products() {
   const [activeIndex, setActiveIndex] = useState(0);
   const cardContainerRef = useRef(null);
 
-  const activeProduct = products[activeIndex];
+  const activeProduct = products?.[activeIndex];
+
+  // Reset active index if product list changes
+  useEffect(() => {
+    setActiveIndex(0);
+  }, []);
 
   // Select product and scroll its card into view
   const selectProduct = (index) => {
-    const safeIndex =
-      (index + products.length) % products.length;
+    if (!products?.length) return;
+
+    const safeIndex = (index + products.length) % products.length;
 
     setActiveIndex(safeIndex);
 
@@ -92,13 +56,14 @@ export default function Products() {
     });
   };
 
-  const previous = () => {
-    selectProduct(activeIndex - 1);
-  };
+  const previous = () => selectProduct(activeIndex - 1);
+  const next = () => selectProduct(activeIndex + 1);
 
-  const next = () => {
-    selectProduct(activeIndex + 1);
-  };
+  if (!products || products.length === 0) {
+    return null;
+  }
+
+  const productNumber = String(activeIndex + 1).padStart(2, "0");
 
   return (
     <section
@@ -108,7 +73,7 @@ export default function Products() {
       {/* BACKGROUND PRODUCT IMAGE */}
       <AnimatePresence mode="wait">
         <motion.img
-          key={activeIndex}
+          key={activeProduct.slug || activeIndex}
           src={activeProduct.image}
           alt={activeProduct.name}
           initial={{ opacity: 0, scale: 1.08 }}
@@ -163,7 +128,7 @@ export default function Products() {
 
             <AnimatePresence mode="wait">
               <motion.div
-                key={activeIndex}
+                key={activeProduct.slug || activeIndex}
                 initial={{
                   opacity: 0,
                   y: 25,
@@ -182,19 +147,22 @@ export default function Products() {
                 transition={{ duration: 0.5, ease }}
               >
                 <p className="mb-3 text-sm font-semibold text-[#80d5d5]">
-                  {activeProduct.eyebrow}
+                  {activeProduct.category || "Pharmaceutical Products"}
                 </p>
 
-                <h2 className="text-[42px] font-bold uppercase leading-[0.98] tracking-[-0.045em] text-white sm:text-6xl lg:text-[65px]">
-                  {activeProduct.title}
+                <h2 className="text-[36px] font-bold uppercase leading-[1.05] tracking-[-0.045em]
+                 text-white sm:text-6xl lg:text-[50px]">
+                  {activeProduct.name}
                 </h2>
 
                 <p className="mt-6 max-w-[410px] text-[14px] leading-7 text-white/75 sm:text-[15px]">
-                  {activeProduct.description}
+                  {activeProduct.shortdescription ||
+                    activeProduct.description ||
+                    "Explore our pharmaceutical product range from Elisa Biotech."}
                 </p>
 
                 <Link
-                  href={activeProduct.href}
+                  href={`/products/${activeProduct.slug}`}
                   className="group mt-8 inline-flex min-h-[50px] items-center gap-5 rounded-full bg-[#08a99e] px-6 text-sm font-semibold text-white shadow-[0_10px_35px_rgba(0,190,180,0.2)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#0bc0b2]"
                 >
                   Explore Product
@@ -210,7 +178,7 @@ export default function Products() {
             {/* ACTIVE PRODUCT COUNTER */}
             <div className="mt-10 flex items-center gap-3">
               <span className="text-3xl font-bold tabular-nums text-white">
-                {activeProduct.id}
+                {productNumber}
               </span>
 
               <span className="text-sm text-white/50">
@@ -221,9 +189,7 @@ export default function Products() {
                 <motion.div
                   className="h-full bg-[#13c3bd]"
                   animate={{
-                    width: `${
-                      ((activeIndex + 1) / products.length) * 100
-                    }%`,
+                    width: `${((activeIndex + 1) / products.length) * 100}%`,
                   }}
                   transition={{ duration: 0.5, ease }}
                 />
@@ -235,20 +201,24 @@ export default function Products() {
           <div className="relative z-20 min-w-0">
             <div
               ref={cardContainerRef}
-              className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth 
+              pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
               {products.map((product, index) => {
                 const selected = activeIndex === index;
 
                 return (
                   <motion.button
-                    key={product.id}
+                    key={product.slug || index}
                     type="button"
                     onClick={() => selectProduct(index)}
                     whileHover={{ y: -7 }}
                     whileTap={{ scale: 0.98 }}
                     aria-pressed={selected}
-                    className={`group relative h-[210px] w-[82%] shrink-0 snap-center overflow-hidden rounded-2xl border text-left transition-all duration-500 sm:h-[250px] sm:w-[46%] lg:h-[205px] lg:w-[48%] xl:h-[230px] ${
+                    aria-label={`Select ${product.name}`}
+                    className={`group relative h-[410px] w-[400px] shrink-0 snap-center overflow-hidden 
+                      rounded-2xl border text-left transition-all duration-500  
+                       ${
                       selected
                         ? "border-[#16c5bd] shadow-[0_0_25px_rgba(12,190,185,0.22)]"
                         : "border-white/20 hover:border-white/60"
@@ -257,6 +227,7 @@ export default function Products() {
                     <img
                       src={product.image}
                       alt={product.name}
+                      loading="lazy"
                       className={`absolute inset-0 h-full w-full object-cover transition-transform duration-700 ${
                         selected
                           ? "scale-100"
@@ -266,14 +237,9 @@ export default function Products() {
 
                     <div className="absolute inset-0 bg-gradient-to-t from-[#031827]/95 via-[#062b46]/15 to-transparent" />
 
-                    {/* SELECTED INDICATOR */}
-                  
-                  
-
-
                     <div className="absolute bottom-0 left-0 w-full p-4">
                       <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-white/65">
-                        {product.eyebrow}
+                        {product.category || "Elisa Biotech"}
                       </p>
 
                       <h3 className="text-xl font-bold leading-tight text-white sm:text-2xl">
@@ -296,12 +262,12 @@ export default function Products() {
                   whileHover={{ scale: 1.08, x: -3 }}
                   whileTap={{ scale: 0.92 }}
                   aria-label="Previous product"
-                  className="relative z-50 flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/50 bg-white/15 text-white opacity-100 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-[#12bbb6] hover:bg-[#12bbb6]"
+                  className="relative z-50 flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/50 bg-white/15 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:border-[#12bbb6] hover:bg-[#12bbb6]"
                 >
                   <ChevronLeft
                     size={26}
                     strokeWidth={2.8}
-                    className="block h-[26px] w-[26px] text-b;l"
+                    className="block h-[26px] w-[26px]"
                   />
                 </motion.button>
 
@@ -312,12 +278,12 @@ export default function Products() {
                   whileHover={{ scale: 1.08, x: 3 }}
                   whileTap={{ scale: 0.92 }}
                   aria-label="Next product"
-                  className="relative z-50 flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/50 bg-white/15 text-white opacity-100 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-[#12bbb6] hover:bg-[#12bbb6]"
+                  className="relative z-50 flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/50 bg-white/15 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:border-[#12bbb6] hover:bg-[#12bbb6]"
                 >
                   <ChevronRight
                     size={26}
                     strokeWidth={2.8}
-                    className="block h-[26px] w-[26px] text-black"
+                    className="block h-[26px] w-[26px]"
                   />
                 </motion.button>
 
@@ -326,9 +292,7 @@ export default function Products() {
                   <motion.div
                     className="h-full bg-[#14c2bd]"
                     animate={{
-                      width: `${
-                        ((activeIndex + 1) / products.length) * 100
-                      }%`,
+                      width: `${((activeIndex + 1) / products.length) * 100}%`,
                     }}
                     transition={{ duration: 0.5 }}
                   />
@@ -338,7 +302,7 @@ export default function Products() {
               {/* COUNTER */}
               <div className="flex items-center gap-2 text-sm font-semibold text-white/60">
                 <span className="text-2xl text-white">
-                  {activeProduct.id}
+                  {productNumber}
                 </span>
                 / {String(products.length).padStart(2, "0")}
               </div>
