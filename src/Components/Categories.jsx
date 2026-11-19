@@ -82,11 +82,11 @@ export default function ProductRange() {
             className="relative z-10 order-1"
           >
             <motion.div variants={fadeUp} className="mb-4 flex items-center gap-3">
-              <span className="h-[2px] w-8 bg-[#0B9C99]" />
+              <span className="h-[2px] w-8 bg-[#075B91]" />
               <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#078F91] sm:text-[11px]">
                 Discover Our Collection
               </span>
-              <span className="h-[2px] w-6 bg-[#0B9C99]" />
+              <span className="h-[2px] w-6 bg-[#075B91]" />
             </motion.div>
 
             <motion.h1
@@ -94,7 +94,7 @@ export default function ProductRange() {
               className="text-[2.1rem] font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.6rem]"
             >
               Our Pharmaceutical
-              <span className="mt-1 block text-[#0B9C99]">Categories</span>
+              <span className="mt-1 block text-[#075B91]">Categories</span>
             </motion.h1>
 
             <motion.p
@@ -111,7 +111,7 @@ export default function ProductRange() {
                 href="/products"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
-                className="group inline-flex items-center gap-3 rounded-full bg-[#0B8F86] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(11,143,134,0.3)] transition-colors hover:bg-[#087870]"
+                className="group inline-flex items-center gap-3 rounded-full bg-[#0876AD] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(11,143,134,0.3)] transition-colors hover:bg-[#087870]"
               >
                 Explore Products
                 <ArrowRight
@@ -147,9 +147,11 @@ export default function ProductRange() {
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-full border-[3px] border-dashed border-[#0B8F86]/40"
+                className="absolute inset-0 rounded-full border-[3px] border-dashed border-[#0876AD]/40"
               />
-              <div className="relative flex h-[88%] w-[88%] flex-col items-center justify-center rounded-full bg-gradient-to-br from-[#0E8C7F] to-[#0A6E65] text-center text-white shadow-[0_15px_35px_rgba(10,110,101,0.35)] ring-4 ring-white">
+              <div className="relative flex h-[88%] w-[88%] flex-col items-center justify-center 
+              rounded-full bg-[#0876AD] text-center
+               text-white shadow-[0_15px_35px_rgba(10,110,101,0.35)] ring-4 ring-white">
                 <span className="text-[10px] font-bold leading-tight sm:text-xs">
                   Trusted
                   <br />
@@ -227,7 +229,7 @@ export default function ProductRange() {
           <span className="absolute bottom-3 right-3 z-20 flex
           h-9 w-9 items-center justify-center rounded-full
           bg-white text-[#0B2E40] shadow-md transition-all
-          duration-300 group-hover:bg-[#0B8F86]
+          duration-300 group-hover:bg-[#0876AD]
           group-hover:text-white">
             <ArrowRight size={17} />
           </span>

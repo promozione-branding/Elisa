@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -132,10 +131,10 @@ function StatCard({ s, i, inView, reduce }) {
       }}
     >
       <motion.div
-        className="group relative h-full  overflow-hidden rounded-[30px] border
-         border-white/90 bg-gradient-to-br from-white/95 via-[#f0f8fa]/90 to-[#dceff3]/90 
-         p-3 shadow-[0_18px_45px_rgba(40,100,130,0.12)] transition-shadow duration-500 
-         hover:shadow-[0_30px_60px_rgba(14,140,150,0.22)] sm:min-h-[300px] sm:p-4"
+        className="group relative h-full overflow-hidden rounded-[30px] border
+         border-white/90 bg-gradient-to-br from-white/95 via-[#F1FAFC]/95 to-[#DCEFF5]/95
+         p-3 shadow-[0_18px_45px_rgba(11,45,80,0.10)] transition-shadow duration-500
+         hover:shadow-[0_30px_60px_rgba(8,118,173,0.20)] sm:min-h-[300px] sm:p-4"
         style={{
           rotateX,
           rotateY,
@@ -173,8 +172,8 @@ function StatCard({ s, i, inView, reduce }) {
               x2="75"
               y2="75"
             >
-              <stop stopColor="#26c5c7" />
-              <stop offset="1" stopColor="#087b91" />
+              <stop stopColor="#0876AD" />
+              <stop offset="1" stopColor="#0797A5" />
             </linearGradient>
           </defs>
         </svg>
@@ -195,17 +194,18 @@ function StatCard({ s, i, inView, reduce }) {
         )}
 
         {/* Hover glow */}
-        <div className="absolute inset-0 
-        bg-[radial-gradient(circle_at_50%_45%,rgba(18,190,190,0.18),transparent_65%)]
-         opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        <div
+          className="absolute inset-0
+          bg-[radial-gradient(circle_at_50%_45%,rgba(8,118,173,0.14),transparent_65%)]
+          opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        />
 
         {/* Card Content */}
-        <div className="relative z-10 flex  flex-col 
-        items-center justify-center text-center">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center">
 
           {/* Icon */}
           <motion.div
-            className="mb-3 text-[#0b7f8c] sm:mb-5"
+            className="mb-3 text-[#0876AD] sm:mb-5"
             animate={
               reduce
                 ? undefined
@@ -221,24 +221,29 @@ function StatCard({ s, i, inView, reduce }) {
             <s.Icon
               size={20}
               strokeWidth={1.5}
-              className="transition-transform duration-500 group-hover:rotate-[-8deg] 
+              className="transition-transform duration-500 group-hover:rotate-[-8deg]
               group-hover:scale-110 sm:h-[46px] sm:w-[46px]"
             />
           </motion.div>
 
           {/* Number */}
-          <div className="text-[42px] font-extrabold italic leading-none tracking-[-0.04em] 
-          text-[#0b6676] transition-colors duration-300 group-hover:text-[#0eaaa9] sm:text-[4 8px]">
+          <div
+            className="text-[42px] font-extrabold italic leading-none tracking-[-0.04em]
+            text-[#0B2D50] transition-colors duration-300
+            group-hover:text-[#0797A5] sm:text-[48px]"
+          >
             {value.toLocaleString("en-IN")}
             {s.suffix}
           </div>
 
           {/* Divider */}
-          <span className="mt-5 h-[3px] w-[65px] rounded-full bg-[#0eaaa9] transition-all duration-500 group-hover:w-[120px]" />
+          <span className="mt-5 h-[3px] w-[65px] rounded-full bg-gradient-to-r from-[#0876AD] to-[#0797A5] transition-all duration-500 group-hover:w-[120px]" />
 
           {/* Label */}
-          <p className="mt-5 text-center text-[15px] 
-          font-semibold italic leading-7 text-[#101c27] sm:text-[18px] sm:leading-8">
+          <p
+            className="mt-5 text-center text-[15px] font-semibold italic
+            leading-7 text-[#0B2D50] sm:text-[18px] sm:leading-8"
+          >
             {s.label[0]}
             <br />
             {s.label[1]}
@@ -262,15 +267,21 @@ export default function StatsSection() {
   return (
     <section
       ref={wrap}
-      className={`${font.className} relative isolate w-full overflow-hidden bg-gradient-to-br 
-      from-[#e8f2f6] via-[#f7fafc] to-[#e5f1f5] px-5 py-16 sm:px-8 sm:py-10 lg:px-12 lg:py-15`}
+      className={`${font.className} relative isolate w-full overflow-hidden
+      bg-gradient-to-br from-[#E8F7FA] via-[#F5FBFD] to-[#E1F2F7]
+      px-5 py-16 sm:px-8 sm:py-10 lg:px-12 lg:py-15`}
       aria-label="Our strength in numbers"
     >
       {/* Background decorative lights */}
-      <div className="pointer-events-none absolute -left-32 top-10 -z-10   
-      rounded-full bg-[#21b9c4]/10 blur-[100px]" />
+      <div
+        className="pointer-events-none absolute -left-32 top-10 -z-10
+        h-[350px] w-[350px] rounded-full bg-[#0876AD]/10 blur-[100px]"
+      />
 
-      <div className="pointer-events-none absolute -right-32 bottom-0 -z-10  rounded-full bg-[#087f93]/10 blur-[110px]" />
+      <div
+        className="pointer-events-none absolute -right-32 bottom-0 -z-10
+        h-[350px] w-[350px] rounded-full bg-[#0797A5]/10 blur-[110px]"
+      />
 
       {/* Abstract waves */}
       <svg
@@ -281,7 +292,7 @@ export default function StatsSection() {
       >
         <motion.path
           d="M0 180C280 110 450 100 720 160C980 220 1200 160 1440 70V250H0Z"
-          fill="#d7eeee"
+          fill="#D5EDF4"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 0.8 } : {}}
           transition={{ duration: 1.5 }}
@@ -289,7 +300,7 @@ export default function StatsSection() {
 
         <motion.path
           d="M0 215C300 145 550 150 800 190C1060 230 1250 150 1440 110V250H0Z"
-          fill="#b9e3e8"
+          fill="#BBDCEB"
           initial={{ opacity: 0, x: 80 }}
           animate={inView ? { opacity: 0.6, x: 0 } : {}}
           transition={{ duration: 1.5, ease }}
@@ -307,16 +318,16 @@ export default function StatsSection() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease }}
           >
-            <span className="h-[2px] w-8 bg-[#12a9a3] sm:w-12" />
+            <span className="h-[2px] w-8 bg-[#0797A5] sm:w-12" />
 
-            <span className="text-[10px] font-bold tracking-[0.2em] text-[#0b4a6b] sm:text-[15px] sm:tracking-[0.32em]">
+            <span className="text-[10px] font-bold tracking-[0.2em] text-[#0876AD] sm:text-[15px] sm:tracking-[0.32em]">
               OUR STRENGTH IN NUMBERS
             </span>
 
-            <span className="h-[2px] w-8 bg-[#12a9a3] sm:w-12" />
+            <span className="h-[2px] w-8 bg-[#0797A5] sm:w-12" />
           </motion.div>
 
-          <h2 className="flex flex-wrap justify-center gap-x-2 text-[30px] font-extrabold italic leading-tight tracking-[-0.03em] text-[#0a2e4d] sm:gap-x-4 sm:text-[46px] md:text-[54px] lg:text-[58px]">
+          <h2 className="flex flex-wrap justify-center gap-x-2 text-[30px] font-extrabold italic leading-tight tracking-[-0.03em] text-[#0B2D50] sm:gap-x-4 sm:text-[46px] md:text-[54px] lg:text-[58px]">
             {["A Trusted", "Pharmaceutical", "Partner"].map(
               (word, index) => (
                 <span
@@ -326,7 +337,7 @@ export default function StatsSection() {
                   <motion.span
                     className={`block ${
                       index === 1
-                        ? "bg-gradient-to-r from-[#0aa9a4] via-[#17cbc5] to-[#0b7f93] bg-clip-text text-transparent"
+                        ? "bg-gradient-to-r from-[#0876AD] via-[#168DBB] to-[#0797A5] bg-clip-text text-transparent"
                         : ""
                     }`}
                     initial={{ y: "110%" }}
@@ -345,7 +356,7 @@ export default function StatsSection() {
           </h2>
 
           <motion.div
-            className="mt-4 h-[4px] w-24 rounded-full bg-gradient-to-r from-[#0a8f9a] to-[#12b5a6] sm:w-36"
+            className="mt-4 h-[4px] w-24 rounded-full bg-gradient-to-r from-[#0876AD] to-[#0797A5] sm:w-36"
             initial={{ width: 0, opacity: 0 }}
             animate={inView ? { width: 144, opacity: 1 } : {}}
             transition={{
@@ -371,7 +382,7 @@ export default function StatsSection() {
       </div>
 
       {/* Bottom accent */}
-      <div className="absolute bottom-0 left-0 h-[3px] w-full bg-gradient-to-r from-transparent via-[#13b9b6] to-transparent" />
+      <div className="absolute bottom-0 left-0 h-[3px] w-full bg-gradient-to-r from-transparent via-[#0797A5] to-transparent" />
     </section>
   );
 }

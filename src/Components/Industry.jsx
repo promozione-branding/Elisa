@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import {
   ArrowUpRight,
-  ArrowRight,
   Pill,
   Utensils,
   CarFront,
@@ -77,16 +76,20 @@ export default function Industries() {
   return (
     <section
       id="industries"
-      className="relative overflow-hidden bg-[#f5f7f5] py-12 md:py-16"
+      className="relative isolate overflow-hidden bg-gradient-to-br from-[#e8f2f6] via-[#f7fafc] to-[#e5f1f5] py-14 sm:py-16 lg:py-20"
     >
       {/* BACKGROUND DECORATION */}
-      <div className="pointer-events-none absolute -right-40 top-0 h-[500px] w-[500px] rounded-full bg-[#d9eeea]/60 blur-[120px]" />
 
-      <div className="pointer-events-none absolute -bottom-40 -left-40 h-[450px] w-[450px] rounded-full bg-[#dce9ef]/60 blur-[120px]" />
+      <div className="pointer-events-none absolute -right-40 top-0 h-[500px] w-[500px] rounded-full bg-[#12a9a3]/10 blur-[120px]" />
+
+      <div className="pointer-events-none absolute -bottom-40 -left-40 h-[450px] w-[450px] rounded-full bg-[#0b6676]/10 blur-[120px]" />
+
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#17cbc5]/5 blur-[130px]" />
 
       <div className="relative mx-auto max-w-[1450px] px-5 sm:px-8 lg:px-12">
 
         {/* HEADER */}
+
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -96,39 +99,42 @@ export default function Industries() {
         >
           <div>
             <div className="mb-5 flex items-center gap-3">
-              <span className="h-[3px] w-10 rounded-full bg-[#08a69c]" />
+              <span className="h-[3px] w-10 rounded-full bg-[#12a9a3]" />
 
-              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#078b86]">
+              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#0b6676]">
                 Our Expertise
               </span>
             </div>
 
-            <h2 className="text-4xl font-bold leading-[1.05] tracking-[-0.045em] text-[#102d3d] sm:text-6xl lg:text-[52px]">
+            <h2 className="text-4xl font-extrabold leading-[1.05] tracking-[-0.045em] text-[#0a2e4d] sm:text-6xl lg:text-[58px]">
               Industries That
-              <span className="block text-[#079c91]">
+              <span className="block bg-[#0D3F67] bg-clip-text text-transparent">
                 We Empower.
               </span>
             </h2>
           </div>
 
-          <p className="max-w-[390px] text-sm leading-8 text-[#687b80] md:pb-2 md:text-base">
+          <p className="max-w-[390px] text-sm leading-8 text-[#526c7e] md:pb-2 md:text-base">
             Delivering trusted pharmaceutical products and wholesale
             solutions across a wide range of industries.
           </p>
         </motion.div>
 
         {/* MAIN SHOWCASE */}
+
         <div className="grid items-stretch gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
 
           {/* LEFT FEATURED IMAGE */}
+
           <motion.div
             initial={{ opacity: 0, x: -35 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease }}
-            className="relative h-[420px] overflow-hidden rounded-[22px] bg-[#102d3d] sm:h-[550px] lg:h-[80vh] lg:min-h-[560px] lg:max-h-[850px]"
+            className="group relative h-[420px] overflow-hidden rounded-[26px] border border-white/80 bg-[#0a2e4d] shadow-[0_20px_55px_rgba(10,46,77,0.14)] sm:h-[550px] lg:h-[80vh] lg:min-h-[560px] lg:max-h-[850px]"
           >
             {/* INDUSTRY IMAGE */}
+
             <AnimatePresence mode="wait">
               <motion.img
                 key={current.image}
@@ -138,16 +144,18 @@ export default function Industries() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.65, ease }}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
               />
             </AnimatePresence>
 
             {/* IMAGE OVERLAY */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#071e2c] via-[#071e2c]/15 to-transparent" />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-[#061e34] via-[#0a2e4d]/35 to-[#0a2e4d]/5" />
 
             {/* TOP LABEL */}
-            <div className="absolute left-5 top-5 flex items-center gap-3 rounded-full border border-white/30 bg-black/20 px-4 py-2.5 text-white backdrop-blur-md sm:left-8 sm:top-8">
-              <span className="h-2 w-2 rounded-full bg-[#37d5bd]" />
+
+            <div className="absolute left-5 top-5 flex items-center gap-3 rounded-full border border-white/30 bg-[#0a2e4d]/35 px-4 py-2.5 text-white backdrop-blur-md sm:left-8 sm:top-8">
+              <span className="h-2 w-2 rounded-full bg-[#17cbc5] shadow-[0_0_12px_#17cbc5]" />
 
               <span className="text-[10px] font-bold uppercase tracking-[0.2em]">
                 Featured Industry
@@ -155,11 +163,13 @@ export default function Industries() {
             </div>
 
             {/* INDUSTRY NUMBER */}
-            <div className="absolute right-6 top-5 text-6xl font-light tracking-tighter text-white/30 sm:right-9 sm:top-7 sm:text-8xl">
+
+            <div className="absolute right-6 top-5 text-6xl font-light tracking-tighter text-white/35 sm:right-9 sm:top-7 sm:text-8xl">
               {current.number}
             </div>
 
             {/* BOTTOM CONTENT */}
+
             <AnimatePresence mode="wait">
               <motion.div
                 key={current.title}
@@ -169,42 +179,34 @@ export default function Industries() {
                 transition={{ duration: 0.4, ease }}
                 className="absolute bottom-0 left-0 w-full p-6 text-white sm:p-8 lg:p-9"
               >
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-white/25 bg-white/15 backdrop-blur-md">
-                  <current.icon size={23} strokeWidth={1.6} />
+                <div className="mb-4 flex h-12 w-12 items-center justify-center 
+                rounded-xl border border-white/30 bg-white/15 text-[##0D3F67] backdrop-blur-md">
+                  <current.icon size={24} strokeWidth={1.7} />
                 </div>
 
-                <h3 className="max-w-[550px] text-3xl font-bold tracking-tight sm:text-5xl lg:text-[48px]">
+                <h3 className="max-w-[550px] text-3xl font-extrabold tracking-tight sm:text-5xl 
+                lg:text-[48px]">
                   {current.title}
                 </h3>
 
-                <p className="mt-3 max-w-[470px] text-sm leading-7 text-white/75 sm:text-base">
+                <p className="mt-3 max-w-[470px] text-sm leading-7 text-white/80 sm:text-base">
                   {current.description}
                 </p>
-
-                {/* <Link
-                  href={current.href}
-                  className="group mt-6 inline-flex items-center gap-4 rounded-full bg-[#08a99d] px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-white hover:text-[#102d3d]"
-                >
-                  Explore Industry
-
-                  <ArrowUpRight
-                    size={18}
-                    className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-                  />
-                </Link> */}
               </motion.div>
             </AnimatePresence>
 
             {/* IMAGE INDICATORS */}
+
             <div className="absolute bottom-8 right-7 hidden items-center gap-2 sm:flex lg:right-9">
               {industries.map((item, index) => (
                 <button
                   key={item.number}
                   onClick={() => setActive(index)}
                   aria-label={`Show ${item.title}`}
+                  aria-pressed={active === index}
                   className={`h-1.5 rounded-full transition-all duration-500 ${
                     active === index
-                      ? "w-10 bg-[#32d5bd]"
+                      ? "w-10 bg-[#17cbc5]"
                       : "w-3 bg-white/50 hover:bg-white"
                   }`}
                 />
@@ -213,20 +215,23 @@ export default function Industries() {
           </motion.div>
 
           {/* RIGHT INDUSTRY LIST */}
+
           <div className="flex flex-col justify-center">
 
             {/* LIST HEADER */}
-            <div className="mb-3 flex items-center justify-between border-b border-[#d9e1df] pb-4">
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#82928f]">
+
+            <div className="mb-3 flex items-center justify-between border-b border-[#c9dce5] pb-4">
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#526c7e]">
                 Explore Our Industries
               </span>
 
-              <span className="text-xs font-semibold text-[#078f86]">
+              <span className="text-xs font-bold text-[#0b7f93]">
                 05 Sectors
               </span>
             </div>
 
             {/* INDUSTRY ITEMS */}
+
             <div className="flex flex-col">
               {industries.map((industry, index) => {
                 const Icon = industry.icon;
@@ -249,60 +254,66 @@ export default function Industries() {
                     <Link
                       href={industry.href}
                       onClick={() => setActive(index)}
-                      className={`group relative flex items-center gap-4 border-b border-[#d9e1df] py-4 transition-all duration-300 sm:gap-5 sm:py-5 ${
-                        isActive ? "pl-2" : ""
+                      className={`group relative flex items-center gap-4 border-b border-[#c9dce5] py-4 transition-all duration-300 sm:gap-5 sm:py-5 ${
+                        isActive ? "pl-3" : ""
                       }`}
                     >
                       {/* ACTIVE LINE */}
+
                       <motion.span
                         initial={false}
                         animate={{
                           height: isActive ? "65%" : "0%",
                           opacity: isActive ? 1 : 0,
                         }}
-                        className="absolute left-0 top-1/2 w-[3px] -translate-y-1/2 rounded-full bg-[#08a99d]"
+                        className="absolute left-0 top-1/2 w-[3px] -translate-y-1/2 rounded-full bg-[#12a9a3]"
                       />
 
                       {/* NUMBER */}
+
                       <span
                         className={`text-xs font-bold transition-colors ${
                           isActive
-                            ? "text-[#079b90]"
-                            : "text-[#aab8b4]"
+                            ? "text-[#0D3F67]"
+                            : "text-[#94aab7]"
                         }`}
                       >
                         {industry.number}
                       </span>
 
                       {/* ICON */}
-                      <div
+
+                      <motion.div
+                        animate={{
+                          scale: isActive ? 1.05 : 1,
+                        }}
                         className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-all duration-300 sm:h-12 sm:w-12 ${
                           isActive
-                            ? "bg-[#078f86] text-white shadow-lg shadow-[#078f86]/20"
-                            : "bg-white text-[#718783] group-hover:bg-[#e2f3ef]"
+                            ? "bg-gradient-to-br from-[#0D3F67] to-[#0b6676] text-white shadow-[0_8px_20px_rgba(11,102,118,0.22)]"
+                            : "border border-white bg-white/80 text-[#0D3F67] group-hover:bg-[#dceff3]"
                         }`}
                       >
-                        <Icon size={22} strokeWidth={1.6} />
-                      </div>
+                        <Icon size={22} strokeWidth={1.7} />
+                      </motion.div>
 
                       {/* TITLE + DESCRIPTION */}
+
                       <div className="min-w-0 flex-1">
                         <h3
                           className={`text-base font-bold tracking-tight transition-colors sm:text-lg ${
                             isActive
-                              ? "text-[#078f86]"
-                              : "text-[#183747]"
+                              ? "text-[#0D3F67]"
+                              : "text-[#0a2e4d]"
                           }`}
                         >
                           {industry.title}
                         </h3>
 
                         <p
-                          className={`mt-1.5 max-w-[350px] text-[14px] leading-[1.6] transition-colors 
-                            sm:text-xs ${
+                          className={`mt-1.5 max-w-[350px] text-[13px] leading-[1.6] transition-colors sm:text-xs ${
                             isActive
-                              ? "text-[#627a77]"
-                              : "text-[#9aa9a5]"
+                              ? "text-[#526c7e]"
+                              : "text-[#8399a7]"
                           }`}
                         >
                           {industry.description}
@@ -310,16 +321,16 @@ export default function Industries() {
                       </div>
 
                       {/* ARROW */}
+
                       <motion.div
                         animate={{
                           x: isActive ? 0 : -5,
                           rotate: isActive ? 45 : 0,
                         }}
-                        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full 
-                          transition-all duration-300 ${
+                        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
                           isActive
-                            ? "bg-[#078f86] text-white"
-                            : "bg-white text-[#9aaba6]"
+                            ? "bg-gradient-to-br from-[#12b5a6] to-[#0D3F67] text-white shadow-md shadow-[#0b6676]/20"
+                            : "border border-[#d5e5eb] bg-white/80 text-[#0D3F67] group-hover:bg-[# 0D3F67]"
                         }`}
                       >
                         <ArrowUpRight size={19} />
@@ -329,14 +340,13 @@ export default function Industries() {
                 );
               })}
             </div>
-
-          
           </div>
         </div>
-
-   
-
       </div>
+
+      {/* BOTTOM ACCENT */}
+
+      <div className="absolute bottom-0 left-0 h-[3px] w-full bg-gradient-to-r from-transparent via-[#12b5a3] to-transparent" />
     </section>
   );
 }

@@ -47,18 +47,15 @@ export default function FAQSection() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#F1F8FA] flex items-center py-10 lg:py-12">
+    <section className="relative min-h-screen overflow-hidden bg-[#E8F7FA] flex items-center py-10 lg:py-12">
 
       {/* Background details */}
-      <div className="absolute top-0 left-0 w-80 h-80 bg-cyan-200/20 rounded-full blur-[100px]" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-200/30 rounded-full blur-[110px]" />
+      <div className="absolute top-0 left-0 w-80 h-80 bg-[#0876AD]/10 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#16A6B5]/15 rounded-full blur-[110px]" />
 
       <div className="relative z-10 max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12">
 
         <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 xl:gap-16 items-center">
-
-
-
 
           {/* Left IMAGE */}
           <motion.div
@@ -70,7 +67,7 @@ export default function FAQSection() {
           >
 
             {/* Image shape */}
-            <div className="absolute inset-0 rounded-[48%_48%_42%_42%] bg-gradient-to-br from-[#12C3BC] to-[#07506B] rotate-[-5deg] scale-[1.015]" />
+            <div className="absolute inset-0 rounded-[48%_48%_42%_42%] bg-gradient-to-br from-[#0876AD] to-[#0B2D50] rotate-[-5deg] scale-[1.015]" />
 
             <div className="relative w-full h-[520px] lg:h-[650px] overflow-hidden rounded-[48%_48%_42%_42%] border-[7px] border-white shadow-2xl">
 
@@ -80,62 +77,23 @@ export default function FAQSection() {
                 fill
                 priority
                 className="object-cover object-center"
-                sizes="w-full"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t 
-              from-[#062B40]/65 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B2D50]/65 via-transparent to-transparent" />
 
-              {/* <div className="absolute bottom-12 left-8 right-8 text-white">
-                <span className="text-xs tracking-[0.25em] uppercase text-teal-200">
-                  Science. Quality. Trust.
-                </span>
-                <h3 className="text-3xl md:text-4xl font-bold mt-3 leading-tight">
-                  Advancing Quality
-                  <br />
-                  Through Innovation.
-                </h3>
-              </div> */}
             </div>
 
             {/* Floating icon */}
             <motion.div
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
-              className="absolute top-[12%] left-[-2%] md:left-[-5%] w-[82px] h-[82px] rounded-3xl bg-[#087F88] text-white shadow-xl flex items-center justify-center border-4 border-white"
+              className="absolute top-[12%] left-[-2%] md:left-[-5%] w-[82px] h-[82px] rounded-3xl bg-[#0876AD] text-white shadow-xl flex items-center justify-center border-4 border-white"
             >
               <FlaskConical size={34} />
             </motion.div>
 
-            {/* Floating contact card */}
-            {/* <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 5, repeat: Infinity }}
-              className="absolute bottom-[9%] right-[-1%] md:right-[-4%] max-w-[290px] w-[85%] rounded-3xl bg-white/95 backdrop-blur-xl p-5 shadow-2xl border border-white"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-[#DDF3F1] text-[#087F88] flex items-center justify-center">
-                  <Headset size={25} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-[#092B40] text-lg">
-                    Need more help?
-                  </h4>
-                  <p className="text-xs text-[#6C7E8B]">
-                    Our team is here to assist you.
-                  </p>
-                </div>
-              </div>
-
-              <Link
-                href="/contact-us"
-                className="mt-5 w-full rounded-full bg-gradient-to-r from-[#087F88] to-[#13AAA5] text-white py-3 px-5 flex items-center justify-center gap-3 font-semibold hover:shadow-lg hover:scale-[1.02] transition-all"
-              >
-                Contact Us <ArrowUpRight size={19} />
-              </Link>
-            </motion.div> */}
-
-            {/* Decorative DNA */}
+            {/* Decorative Atom */}
             <motion.div
               animate={{ rotate: 360 }}
               transition={{
@@ -143,15 +101,17 @@ export default function FAQSection() {
                 repeat: Infinity,
                 ease: "linear",
               }}
-              className="absolute top-[8%] right-[3%] text-[#0C9C9D]/20 pointer-events-none"
+              className="absolute top-[8%] right-[3%] text-[#16A6B5]/30 pointer-events-none"
             >
               <Atom size={95} strokeWidth={0.8} />
             </motion.div>
 
-            <div className="absolute bottom-[6%] left-[0%] text-[#0C9C9D]/20 pointer-events-none">
+            {/* Decorative DNA */}
+            <div className="absolute bottom-[6%] left-[0%] text-[#0876AD]/25 pointer-events-none">
               <Dna size={90} strokeWidth={0.8} />
             </div>
           </motion.div>
+
           {/* RIGHT CONTENT */}
           <div className="relative z-10">
 
@@ -161,8 +121,8 @@ export default function FAQSection() {
               viewport={{ once: true }}
               className="flex items-center gap-3 mb-6"
             >
-              <span className="w-12 h-[3px] bg-[#07999B]" />
-              <span className="text-xs sm:text-sm uppercase tracking-[0.24em] font-bold text-[#527080]">
+              <span className="w-12 h-[3px] bg-[#0876AD]" />
+              <span className="text-xs sm:text-sm uppercase tracking-[0.24em] font-bold text-[#0876AD]">
                 Frequently Asked Questions
               </span>
             </motion.div>
@@ -172,19 +132,16 @@ export default function FAQSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="text-[42px] sm:text-5xl xl:text-[45px] leading-[1.08] 
-              font-bold tracking-tight py-2 text-[#092B40]"
+              className="text-[42px] sm:text-5xl xl:text-[45px] leading-[1.08] font-bold tracking-tight py-2 text-[#0B2D50]"
             >
               Have Questions?
-              <span className="block text-[#07999B]">
+              <span className="block text-[#0876AD]">
                 We've Got Answers.
               </span>
             </motion.h2>
 
-
-
             {/* FAQ ACCORDION */}
-            <div className="space-y-3">
+            <div className="space-y-3 mt-5">
               {faqs.map((faq, index) => {
                 const isActive = active === index;
 
@@ -200,26 +157,24 @@ export default function FAQSection() {
                     }}
                     className={`overflow-hidden rounded-2xl transition-all duration-300 ${
                       isActive
-                        ? "bg-white shadow-[0_12px_35px_rgba(9,43,64,0.10)]"
+                        ? "bg-white shadow-[0_12px_35px_rgba(11,45,80,0.12)]"
                         : "bg-white/90 hover:bg-white shadow-sm"
                     }`}
                   >
                     <button
-                      onClick={() =>
-                        setActive(isActive ? -1 : index)
-                      }
+                      onClick={() => setActive(isActive ? -1 : index)}
                       aria-expanded={isActive}
                       className={`w-full flex items-center gap-4 px-5 py-4 text-left transition-all ${
                         isActive
-                          ? "bg-gradient-to-r from-[#07506B] to-[#087D89] text-white"
-                          : "text-[#102E42]"
+                          ? "bg-gradient-to-r from-[#0B2D50] to-[#0876AD] text-white"
+                          : "text-[#0B2D50]"
                       }`}
                     >
                       <span
                         className={`w-11 h-11 shrink-0 rounded-full flex items-center justify-center font-bold ${
                           isActive
-                            ? "bg-[#12A8A6] text-white"
-                            : "bg-[#DDF1F1] text-[#07506B]"
+                            ? "bg-[#16A6B5] text-white"
+                            : "bg-[#E8F7FA] text-[#0876AD]"
                         }`}
                       >
                         Q
@@ -261,7 +216,6 @@ export default function FAQSection() {
               })}
             </div>
           </div>
-
 
         </div>
       </div>
