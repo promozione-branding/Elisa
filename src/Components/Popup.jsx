@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -121,10 +120,10 @@ export default function Popup({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.96 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="relative w-full max-w-2xl overflow-hidden rounded-2xl bg-white shadow-2xl"
+            className="relative w-full max-w-2xl overflow-hidden rounded-2xl bg-[var(--surface)] shadow-2xl"
           >
             {/* Header */}
-            <div className="relative bg-[#0B2E63] px-6 py-3 md:px-5">
+            <div className="relative bg-[var(--primary-dark)] px-6 py-3 md:px-5">
               <button
                 type="button"
                 onClick={onClose}
@@ -134,15 +133,13 @@ export default function Popup({
                 <X size={20} />
               </button>
 
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[3px] text-blue-200">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[3px] text-[var(--accent)]">
                 Let's Connect
               </p>
 
-              <h2 className="text-2xl font-bold text-white md:text-3xl">
+              <h2 className="text-2xl font-bold text-[var(--text-light)] md:text-3xl">
                 Get In Touch With Us
               </h2>
-
-            
             </div>
 
             {/* Form */}
@@ -151,12 +148,12 @@ export default function Popup({
                 <div className="flex flex-col items-center justify-center py-12 text-center">
                   <CheckCircle2
                     size={55}
-                    className="mb-4 text-green-600"
+                    className="mb-4 text-[var(--secondary)]"
                   />
-                  <h3 className="text-2xl font-bold text-gray-900">
+                  <h3 className="text-2xl font-bold text-[var(--dark)]">
                     Thank You!
                   </h3>
-                  <p className="mt-2 text-gray-500">
+                  <p className="mt-2 text-[var(--text-secondary)]">
                     Your enquiry has been submitted successfully.
                   </p>
                 </div>
@@ -164,7 +161,7 @@ export default function Popup({
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-gray-700">
+                      <label className="mb-2 block text-sm font-semibold text-[var(--dark)]">
                         Full Name *
                       </label>
                       <input
@@ -174,12 +171,12 @@ export default function Popup({
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition focus:border-[#0B2E63] focus:bg-white"
+                        className="w-full rounded-lg border border-[var(--border-color)] bg-[var(--background)] px-4 py-3 text-sm text-[var(--text-primary)] outline-none transition placeholder:text-[var(--text-secondary)] focus:border-[var(--secondary)] focus:bg-[var(--surface)]"
                       />
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-gray-700">
+                      <label className="mb-2 block text-sm font-semibold text-[var(--dark)]">
                         Email Address *
                       </label>
                       <input
@@ -189,12 +186,12 @@ export default function Popup({
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition focus:border-[#0B2E63] focus:bg-white"
+                        className="w-full rounded-lg border border-[var(--border-color)] bg-[var(--background)] px-4 py-3 text-sm text-[var(--text-primary)] outline-none transition placeholder:text-[var(--text-secondary)] focus:border-[var(--secondary)] focus:bg-[var(--surface)]"
                       />
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-gray-700">
+                      <label className="mb-2 block text-sm font-semibold text-[var(--dark)]">
                         Mobile Number *
                       </label>
                       <input
@@ -206,12 +203,12 @@ export default function Popup({
                         required
                         inputMode="numeric"
                         maxLength={20}
-                        className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition focus:border-[#0B2E63] focus:bg-white"
+                        className="w-full rounded-lg border border-[var(--border-color)] bg-[var(--background)] px-4 py-3 text-sm text-[var(--text-primary)] outline-none transition placeholder:text-[var(--text-secondary)] focus:border-[var(--secondary)] focus:bg-[var(--surface)]"
                       />
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-gray-700">
+                      <label className="mb-2 block text-sm font-semibold text-[var(--dark)]">
                         Product / Service
                       </label>
                       <input
@@ -220,13 +217,13 @@ export default function Popup({
                         placeholder="Enter product name"
                         value={formData.product}
                         onChange={handleChange}
-                        className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition focus:border-[#0B2E63] focus:bg-white"
+                        className="w-full rounded-lg border border-[var(--border-color)] bg-[var(--background)] px-4 py-3 text-sm text-[var(--text-primary)] outline-none transition placeholder:text-[var(--text-secondary)] focus:border-[var(--secondary)] focus:bg-[var(--surface)]"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-sm font-semibold text-gray-700">
+                    <label className="mb-2 block text-sm font-semibold text-[var(--dark)]">
                       Your Message *
                     </label>
                     <textarea
@@ -236,7 +233,7 @@ export default function Popup({
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      className="w-full resize-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition focus:border-[#0B2E63] focus:bg-white"
+                      className="w-full resize-none rounded-lg border border-[var(--border-color)] bg-[var(--background)] px-4 py-3 text-sm text-[var(--text-primary)] outline-none transition placeholder:text-[var(--text-secondary)] focus:border-[var(--secondary)] focus:bg-[var(--surface)]"
                     />
                   </div>
 
@@ -249,7 +246,7 @@ export default function Popup({
                   <button
                     type="submit"
                     disabled={loading}
-                    className="group flex w-full items-center justify-center gap-3 rounded-lg bg-[#0B2E63] px-6 py-4 text-sm font-semibold text-white transition hover:bg-[#164582] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="group flex w-full items-center justify-center gap-3 rounded-lg bg-[image:var(--button-gradient)] px-6 py-4 text-sm font-semibold text-white transition hover:bg-[image:var(--button-hover)] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {loading ? "Submitting..." : "Submit Enquiry"}
                     {!loading && (
@@ -260,7 +257,7 @@ export default function Popup({
                     )}
                   </button>
 
-                  <p className="text-center text-xs text-gray-400">
+                  <p className="text-center text-xs text-[var(--text-secondary)]">
                     Your information will only be used to respond to your enquiry.
                   </p>
                 </form>
