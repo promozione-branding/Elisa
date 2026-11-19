@@ -1,5 +1,7 @@
 import About from "@/Components/About";
+import AboutCTA from "@/Components/AboutCTA";
 import Categories from "@/Components/Categories";
+import CategoryMarquee from "@/Components/CategoryMarquee";
 import ContactCTA from "@/Components/ContactCTA";
 import FAQSection from "@/Components/FAQSection";
 import Hero from "@/Components/Hero";
@@ -17,8 +19,10 @@ export default function Home() {
     <About/>
     <Products/>
      <StatsSection/>
+    <AboutCTA/>
      <Categories/> 
 <WhyChooseUs/>
+ <CategoryMarquee/>
     <Industries/>
     <Testimonials/>
      <FAQSection/>
