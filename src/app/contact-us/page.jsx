@@ -324,7 +324,7 @@ export default function ContactUsSection() {
         </div>
       </section>
 
-      <Footer />
+
     </main>
   );
 }
