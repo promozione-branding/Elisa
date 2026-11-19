@@ -132,7 +132,10 @@ function StatCard({ s, i, inView, reduce }) {
       }}
     >
       <motion.div
-        className="group relative h-full min-h-[260px] overflow-hidden rounded-[30px] border border-white/90 bg-gradient-to-br from-white/95 via-[#f0f8fa]/90 to-[#dceff3]/90 p-5 shadow-[0_18px_45px_rgba(40,100,130,0.12)] transition-shadow duration-500 hover:shadow-[0_30px_60px_rgba(14,140,150,0.22)] sm:min-h-[300px] sm:p-7"
+        className="group relative h-full  overflow-hidden rounded-[30px] border
+         border-white/90 bg-gradient-to-br from-white/95 via-[#f0f8fa]/90 to-[#dceff3]/90 
+         p-3 shadow-[0_18px_45px_rgba(40,100,130,0.12)] transition-shadow duration-500 
+         hover:shadow-[0_30px_60px_rgba(14,140,150,0.22)] sm:min-h-[300px] sm:p-4"
         style={{
           rotateX,
           rotateY,
@@ -192,14 +195,17 @@ function StatCard({ s, i, inView, reduce }) {
         )}
 
         {/* Hover glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(18,190,190,0.18),transparent_65%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        <div className="absolute inset-0 
+        bg-[radial-gradient(circle_at_50%_45%,rgba(18,190,190,0.18),transparent_65%)]
+         opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
         {/* Card Content */}
-        <div className="relative z-10 flex h-full flex-col items-center justify-center text-center">
+        <div className="relative z-10 flex  flex-col 
+        items-center justify-center text-center">
 
           {/* Icon */}
           <motion.div
-            className="mb-4 text-[#0b7f8c] sm:mb-5"
+            className="mb-3 text-[#0b7f8c] sm:mb-5"
             animate={
               reduce
                 ? undefined
@@ -213,14 +219,16 @@ function StatCard({ s, i, inView, reduce }) {
             }}
           >
             <s.Icon
-              size={60}
+              size={20}
               strokeWidth={1.5}
-              className="transition-transform duration-500 group-hover:rotate-[-8deg] group-hover:scale-110 sm:h-[76px] sm:w-[76px]"
+              className="transition-transform duration-500 group-hover:rotate-[-8deg] 
+              group-hover:scale-110 sm:h-[46px] sm:w-[46px]"
             />
           </motion.div>
 
           {/* Number */}
-          <div className="text-[52px] font-extrabold italic leading-none tracking-[-0.04em] text-[#0b6676] transition-colors duration-300 group-hover:text-[#0eaaa9] sm:text-[68px]">
+          <div className="text-[42px] font-extrabold italic leading-none tracking-[-0.04em] 
+          text-[#0b6676] transition-colors duration-300 group-hover:text-[#0eaaa9] sm:text-[4 8px]">
             {value.toLocaleString("en-IN")}
             {s.suffix}
           </div>
@@ -229,7 +237,8 @@ function StatCard({ s, i, inView, reduce }) {
           <span className="mt-5 h-[3px] w-[65px] rounded-full bg-[#0eaaa9] transition-all duration-500 group-hover:w-[120px]" />
 
           {/* Label */}
-          <p className="mt-5 text-center text-[17px] font-semibold italic leading-7 text-[#101c27] sm:text-[21px] sm:leading-8">
+          <p className="mt-5 text-center text-[15px] 
+          font-semibold italic leading-7 text-[#101c27] sm:text-[18px] sm:leading-8">
             {s.label[0]}
             <br />
             {s.label[1]}
@@ -258,9 +267,10 @@ export default function StatsSection() {
       aria-label="Our strength in numbers"
     >
       {/* Background decorative lights */}
-      <div className="pointer-events-none absolute -left-32 top-10 -z-10 h-[350px] w-[350px] rounded-full bg-[#21b9c4]/10 blur-[100px]" />
+      <div className="pointer-events-none absolute -left-32 top-10 -z-10   
+      rounded-full bg-[#21b9c4]/10 blur-[100px]" />
 
-      <div className="pointer-events-none absolute -right-32 bottom-0 -z-10 h-[400px] w-[400px] rounded-full bg-[#087f93]/10 blur-[110px]" />
+      <div className="pointer-events-none absolute -right-32 bottom-0 -z-10  rounded-full bg-[#087f93]/10 blur-[110px]" />
 
       {/* Abstract waves */}
       <svg
@@ -289,7 +299,7 @@ export default function StatsSection() {
       <div className="relative mx-auto max-w-[1400px]">
 
         {/* HEADING */}
-        <div className="mb-12 flex flex-col items-center text-center sm:mb-16">
+        <div className="mb-7 flex flex-col items-center text-center sm:mb-16">
 
           <motion.div
             className="mb-4 flex items-center gap-4"
