@@ -19,15 +19,31 @@ const quickLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about-us" },
   { name: "Our Products", href: "/products" },
-  { name: "Categories", href: "/categories" },
-  { name: "FAQs", href: "/faqs" },
+  { name: "Articles", href: "/articles" },
   { name: "Contact Us", href: "/contact-us" },
 ];
 
-const productLinks = [
-  { name: "Pharmaceutical Tablets", href: "/products?category=pharmaceutical-tablets" },
-  { name: "Allopathic Tablets", href: "/products?category=allopathic-tablets" },
-  { name: "Pharmaceutical Capsules", href: "/products?category=pharmaceutical-capsules" },
+export const productLinks = [
+  {
+    name: "Pharmaceutical Tablets",
+    href: "/products?category=pharmaceutical-tablets",
+  },
+  {
+    name: "Allopathic Tablets",
+    href: "/products?category=allopathic-tablets",
+  },
+  {
+    name: "Pharmaceutical Capsules",
+    href: "/products?category=pharmaceutical-capsules",
+  },
+  {
+    name: "Gastrointestinal Medicines",
+    href: "/products?category=gastrointestinal-medicines",
+  },
+  {
+    name: "Anti-inflammatory & Anticold",
+    href: "/products?category=anti-inflammatory-anticold",
+  },
 ];
 
 // const socials = [
@@ -204,9 +220,9 @@ export default function Footer() {
                     Our Location
                   </p>
                   <p className="text-sm leading-6 text-slate-400">
-                    Badli Industrial Estate,
-                    <br />
-                    Delhi, India.
+                
+
+2nd Floor, House No 22, S-Block, Phase-1, Badli Industrial Area, New Delhi - 110042, Delhi, India 
                   </p>
                 </div>
               </div>
@@ -220,14 +236,9 @@ export default function Footer() {
                     Call Us
                   </p>
                   <p className="text-sm text-slate-400">
-                    Contact our team
+                 +91-8048268766
                   </p>
-                  <Link
-                    href="/contact-us"
-                    className="text-xs text-[#36C3BA] hover:underline mt-1 inline-block"
-                  >
-                    Request a Call Back
-                  </Link>
+                  
                 </div>
               </div>
 
@@ -243,7 +254,7 @@ export default function Footer() {
                     href="/contact-us"
                     className="text-sm text-slate-400 hover:text-[#36C3BA] transition-colors"
                   >
-                    Send an Enquiry
+                  info@elisabiotechindia.com
                   </Link>
                 </div>
               </div>
@@ -254,29 +265,18 @@ export default function Footer() {
         </div>
 
         {/* BOTTOM BAR */}
-        <div className="border-t border-white/10 py-7 flex flex-col md:flex-row items-center justify-between gap-5">
+        <div className="border-t border-white/10 py-7 flex flex-col md:flex-row items-center  justify-between
+       gap-3 w-full  mx-auto">
 
           <p className="text-xs text-slate-500 text-center md:text-left">
             © {new Date().getFullYear()} Elisa Biotech Pvt. Ltd. All Rights Reserved.
           </p>
 
-          <div className="flex items-center gap-6 text-xs text-slate-500">
-            <Link
-              href="/privacy-policy"
-              className="hover:text-[#36C3BA] transition-colors"
-            >
-              Privacy Policy
-            </Link>
-
-            <Link
-              href="/terms-and-conditions"
-              className="hover:text-[#36C3BA] transition-colors"
-            >
-              Terms & Conditions
-            </Link>
+          <div className="flex items-end gap-6 text-xs text-slate-500">
+           Website Designed By Inquiry Bazaar Pvt. Ltd. <a  href="https://inquirybazaar.com/">B2B Marketplace</a>
           </div>
 
-          <button
+          {/* <button
             onClick={() =>
               window.scrollTo({ top: 0, behavior: "smooth" })
             }
@@ -284,7 +284,7 @@ export default function Footer() {
             className="w-10 h-10 rounded-full border border-white/10 bg-white/[0.04] flex items-center justify-center text-[#36C3BA] hover:bg-[#13A7A4] hover:text-white transition-all"
           >
             <ChevronUp size={19} />
-          </button>
+          </button> */}
 
         </div>
       </div>
