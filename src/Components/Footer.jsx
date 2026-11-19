@@ -261,14 +261,14 @@ export default function Footer() {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-1 text-xs text-[var(--surface-blue)]/60">
-            <span>Website Designed By</span>
-            <a
+            <span>Website Designed By Inquiry Bazaar Pvt. Ltd. - </span>
+           
+                <a
               href="https://inquirybazaar.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[var(--accent)] hover:text-white transition-colors"
-            >
-              Inquiry Bazaar Pvt. Ltd. - B2B Marketplace
+            >B2B Marketplace
             </a>
           </div>
 
