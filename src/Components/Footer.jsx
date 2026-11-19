@@ -260,7 +260,8 @@ export default function Footer() {
             © {new Date().getFullYear()} Elisa Biotech Pvt. Ltd. All Rights Reserved.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-1 text-xs text-[var(--surface-blue)]/60">
+          <div className="flex flex-wrap items-center justify-center gap-1
+           text-xs text-[var(--surface-blue)]/60">
             <span>Website Designed By Inquiry Bazaar Pvt. Ltd. - </span>
            
                 <a
