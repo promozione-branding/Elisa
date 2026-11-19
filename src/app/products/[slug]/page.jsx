@@ -285,46 +285,50 @@ export default async function ProductDetailPage({ params }) {
 
             </div>
 
-            {/* PRODUCT IMAGE */}
-            <div className="relative mx-auto w-full max-w-[520px]">
+          
+{/* PRODUCT IMAGE */}
+<div className="relative mx-auto w-full max-w-[520px]">
+  <div className="absolute inset-5 rounded-[42px] bg-[#b8dced]/60 blur-2xl" />
 
-              <div className="absolute inset-5 rounded-[42px] bg-[#b8dced]/60 blur-2xl" />
+  <div className="relative flex h-[330px] items-center justify-center overflow-hidden rounded-[34px] border border-white bg-gradient-to-br from-[#dceff9] via-white to-[#e8f5e8] p-8 shadow-[0_24px_70px_rgba(27,84,119,0.13)] sm:h-[390px]">
 
-              <div className="relative flex h-[330px] items-center justify-center overflow-hidden rounded-[34px] border border-white bg-gradient-to-br from-[#dceff9] via-white to-[#e8f5e8] p-8 shadow-[0_24px_70px_rgba(27,84,119,0.13)] sm:h-[390px]">
+    {product.image &&
+    typeof product.image === "string" &&
+    product.image.trim() !== "" ? (
+      <Image
+        src={
+          product.image.startsWith("http")
+            ? product.image
+            : product.image.startsWith("/")
+              ? product.image
+              : `/${product.image}`
+        }
+        alt={product.name}
+        fill
+        priority
+        sizes="(max-width: 1024px) 100vw, 520px"
+        className="object-contain p-7"
+      />
+    ) : (
+      <div className="flex flex-col items-center text-[#4d8db2]">
+        <Pill size={92} strokeWidth={1.1} />
+        <span className="mt-4 text-sm font-bold tracking-wide">
+          ELISA BIOTECH
+        </span>
+      </div>
+    )}
 
-                {product.image ? (
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 520px"
-                    className="object-contain p-7"
-                  />
-                ) : (
-                  <div className="flex flex-col items-center text-[#4d8db2]">
-                    <Pill size={92} strokeWidth={1.1} />
+    <div className="absolute bottom-5 left-5 rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-lg backdrop-blur">
+      <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#7c94a6]">
+        Product Brand
+      </p>
+      <p className="mt-1 text-sm font-extrabold text-[#163b5c]">
+        {product.brand || "Elisa Biotech"}
+      </p>
+    </div>
 
-                    <span className="mt-4 text-sm font-bold tracking-wide">
-                      ELISA BIOTECH
-                    </span>
-                  </div>
-                )}
-
-                <div className="absolute bottom-5 left-5 rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-lg backdrop-blur">
-
-                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#7c94a6]">
-                    Product Brand
-                  </p>
-
-                  <p className="mt-1 text-sm font-extrabold text-[#163b5c]">
-                    {product.brand || "Elisa Biotech"}
-                  </p>
-
-                </div>
-
-              </div>
-            </div>
+  </div>
+</div>
 
           </div>
         </div>
