@@ -90,60 +90,7 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-[100]">
-        {/* TOP INFO BAR */}
-        {/* <motion.div
-          initial={{ y: -40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease }}
-          className={`hidden transition-all duration-300 md:block ${
-            scrolled ? "h-0 overflow-hidden opacity-0" : "h-auto opacity-100"
-          }`}
-        >
-          <div className="mx-auto flex max-w-[1450px] items-center justify-between gap-6 px-6 py-3 text-[13px] text-[#0c2d48] lg:px-8">
-            <div className="flex items-center gap-5 xl:gap-7">
-              <span className="flex items-center gap-2">
-                <MapPin size={16} className="text-[#0b3f63]" />
-                Elisa Biotech Pvt. Ltd.
-              </span>
-              <span className="h-4 w-px bg-[#0b5a86]/40" />
-              <a href="tel:+919876543210" className="flex items-center gap-2 transition-colors hover:text-[#087d8a]">
-                <Phone size={16} className="text-[#0b3f63]" />
-                +91 98765 43210
-              </a>
-              <span className="h-4 w-px bg-[#0b5a86]/40" />
-              <a href="mailto:info@elisabiotech.com" className="flex items-center gap-2 transition-colors hover:text-[#087d8a]">
-                <Mail size={16} className="text-[#0b3f63]" />
-                info@elisabiotech.com
-              </a>
-            </div>
-
-            <div className="flex items-center gap-4">
-            {[
-  { Icon: LinkedInIcon, label: "LinkedIn", href: "https://linkedin.com" },
-  { Icon: InstagramIcon, label: "Instagram", href: "https://instagram.com" },
-  { Icon: YouTubeIcon, label: "YouTube", href: "https://youtube.com" },
-].map(({ Icon, label, href }) => (
-  <motion.a
-    key={label}
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label={label}
-    whileHover={{ y: -2, scale: 1.1 }}
-    className="text-[#0b3f63] transition-colors hover:text-[#087d8a]"
-  >
-    <Icon size={17} />
-  </motion.a>
-))}
-              <span className="h-4 w-px bg-[#0b5a86]/40" />
-              <div className="flex items-center gap-2 rounded-full bg-gradient-to-r from-[#07395a] to-[#075f86] px-5 py-2 text-[12px] text-white shadow-md">
-                <HeartPulse size={16} className="text-[#7fe3f0]" />
-                <span>Caring for Life,</span>
-                <span className="font-bold text-[#7fe3f0]">Committed to Health.</span>
-              </div>
-            </div>
-          </div>
-        </motion.div> */}
+    
 
         {/* MAIN NAV */}
         <motion.div
@@ -217,7 +164,7 @@ export default function Navbar() {
                 <span className="h-9 w-px bg-[#0a8fa3]/30" />
 
                 <motion.a
-                  href="tel:+919876543210"
+                  href="tel:+918048268766"
                   aria-label="Call Elisa Biotech"
                   whileHover={{ y: -3 }}
                   className="grid h-11 w-11 place-items-center rounded-full border border-[#cfe9ef] bg-white text-[#0b5a86] shadow-sm transition-colors hover:bg-[#0b5a86] hover:text-white"
@@ -226,7 +173,7 @@ export default function Navbar() {
                 </motion.a>
 
                 <motion.a
-                  href="https://wa.me/919876543210"
+                  href="https://wa.me/918048268766"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Chat on WhatsApp"
