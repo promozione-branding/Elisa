@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-
 import {
   ArrowLeft,
   ArrowRight,
@@ -50,17 +49,17 @@ export async function generateMetadata({ params }) {
 
 /* SPECIFICATION ITEM */
 const DetailItem = ({ icon: Icon, label, value }) => (
-  <div className="flex min-h-[112px] flex-col items-center justify-center rounded-2xl border border-[#e2edf5] bg-white px-3 py-5 text-center transition duration-300 hover:-translate-y-1 hover:border-[#b8d8eb] hover:shadow-md">
+  <div className="flex min-h-[112px] flex-col items-center justify-center rounded-2xl border border-[var(--border-color)] bg-[var(--surface)] px-3 py-5 text-center transition duration-300 hover:-translate-y-1 hover:border-[var(--accent)] hover:shadow-md">
     <Icon
-      className="mb-3 h-7 w-7 text-[#2180b8]"
+      className="mb-3 h-7 w-7 text-[var(--secondary)]"
       strokeWidth={1.7}
     />
 
-    <p className="text-xs font-bold uppercase tracking-wide text-[#71869a]">
+    <p className="text-xs font-bold uppercase tracking-wide text-[var(--text-secondary)]">
       {label}
     </p>
 
-    <p className="mt-1.5 text-sm font-semibold leading-5 text-[#173653]">
+    <p className="mt-1.5 text-sm font-semibold leading-5 text-[var(--dark)]">
       {value || "—"}
     </p>
   </div>
@@ -108,9 +107,8 @@ export default async function ProductDetailPage({ params }) {
   const features = product.keyFeatures || [];
   const benefits = product.productBenefits || [];
 
-
   return (
-    <main className="mt-25 min-h-screen overflow-hidden bg-[#f7fbfe] text-[#142f4c]">
+    <main className="mt-25 min-h-screen overflow-hidden bg-[var(--background)] text-[var(--dark)]">
 
       {/* CSS ANIMATIONS */}
       <style>{`
@@ -211,30 +209,30 @@ export default async function ProductDetailPage({ params }) {
           PRODUCT HERO SECTION
       ====================================== */}
 
-      <section className="relative isolate overflow-hidden border-b border-[#e2edf5] bg-gradient-to-br from-[#e9f6fd] via-white to-[#e7f3fb]">
+      <section className="relative isolate overflow-hidden border-b border-[var(--border-color)] bg-[linear-gradient(135deg,var(--surface-blue),var(--surface),var(--surface-light))]">
 
-        <div className="pointer-events-none absolute -right-24 -top-36 -z-10 h-[520px] w-[520px] rounded-full border-[70px] border-white/60" />
+        <div className="pointer-events-none absolute -right-24 -top-36 -z-10 h-[520px] w-[520px] rounded-full border-[70px] border-[var(--surface)]/60" />
 
-        <div className="pointer-events-none absolute -right-10 bottom-[-230px] -z-10 h-[440px] w-[440px] rounded-full border-2 border-[#8ac43f]/50" />
+        <div className="pointer-events-none absolute -right-10 bottom-[-230px] -z-10 h-[440px] w-[440px] rounded-full border-2 border-[var(--accent)]/40" />
 
         <div className="mx-auto max-w-[1320px] px-5 pb-12 pt-8 sm:px-8 lg:px-12 lg:pb-16">
 
           {/* BREADCRUMB */}
-          <nav className="mb-9 flex flex-wrap items-center gap-2 text-xs font-medium text-[#6a8297]">
+          <nav className="mb-9 flex flex-wrap items-center gap-2 text-xs font-medium text-[var(--text-secondary)]">
 
-            <Link href="/" className="transition hover:text-[#126da4]">
+            <Link href="/" className="transition hover:text-[var(--secondary)]">
               Home
             </Link>
 
             <span>/</span>
 
-            <Link href="/products" className="transition hover:text-[#126da4]">
+            <Link href="/products" className="transition hover:text-[var(--secondary)]">
               Products
             </Link>
 
             <span>/</span>
 
-            <span className="max-w-[260px] truncate text-[#17699e]">
+            <span className="max-w-[260px] truncate text-[var(--secondary)]">
               {product.name}
             </span>
 
@@ -245,39 +243,39 @@ export default async function ProductDetailPage({ params }) {
             {/* PRODUCT CONTENT */}
             <div className="max-w-2xl">
 
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#cfe4f1] bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.13em] text-[#397b9f]">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--border-color)] bg-[var(--surface)]/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.13em] text-[var(--secondary)]">
 
-                <span className="h-2 w-2 rounded-full bg-[#77b83d]" />
+                <span className="h-2 w-2 rounded-full bg-[var(--accent)]" />
 
                 {product.category || "Elisa Biotech Product"}
 
               </div>
 
-              <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.08] tracking-[-0.04em] text-[#102f50] sm:text-5xl lg:text-[58px]">
+              <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.08] tracking-[-0.04em] text-[var(--primary-dark)] sm:text-5xl lg:text-[58px]">
                 {product.name}
               </h1>
 
-              <div className="mt-5 h-1.5 w-24 rounded-full bg-[#79b83e]" />
+              <div className="mt-5 h-1.5 w-24 rounded-full bg-[var(--accent)]" />
 
-              <p className="mt-6 max-w-xl text-base leading-8 text-[#506b82] sm:text-lg">
+              <p className="mt-6 max-w-xl text-base leading-8 text-[var(--text-secondary)] sm:text-lg">
                 {product.shortdescription ||
                   `Explore product information for ${product.name} from Elisa Biotech Pvt. Ltd.`}
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
 
-                <span className="inline-flex items-center gap-2 rounded-full border border-[#cfe2ef] bg-white/85 px-4 py-2.5 text-xs font-bold text-[#234968]">
-                  <ShieldCheck size={17} className="text-[#63a735]" />
+                <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border-color)] bg-[var(--surface)]/85 px-4 py-2.5 text-xs font-bold text-[var(--primary)]">
+                  <ShieldCheck size={17} className="text-[var(--secondary)]" />
                   Product Information
                 </span>
 
-                <span className="inline-flex items-center gap-2 rounded-full border border-[#cfe2ef] bg-white/85 px-4 py-2.5 text-xs font-bold text-[#234968]">
-                  <BadgeCheck size={17} className="text-[#2180b8]" />
+                <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border-color)] bg-[var(--surface)]/85 px-4 py-2.5 text-xs font-bold text-[var(--primary)]">
+                  <BadgeCheck size={17} className="text-[var(--accent)]" />
                   Elisa Biotech
                 </span>
 
-                <span className="inline-flex items-center gap-2 rounded-full border border-[#cfe2ef] bg-white/85 px-4 py-2.5 text-xs font-bold text-[#234968]">
-                  <Truck size={17} className="text-[#2180b8]" />
+                <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border-color)] bg-[var(--surface)]/85 px-4 py-2.5 text-xs font-bold text-[var(--primary)]">
+                  <Truck size={17} className="text-[var(--secondary)]" />
                   Enquiry & Supply
                 </span>
 
@@ -285,50 +283,49 @@ export default async function ProductDetailPage({ params }) {
 
             </div>
 
-          
-{/* PRODUCT IMAGE */}
-<div className="relative mx-auto w-full max-w-[520px]">
-  <div className="absolute inset-5 rounded-[42px] bg-[#b8dced]/60 blur-2xl" />
+            {/* PRODUCT IMAGE */}
+            <div className="relative mx-auto w-full max-w-[520px]">
+              <div className="absolute inset-5 rounded-[42px] bg-[var(--accent)]/20 blur-2xl" />
 
-  <div className="relative flex h-[330px] items-center justify-center overflow-hidden rounded-[34px] border border-white bg-gradient-to-br from-[#dceff9] via-white to-[#e8f5e8] p-8 shadow-[0_24px_70px_rgba(27,84,119,0.13)] sm:h-[390px]">
+              <div className="relative flex h-[330px] items-center justify-center overflow-hidden rounded-[34px] border border-[var(--surface)] bg-[linear-gradient(135deg,var(--surface-blue),var(--surface),var(--surface-light))] p-8 shadow-[0_24px_70px_rgba(7,62,95,0.13)] sm:h-[390px]">
 
-    {product.image &&
-    typeof product.image === "string" &&
-    product.image.trim() !== "" ? (
-      <Image
-        src={
-          product.image.startsWith("http")
-            ? product.image
-            : product.image.startsWith("/")
-              ? product.image
-              : `/${product.image}`
-        }
-        alt={product.name}
-        fill
-        priority
-        sizes="(max-width: 1024px) 100vw, 520px"
-        className="object-contain p-7"
-      />
-    ) : (
-      <div className="flex flex-col items-center text-[#4d8db2]">
-        <Pill size={92} strokeWidth={1.1} />
-        <span className="mt-4 text-sm font-bold tracking-wide">
-          ELISA BIOTECH
-        </span>
-      </div>
-    )}
+                {product.image &&
+                typeof product.image === "string" &&
+                product.image.trim() !== "" ? (
+                  <Image
+                    src={
+                      product.image.startsWith("http")
+                        ? product.image
+                        : product.image.startsWith("/")
+                          ? product.image
+                          : `/${product.image}`
+                    }
+                    alt={product.name}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 520px"
+                    className="object-contain p-7"
+                  />
+                ) : (
+                  <div className="flex flex-col items-center text-[var(--secondary)]">
+                    <Pill size={92} strokeWidth={1.1} />
+                    <span className="mt-4 text-sm font-bold tracking-wide">
+                      ELISA BIOTECH
+                    </span>
+                  </div>
+                )}
 
-    <div className="absolute bottom-5 left-5 rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-lg backdrop-blur">
-      <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#7c94a6]">
-        Product Brand
-      </p>
-      <p className="mt-1 text-sm font-extrabold text-[#163b5c]">
-        {product.brand || "Elisa Biotech"}
-      </p>
-    </div>
+                <div className="absolute bottom-5 left-5 rounded-2xl border border-[var(--border-color)] bg-[var(--surface)]/90 px-4 py-3 shadow-lg backdrop-blur">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--text-secondary)]">
+                    Product Brand
+                  </p>
+                  <p className="mt-1 text-sm font-extrabold text-[var(--primary)]">
+                    {product.brand || "Elisa Biotech"}
+                  </p>
+                </div>
 
-  </div>
-</div>
+              </div>
+            </div>
 
           </div>
         </div>
@@ -345,50 +342,48 @@ export default async function ProductDetailPage({ params }) {
           {/* PRODUCT DESCRIPTION */}
           <div>
 
-            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-[#70a83a]">
+            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-[var(--accent)]">
               Product at a glance
             </p>
 
-            <h2 className="text-3xl font-extrabold tracking-tight text-[#123454] sm:text-4xl">
-              Product <span className="text-[#1674ad]">Details</span>
+            <h2 className="text-3xl font-extrabold tracking-tight text-[var(--primary-dark)] sm:text-4xl">
+              Product <span className="text-[var(--secondary)]">Details</span>
             </h2>
 
-            <p className="mt-4 max-w-md text-sm leading-7 text-[#6b7f91]">
+            <p className="mt-4 max-w-md text-sm leading-7 text-[var(--text-secondary)]">
               Find the key product information, composition and packaging details below.
             </p>
 
-            <div className="mt-7 rounded-[26px] border border-[#e0ebf3] bg-white p-5 shadow-[0_12px_36px_rgba(24,73,105,0.06)]">
+            <div className="mt-7 rounded-[26px] border border-[var(--border-color)] bg-[var(--surface)] p-5 shadow-[0_12px_36px_rgba(7,62,95,0.06)]">
 
               <div className="flex items-center gap-3">
 
-                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#edf7e7] text-[#5d9c32]">
+                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[var(--surface-blue)] text-[var(--secondary)]">
                   <Package size={24} />
                 </div>
 
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#8a9cac]">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)]">
                     Product name
                   </p>
 
-                  <p className="mt-1 font-bold text-[#163a59]">
+                  <p className="mt-1 font-bold text-[var(--primary)]">
                     {product.name}
                   </p>
                 </div>
 
               </div>
 
-              <div className="my-5 h-px bg-[#edf2f6]" />
+              <div className="my-5 h-px bg-[var(--border-color)]" />
 
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#8a9cac]">
+              <p className="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)]">
                 Product description
               </p>
 
-              <p className="mt-2 text-sm leading-7 text-[#536d82]">
+              <p className="mt-2 text-sm leading-7 text-[var(--text-secondary)]">
                 {product.description ||
                   "Please contact our team for further product information."}
               </p>
-
-             
 
             </div>
           </div>
@@ -398,11 +393,11 @@ export default async function ProductDetailPage({ params }) {
 
             <div className="mb-5 flex items-center justify-between gap-4">
 
-              <h2 className="text-xl font-extrabold text-[#153957] sm:text-2xl">
+              <h2 className="text-xl font-extrabold text-[var(--primary-dark)] sm:text-2xl">
                 Specifications
               </h2>
 
-              <span className="h-1 w-16 rounded-full bg-[#79b83e]" />
+              <span className="h-1 w-16 rounded-full bg-[var(--accent)]" />
 
             </div>
 
@@ -420,27 +415,27 @@ export default async function ProductDetailPage({ params }) {
             </div>
 
             {/* ADDITIONAL INFORMATION */}
-            <div className="mt-5 rounded-[24px] bg-gradient-to-r from-[#edf8e9] to-[#edf7fc] p-5 sm:p-6">
+            <div className="mt-5 rounded-[24px] bg-[linear-gradient(to_right,var(--surface-blue),var(--surface-light))] p-5 sm:p-6">
 
               <div className="flex items-start gap-4">
 
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white text-[#5e9d35] shadow-sm">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[var(--surface)] text-[var(--secondary)] shadow-sm">
                   <ShieldCheck size={23} />
                 </div>
 
                 <div>
 
-                  <h3 className="font-extrabold text-[#173b58]">
+                  <h3 className="font-extrabold text-[var(--primary-dark)]">
                     Need more product information?
                   </h3>
 
-                  <p className="mt-1 text-sm leading-6 text-[#62798b]">
+                  <p className="mt-1 text-sm leading-6 text-[var(--text-secondary)]">
                     Contact Elisa Biotech Pvt. Ltd. for product availability, pricing and business enquiries.
                   </p>
 
                   <Link
                     href="/contact-us"
-                    className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-[#176fa7] hover:underline"
+                    className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-[var(--secondary)] hover:underline"
                   >
                     Contact our team
                     <ArrowRight size={15} />
@@ -457,15 +452,14 @@ export default async function ProductDetailPage({ params }) {
 
       {/* =====================================
           KEY FEATURES & PRODUCT BENEFITS
-          DIRECTLY INSIDE THIS PAGE
       ====================================== */}
 
-      <section className="relative overflow-hidden bg-white py-16 sm:py-10 lg:py-14">
+      <section className="relative overflow-hidden bg-[var(--surface)] py-16 sm:py-10 lg:py-14">
 
         {/* BACKGROUND DECORATION */}
-        <div className="pointer-events-none absolute -left-40 top-20 h-80 w-80 rounded-full bg-[#e0f2fc]/70 blur-[100px]" />
+        <div className="pointer-events-none absolute -left-40 top-20 h-80 w-80 rounded-full bg-[var(--surface-blue)]/70 blur-[100px]" />
 
-        <div className="pointer-events-none absolute -right-40 bottom-10 h-96 w-96 rounded-full bg-[#fff0e4]/70 blur-[110px]" />
+        <div className="pointer-events-none absolute -right-40 bottom-10 h-96 w-96 rounded-full bg-[var(--surface-light)]/70 blur-[110px]" />
 
         <div className="relative mx-auto max-w-[1320px] px-5 sm:px-8 lg:px-12">
 
@@ -474,25 +468,25 @@ export default async function ProductDetailPage({ params }) {
 
             <div className="mb-4 flex items-center justify-center gap-4">
 
-              <span className="h-[2px] w-10 rounded-full bg-[#f47732]" />
+              <span className="h-[2px] w-10 rounded-full bg-[var(--accent)]" />
 
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#ed7936]">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--secondary)]">
                 Product Details
               </span>
 
-              <span className="h-[2px] w-10 rounded-full bg-[#f47732]" />
+              <span className="h-[2px] w-10 rounded-full bg-[var(--accent)]" />
 
             </div>
 
-            <h2 className="text-3xl font-extrabold tracking-tight text-[#142f56] sm:text-4xl lg:text-[44px]">
+            <h2 className="text-3xl font-extrabold tracking-tight text-[var(--primary-dark)] sm:text-4xl lg:text-[44px]">
               Key Features{" "}
-              <span className="text-[#f47732]">&</span>{" "}
+              <span className="text-[var(--accent)]">&</span>{" "}
               Product Benefits
             </h2>
 
-            <div className="mx-auto mt-5 h-1 w-24 rounded-full bg-gradient-to-r from-[#f47732] to-[#77bd89]" />
+            <div className="mx-auto mt-5 h-1 w-24 rounded-full bg-[linear-gradient(to_right,var(--secondary),var(--accent))]" />
 
-            <p className="mt-5 text-sm leading-7 text-[#738399] sm:text-base">
+            <p className="mt-5 text-sm leading-7 text-[var(--text-secondary)] sm:text-base">
               Explore the important features and benefits of {product.brand || product.name}.
             </p>
 
@@ -501,28 +495,25 @@ export default async function ProductDetailPage({ params }) {
           {/* TWO PANELS */}
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-7">
 
-            {/* =================================
-                KEY FEATURES PANEL
-            ================================== */}
-
-            <div className="feature-panel-left group relative overflow-hidden rounded-[28px] border border-[#d8eaf7] bg-gradient-to-br from-[#e8f5fd] via-[#f4faff] to-[#e3f2fb] p-6 shadow-[0_15px_50px_rgba(40,105,150,0.06)] sm:p-9">
+            {/* KEY FEATURES PANEL */}
+            <div className="feature-panel-left group relative overflow-hidden rounded-[28px] border border-[var(--border-color)] bg-[linear-gradient(135deg,var(--surface-blue),var(--surface-light),var(--surface-blue))] p-6 shadow-[0_15px_50px_rgba(7,62,95,0.06)] sm:p-9">
 
               {/* DECORATION */}
-              <div className="feature-decoration pointer-events-none absolute -right-24 top-20 h-72 w-72 rounded-full border-[45px] border-white/40" />
+              <div className="feature-decoration pointer-events-none absolute -right-24 top-20 h-72 w-72 rounded-full border-[45px] border-[var(--surface)]/40" />
 
-              <div className="pointer-events-none absolute -bottom-32 -right-16 h-72 w-72 rounded-full bg-[#b9dff6]/40 blur-3xl" />
+              <div className="pointer-events-none absolute -bottom-32 -right-16 h-72 w-72 rounded-full bg-[var(--accent)]/10 blur-3xl" />
 
               <div className="relative z-10">
 
-                <span className="inline-flex rounded-full border border-[#c9e6f8] bg-white/80 px-5 py-2 text-[11px] font-extrabold uppercase tracking-[0.15em] text-[#2677a7]">
+                <span className="inline-flex rounded-full border border-[var(--border-color)] bg-[var(--surface)]/80 px-5 py-2 text-[11px] font-extrabold uppercase tracking-[0.15em] text-[var(--secondary)]">
                   Key Features
                 </span>
 
-                <h3 className="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-[#142f56] sm:text-[34px]">
+                <h3 className="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-[var(--primary-dark)] sm:text-[34px]">
                   Why Choose {product.brand || product.name}?
                 </h3>
 
-                <p className="mt-3 max-w-md text-sm leading-7 text-[#607a96] sm:text-base">
+                <p className="mt-3 max-w-md text-sm leading-7 text-[var(--text-secondary)] sm:text-base">
                   Discover the important highlights and formulation details of this product.
                 </p>
 
@@ -533,28 +524,28 @@ export default async function ProductDetailPage({ params }) {
                     features.map((feature, index) => (
                       <div
                         key={index}
-                        className="feature-point group/item flex items-center gap-4 rounded-2xl border border-white/80 bg-white/75 px-4 py-4 shadow-[0_5px_20px_rgba(42,102,145,0.035)] transition-all duration-300 hover:translate-x-2 hover:border-[#b5d9f0] hover:bg-white hover:shadow-lg sm:px-5"
+                        className="feature-point group/item flex items-center gap-4 rounded-2xl border border-[var(--surface)]/80 bg-[var(--surface)]/75 px-4 py-4 shadow-[0_5px_20px_rgba(7,62,95,0.035)] transition-all duration-300 hover:translate-x-2 hover:border-[var(--accent)] hover:bg-[var(--surface)] hover:shadow-lg sm:px-5"
                       >
 
                         {/* NUMBER */}
-                        <div className="relative grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full bg-[#e0f1fc] text-[#143c68] transition-colors duration-300 group-hover/item:bg-[#d1eafa]">
+                        <div className="relative grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full bg-[var(--surface-blue)] text-[var(--primary)] transition-colors duration-300 group-hover/item:bg-[var(--surface-light)]">
 
                           <span className="relative z-10 text-sm font-extrabold">
                             {String(index + 1).padStart(2, "0")}
                           </span>
 
-                          <span className="absolute inset-0 rounded-full border border-[#a9d5f2]" />
+                          <span className="absolute inset-0 rounded-full border border-[var(--accent)]/40" />
 
                         </div>
 
-                        <p className="text-sm font-semibold leading-6 text-[#233b5c] sm:text-[15px]">
+                        <p className="text-sm font-semibold leading-6 text-[var(--dark)] sm:text-[15px]">
                           {feature}
                         </p>
 
                       </div>
                     ))
                   ) : (
-                    <p className="text-sm text-[#607a96]">
+                    <p className="text-sm text-[var(--text-secondary)]">
                       Product features will be updated soon.
                     </p>
                   )}
@@ -564,9 +555,9 @@ export default async function ProductDetailPage({ params }) {
                 {/* BOTTOM TEXT */}
                 <div className="mt-8 flex items-center gap-3">
 
-                  <div className="h-[2px] w-12 bg-[#f47732]" />
+                  <div className="h-[2px] w-12 bg-[var(--accent)]" />
 
-                  <p className="text-xs font-semibold tracking-wide text-[#7190a8]">
+                  <p className="text-xs font-semibold tracking-wide text-[var(--text-secondary)]">
                     Formulated with care
                   </p>
 
@@ -575,30 +566,27 @@ export default async function ProductDetailPage({ params }) {
               </div>
             </div>
 
-            {/* =================================
-                PRODUCT BENEFITS PANEL
-            ================================== */}
-
-            <div className="feature-panel-right group relative overflow-hidden rounded-[28px] border border-[#f3e2d5] bg-gradient-to-br from-[#fff4e9] via-[#fffaf5] to-[#ffebdb] p-6 shadow-[0_15px_50px_rgba(180,111,64,0.06)] sm:p-9">
+            {/* PRODUCT BENEFITS PANEL */}
+            <div className="feature-panel-right group relative overflow-hidden rounded-[28px] border border-[var(--border-color)] bg-[linear-gradient(135deg,var(--surface-light),var(--surface),var(--surface-blue))] p-6 shadow-[0_15px_50px_rgba(7,62,95,0.06)] sm:p-9">
 
               {/* DECORATIVE CIRCLES */}
-              <div className="feature-decoration pointer-events-none absolute -right-28 top-12 h-80 w-80 rounded-full border border-[#f8d9c2]/60" />
+              <div className="feature-decoration pointer-events-none absolute -right-28 top-12 h-80 w-80 rounded-full border border-[var(--accent)]/20" />
 
-              <div className="pointer-events-none absolute -right-16 top-24 h-64 w-64 rounded-full border-[25px] border-white/40" />
+              <div className="pointer-events-none absolute -right-16 top-24 h-64 w-64 rounded-full border-[25px] border-[var(--surface)]/40" />
 
-              <div className="pointer-events-none absolute -bottom-32 -right-10 h-72 w-72 rounded-full bg-[#ffdfc5]/50 blur-3xl" />
+              <div className="pointer-events-none absolute -bottom-32 -right-10 h-72 w-72 rounded-full bg-[var(--secondary)]/10 blur-3xl" />
 
               <div className="relative z-10">
 
-                <span className="inline-flex rounded-full border border-[#f6dcc8] bg-white/80 px-5 py-2 text-[11px] font-extrabold uppercase tracking-[0.15em] text-[#e76c29]">
+                <span className="inline-flex rounded-full border border-[var(--border-color)] bg-[var(--surface)]/80 px-5 py-2 text-[11px] font-extrabold uppercase tracking-[0.15em] text-[var(--secondary)]">
                   Product Benefits
                 </span>
 
-                <h3 className="mt-5 max-w-md text-3xl font-extrabold leading-tight tracking-tight text-[#142f56] sm:text-[34px]">
+                <h3 className="mt-5 max-w-md text-3xl font-extrabold leading-tight tracking-tight text-[var(--primary-dark)] sm:text-[34px]">
                   Better Support for Respiratory Health
                 </h3>
 
-                <p className="mt-3 max-w-md text-sm leading-7 text-[#88786c] sm:text-base">
+                <p className="mt-3 max-w-md text-sm leading-7 text-[var(--text-secondary)] sm:text-base">
                   Understand how the active ingredients work together to support respiratory comfort.
                 </p>
 
@@ -613,17 +601,17 @@ export default async function ProductDetailPage({ params }) {
                       return (
                         <div
                           key={index}
-                          className="benefit-point group/item relative overflow-hidden rounded-2xl border border-white/90 bg-white/75 p-4 transition-all duration-300 hover:translate-x-2 hover:border-[#f3c7a8] hover:bg-white hover:shadow-lg sm:p-5"
+                          className="benefit-point group/item relative overflow-hidden rounded-2xl border border-[var(--surface)]/90 bg-[var(--surface)]/75 p-4 transition-all duration-300 hover:translate-x-2 hover:border-[var(--accent)] hover:bg-[var(--surface)] hover:shadow-lg sm:p-5"
                         >
 
-                          {/* ORANGE SIDE LINE */}
-                          <div className="absolute bottom-0 left-0 top-0 w-1 origin-bottom scale-y-50 rounded-full bg-[#f47732] transition-transform duration-300 group-hover/item:scale-y-100" />
+                          {/* BLUE SIDE LINE */}
+                          <div className="absolute bottom-0 left-0 top-0 w-1 origin-bottom scale-y-50 rounded-full bg-[var(--accent)] transition-transform duration-300 group-hover/item:scale-y-100" />
 
-                          <h4 className="text-base font-extrabold text-[#18375a] sm:text-lg">
+                          <h4 className="text-base font-extrabold text-[var(--primary-dark)] sm:text-lg">
                             {heading}
                           </h4>
 
-                          <p className="mt-1 text-sm leading-6 text-[#718094] sm:text-[15px]">
+                          <p className="mt-1 text-sm leading-6 text-[var(--text-secondary)] sm:text-[15px]">
                             {description.join(":").trim()}
                           </p>
 
@@ -631,7 +619,7 @@ export default async function ProductDetailPage({ params }) {
                       );
                     })
                   ) : (
-                    <p className="text-sm text-[#88786c]">
+                    <p className="text-sm text-[var(--text-secondary)]">
                       Product benefits will be updated soon.
                     </p>
                   )}
@@ -641,9 +629,9 @@ export default async function ProductDetailPage({ params }) {
                 {/* BOTTOM TEXT */}
                 <div className="mt-8 flex items-center gap-3">
 
-                  <div className="h-[2px] w-12 bg-[#f47732]" />
+                  <div className="h-[2px] w-12 bg-[var(--accent)]" />
 
-                  <p className="text-xs font-semibold tracking-wide text-[#b17b58]">
+                  <p className="text-xs font-semibold tracking-wide text-[var(--secondary)]">
                     Science. Care. Quality.
                   </p>
 
@@ -662,13 +650,13 @@ export default async function ProductDetailPage({ params }) {
 
       <section className="px-5 pb-16 sm:px-8 lg:px-12">
 
-        <div className="relative mx-auto flex max-w-[1320px] flex-col items-start justify-between gap-6 overflow-hidden rounded-[28px] bg-[#0b416b] p-7 text-white shadow-[0_18px_45px_rgba(11,65,107,0.18)] sm:p-9 lg:flex-row lg:items-center lg:px-12">
+        <div className="relative mx-auto flex max-w-[1320px] flex-col items-start justify-between gap-6 overflow-hidden rounded-[28px] bg-[var(--primary-dark)] p-7 text-[var(--text-light)] shadow-[0_18px_45px_rgba(7,62,95,0.18)] sm:p-9 lg:flex-row lg:items-center lg:px-12">
 
-          <div className="absolute -right-16 -top-28 h-72 w-72 rounded-full border border-white/10" />
+          <div className="absolute -right-16 -top-28 h-72 w-72 rounded-full border border-[var(--surface)]/10" />
 
           <div className="relative">
 
-            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#b7df8a]">
+            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[var(--accent)]">
               Elisa Biotech Pvt. Ltd.
             </p>
 
@@ -676,7 +664,7 @@ export default async function ProductDetailPage({ params }) {
               Interested in this product?
             </h2>
 
-            <p className="mt-2 max-w-xl text-sm leading-6 text-blue-100">
+            <p className="mt-2 max-w-xl text-sm leading-6 text-[var(--surface-blue)]">
               Get in touch with our team for product details and business enquiries.
             </p>
 
@@ -686,7 +674,7 @@ export default async function ProductDetailPage({ params }) {
 
             <Link
               href="/contact-us"
-              className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[#80bd3f] px-6 py-3.5 text-sm font-extrabold text-[#12334e] transition hover:bg-white sm:flex-none"
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3.5 text-sm font-extrabold text-white transition hover:bg-[var(--secondary)] sm:flex-none"
             >
               Enquire Now
               <ArrowRight size={17} />
@@ -694,7 +682,7 @@ export default async function ProductDetailPage({ params }) {
 
             <Link
               href="/products"
-              className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-white/40 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-white/10 sm:flex-none"
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-[var(--surface)]/40 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[var(--surface)]/10 sm:flex-none"
             >
               <ArrowLeft size={16} />
               All Products
@@ -703,8 +691,6 @@ export default async function ProductDetailPage({ params }) {
           </div>
         </div>
       </section>
-
-        
 
     </main>
   );

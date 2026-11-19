@@ -314,8 +314,10 @@ export default function StatsSection() {
             <span className="h-[2px] w-8 bg-[var(--accent)] sm:w-12" />
           </motion.div>
 
-          <h2 className="flex flex-wrap justify-center gap-x-2 text-[30px] font-extrabold italic leading-tight tracking-[-0.03em] text-[var(--primary)] sm:gap-x-4 sm:text-[46px] md:text-[54px] lg:text-[58px]">
-            {["A Trusted", "Pharmaceutical", "Partner"].map(
+          <h2 className="flex flex-wrap justify-center gap-x-2 text-[30px] 
+          font-extrabold  leading-tight tracking-[-0.03em] text-[var(--primary)] 
+          sm:gap-x-4 sm:text-[46px] md:text-[54px] lg:text-[58px]">
+            {["A Trusted", "Pharmaceutical ", "Partner"].map(
               (word, index) => (
                 <span
                   key={word}
