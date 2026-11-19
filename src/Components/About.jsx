@@ -52,14 +52,14 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative isolate min-h-[100svh] overflow-hidden bg-[#E8F7FA] text-[#0B2D50]"
+      className="relative isolate min-h-[100svh] overflow-hidden bg-[var(--background)] text-[var(--text-primary)]"
     >
       {/* Background atmosphere */}
-      <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_78%_42%,#D0EEF4_0%,transparent_42%),linear-gradient(115deg,#FFFFFF_0%,#F1FAFC_56%,#E8F7FA_100%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_78%_42%,var(--surface-blue)_0%,transparent_42%),linear-gradient(115deg,var(--surface)_0%,var(--surface-light)_56%,var(--background)_100%)]" />
 
-      <div className="pointer-events-none absolute -right-32 top-[-18%] -z-10 h-[520px] w-[520px] rounded-full bg-[#0797A5]/15 blur-[90px]" />
+      <div className="pointer-events-none absolute -right-32 top-[-18%] -z-10 h-[520px] w-[520px] rounded-full bg-[var(--accent)]/15 blur-[90px]" />
 
-      <div className="pointer-events-none absolute -bottom-48 left-[-10%] -z-10 h-[420px] w-[620px] rounded-full bg-[#0876AD]/10 blur-[100px]" />
+      <div className="pointer-events-none absolute -bottom-48 left-[-10%] -z-10 h-[420px] w-[620px] rounded-full bg-[var(--secondary)]/10 blur-[100px]" />
 
       <div className="mx-auto flex min-h-[100svh] w-full max-w-[1600px] flex-col justify-center px-5 py-16 sm:px-8 lg:h-full lg:min-h-0 lg:px-12 lg:py-8 xl:px-16">
         <div className="grid items-center gap-10 lg:h-full lg:grid-cols-[0.92fr_1.08fr] lg:gap-8 xl:gap-14">
@@ -74,30 +74,30 @@ export default function About() {
           >
             <motion.div
               variants={reveal}
-              className="mb-5 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.32em] text-[#0876AD] sm:text-xs"
+              className="mb-5 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.32em] text-[var(--secondary)] sm:text-xs"
             >
-              <span className="h-[4px] w-10 rounded-full bg-[#0797A5]" />
+              <span className="h-[4px] w-10 rounded-full bg-[var(--accent)]" />
               About Elisa Biotech
             </motion.div>
 
             <motion.h1
               variants={reveal}
-              className="max-w-[700px] text-[38px] font-semibold leading-[1.08] tracking-[-0.055em] text-[#0B2D50] sm:text-[48px] md:text-[56px] xl:text-[64px]"
+              className="max-w-[700px] text-[38px] font-semibold leading-[1.08] tracking-[-0.055em] text-[var(--primary)] sm:text-[48px] md:text-[56px] xl:text-[64px]"
             >
               Your Trusted Wholesale Partner for{" "}
-              <span className="bg-gradient-to-r from-[#0876AD] to-[#0797A5] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[var(--secondary)] to-[var(--accent)] bg-clip-text text-transparent">
                 Pharmaceutical Products.
               </span>
             </motion.h1>
 
             <motion.div
               variants={reveal}
-              className="mt-5 h-[5px] w-28 rounded-full bg-gradient-to-r from-[#0876AD] to-[#0797A5]"
+              className="mt-5 h-[5px] w-28 rounded-full bg-gradient-to-r from-[var(--secondary)] to-[var(--accent)]"
             />
 
             <motion.p
               variants={reveal}
-              className="mt-7 max-w-[590px] text-[15px] leading-[1.8] text-[#526B80] sm:text-[17px] xl:text-[18px]"
+              className="mt-7 max-w-[590px] text-[15px] leading-[1.8] text-[var(--text-secondary)] sm:text-[17px] xl:text-[18px]"
             >
               Supplying high-quality pharmaceutical tablets and capsules with
               a wide product range, reliable sourcing, and a customer-focused
@@ -116,18 +116,18 @@ export default function About() {
                     key={item.title}
                     variants={reveal}
                     whileHover={{ y: -5 }}
-                    className="flex items-center gap-3 sm:block sm:border-r sm:border-[#C7DDE7] sm:pr-3 last:border-0"
+                    className="flex items-center gap-3 sm:block sm:border-r sm:border-[var(--border-color)] sm:pr-3 last:border-0"
                   >
-                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[#DDF1F6] text-[#0876AD] sm:mb-3 sm:h-14 sm:w-14">
+                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[var(--surface-blue)] text-[var(--secondary)] sm:mb-3 sm:h-14 sm:w-14">
                       <Icon size={25} strokeWidth={1.7} />
                     </span>
 
                     <div>
-                      <h3 className="text-[13px] font-semibold leading-snug text-[#0B2D50] sm:text-[15px]">
+                      <h3 className="text-[13px] font-semibold leading-snug text-[var(--primary)] sm:text-[15px]">
                         {item.title}
                       </h3>
 
-                      <p className="mt-1 hidden text-[11px] leading-relaxed text-[#718699] sm:block">
+                      <p className="mt-1 hidden text-[11px] leading-relaxed text-[var(--text-secondary)] sm:block">
                         {item.description}
                       </p>
                     </div>
@@ -139,11 +139,11 @@ export default function About() {
             <motion.div variants={reveal} className="mt-8">
               <Link
                 href="/about-us"
-                className="group inline-flex min-h-[54px] items-center gap-7 rounded-full bg-[#0B2D50] py-1.5 pl-7 pr-1.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(11,45,80,0.2)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#0797A5]"
+                className="group inline-flex min-h-[54px] items-center gap-7 rounded-full bg-[image:var(--button-gradient)] py-1.5 pl-7 pr-1.5 text-sm font-semibold text-[var(--text-light)] shadow-[0_12px_30px_rgba(7,62,95,0.2)] transition-all duration-300 hover:-translate-y-1 hover:bg-[image:var(--button-hover)]"
               >
                 Read More
 
-                <span className="grid h-11 w-11 place-items-center rounded-full bg-white text-[#0876AD] transition-transform duration-300 group-hover:translate-x-0.5">
+                <span className="grid h-11 w-11 place-items-center rounded-full bg-[var(--surface)] text-[var(--secondary)] transition-transform duration-300 group-hover:translate-x-0.5">
                   <ArrowRight size={20} />
                 </span>
               </Link>
@@ -159,18 +159,18 @@ export default function About() {
             className="relative order-1 mx-auto h-[360px] w-full max-w-[760px] sm:h-[470px] lg:order-2 lg:h-[min(76vh,700px)] lg:max-h-[700px]"
           >
             {/* Curved healthcare blue framing shapes */}
-            <div className="absolute -right-5 -top-5 h-[46%] w-[75%] rounded-tr-[150px] bg-[#0797A5]/80 sm:-right-8 sm:-top-8" />
+            <div className="absolute -right-5 -top-5 h-[46%] w-[75%] rounded-tr-[150px] bg-[var(--accent)]/80 sm:-right-8 sm:-top-8" />
 
-            <div className="absolute -bottom-5 -left-5 h-[38%] w-[60%] rounded-bl-[100px] bg-gradient-to-r from-[#0B2D50] to-[#0876AD] sm:-bottom-8 sm:-left-8" />
+            <div className="absolute -bottom-5 -left-5 h-[38%] w-[60%] rounded-bl-[100px] bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] sm:-bottom-8 sm:-left-8" />
 
-            <div className="absolute inset-0 overflow-hidden rounded-[30px] bg-[#DDF1F6] shadow-[0_28px_70px_rgba(11,45,80,0.2)] sm:rounded-[42px]">
+            <div className="absolute inset-0 overflow-hidden rounded-[30px] bg-[var(--surface-blue)] shadow-[0_28px_70px_rgba(7,62,95,0.2)] sm:rounded-[42px]">
               <img
                 src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1500&q=90"
                 alt="Pharmaceutical tablets, capsules and medicine packaging"
                 className="h-full w-full object-cover object-center"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B2D50]/40 via-transparent to-[#0876AD]/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary)]/40 via-transparent to-[var(--secondary)]/10" />
 
               {/* Floating medical symbols */}
               <div className="absolute right-5 top-5 flex gap-2 sm:right-8 sm:top-8">
@@ -195,11 +195,11 @@ export default function About() {
                 transition={{ delay: 0.45, duration: 0.7 }}
                 className="absolute bottom-5 left-5 rounded-2xl border border-white/60 bg-white/90 px-5 py-3 shadow-xl backdrop-blur-xl sm:bottom-8 sm:left-8 sm:px-6 sm:py-4"
               >
-                <span className="block text-[9px] font-bold uppercase tracking-[0.22em] text-[#0876AD] sm:text-[10px]">
+                <span className="block text-[9px] font-bold uppercase tracking-[0.22em] text-[var(--secondary)] sm:text-[10px]">
                   Elisa Biotech Pvt. Ltd.
                 </span>
 
-                <span className="mt-1 block text-sm font-semibold text-[#0B2D50] sm:text-base">
+                <span className="mt-1 block text-sm font-semibold text-[var(--primary)] sm:text-base">
                   Pharmaceutical Wholesale
                 </span>
               </motion.div>
@@ -209,9 +209,9 @@ export default function About() {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -left-5 top-[43%] z-10 grid h-[76px] w-[76px] place-items-center rounded-full border-[7px] border-white bg-white shadow-[0_14px_35px_rgba(8,74,105,0.16)] sm:-left-8 sm:h-[90px] sm:w-[90px]"
+              className="absolute -left-5 top-[43%] z-10 grid h-[76px] w-[76px] place-items-center rounded-full border-[7px] border-[var(--surface)] bg-[var(--surface)] shadow-[0_14px_35px_rgba(7,62,95,0.16)] sm:-left-8 sm:h-[90px] sm:w-[90px]"
             >
-              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#E8F7FA] text-[#0876AD] sm:h-14 sm:w-14">
+              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[var(--surface-blue)] text-[var(--secondary)] sm:h-14 sm:w-14">
                 <Pill size={27} strokeWidth={1.7} />
               </span>
             </motion.div>

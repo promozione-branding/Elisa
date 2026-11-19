@@ -9,41 +9,41 @@ const products = [
     title: "Pharmaceutical Tablets",
     image: "/pharma.webp",
     icon: Pill,
-    bg: "from-[#E6F7F5] to-[#CDEEEA]",
-    iconColor: "text-[#0E9F8F]",
+    bg: "from-[var(--surface)] to-[var(--surface-blue)]",
+    iconColor: "text-[var(--secondary)]",
     link: "#",
   },
   {
     title: "Allopathic Tablets",
     image: "/Allopathic Tablets.webp",
     icon: Pill,
-    bg: "from-[#FFF1E4] to-[#FDE0C6]",
-    iconColor: "text-[#F28A3A]",
-     link: "#",
+    bg: "from-[var(--surface-light)] to-[var(--surface-blue)]",
+    iconColor: "text-[var(--accent)]",
+    link: "#",
   },
   {
     title: "Pharmaceutical Injection",
     image: "/Pharmaceutical_Injection-removebg-preview.webp",
     icon: Pill,
-    bg: "from-[#E8F2FD] to-[#CFE3F8]",
-    iconColor: "text-[#2B7BD1]",
-     link: "#",
+    bg: "from-[var(--surface)] to-[var(--surface-blue)]",
+    iconColor: "text-[var(--secondary)]",
+    link: "#",
   },
   {
     title: "Antibiotics Medicine",
     image: "/linezolid-600-mg-tablet-500x500-removebg-preview.webp",
     icon: Package,
-    bg: "from-[#F1EEFD] to-[#E0DAF8]",
-    iconColor: "text-[#4B4FC4]",
-     link: "#",
+    bg: "from-[var(--surface-light)] to-[var(--surface-blue)]",
+    iconColor: "text-[var(--primary)]",
+    link: "#",
   },
   {
     title: "Pharmaceutical Syrup",
     image: "/medicine.webp",
     icon: Droplet,
-    bg: "from-[#E8FBEF] to-[#D2F3DF]",
-    iconColor: "text-[#1FA35B]",
-     link: "#",
+    bg: "from-[var(--surface)] to-[var(--surface-blue)]",
+    iconColor: "text-[var(--accent)]",
+    link: "#",
   },
 ];
 
@@ -66,10 +66,11 @@ const cardVariant = {
 
 export default function ProductRange() {
   return (
-    <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#F7FCFB] via-[#EEF8F7] to-[#E6F4F3] text-[#0B2E40]">
+    <section className="relative isolate overflow-hidden bg-gradient-to-br from-[var(--background)] via-[var(--surface-light)] to-[var(--surface-blue)] text-[var(--text-primary)]">
       {/* Decorative curved shape */}
-      <div className="pointer-events-none absolute -left-24 -top-24 -z-10 h-[420px] w-[420px] rounded-full bg-[#0D9996]/5 blur-3xl" />
-      <div className="pointer-events-none absolute right-[-120px] top-[-120px] -z-10 h-[360px] w-[360px] rounded-full border border-[#0D9996]/15" />
+      <div className="pointer-events-none absolute -left-24 -top-24 -z-10 h-[420px] w-[420px] rounded-full bg-[var(--secondary)]/5 blur-3xl" />
+
+      <div className="pointer-events-none absolute right-[-120px] top-[-120px] -z-10 h-[360px] w-[360px] rounded-full border border-[var(--accent)]/15" />
 
       <div className="mx-auto max-w-[1400px] px-5 pb-8 pt-10 sm:px-8 lg:px-12 lg:pb-10 lg:pt-12">
         {/* HERO */}
@@ -81,25 +82,32 @@ export default function ProductRange() {
             animate="show"
             className="relative z-10 order-1"
           >
-            <motion.div variants={fadeUp} className="mb-4 flex items-center gap-3">
-              <span className="h-[2px] w-8 bg-[#075B91]" />
-              <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#078F91] sm:text-[11px]">
+            <motion.div
+              variants={fadeUp}
+              className="mb-4 flex items-center gap-3"
+            >
+              <span className="h-[2px] w-8 bg-[var(--primary)]" />
+
+              <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--secondary)] sm:text-[11px]">
                 Discover Our Collection
               </span>
-              <span className="h-[2px] w-6 bg-[#075B91]" />
+
+              <span className="h-[2px] w-6 bg-[var(--primary)]" />
             </motion.div>
 
             <motion.h1
               variants={fadeUp}
-              className="text-[2.1rem] font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.6rem]"
+              className="text-[2.1rem] font-bold leading-[1.08] tracking-tight text-[var(--primary)] sm:text-5xl lg:text-[3.6rem]"
             >
               Our Pharmaceutical
-              <span className="mt-1 block text-[#075B91]">Categories</span>
+              <span className="mt-1 block text-[var(--secondary)]">
+                Categories
+              </span>
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
-              className="mt-5 max-w-md text-sm leading-relaxed text-[#3D5A66] sm:text-base"
+              className="mt-5 max-w-md text-sm leading-relaxed text-[var(--text-secondary)] sm:text-base"
             >
               A comprehensive range of high-quality pharmaceutical products,
               manufactured with precision and care for better health and
@@ -111,9 +119,10 @@ export default function ProductRange() {
                 href="/products"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
-                className="group inline-flex items-center gap-3 rounded-full bg-[#0876AD] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(11,143,134,0.3)] transition-colors hover:bg-[#087870]"
+                className="group inline-flex items-center gap-3 rounded-full bg-[image:var(--button-gradient)] px-7 py-3.5 text-sm font-semibold text-[var(--text-light)] shadow-[0_12px_30px_rgba(7,62,95,0.2)] transition-colors hover:bg-[image:var(--button-hover)]"
               >
                 Explore Products
+
                 <ArrowRight
                   size={18}
                   className="transition-transform duration-300 group-hover:translate-x-1"
@@ -134,7 +143,7 @@ export default function ProductRange() {
               alt="Elisa Biotech pharmaceutical products"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="w-full max-w-[640px] object-contain drop-shadow-[0_25px_40px_rgba(8,65,77,0.15)]"
+              className="w-full max-w-[640px] object-contain drop-shadow-[0_25px_40px_rgba(7,62,95,0.15)]"
             />
 
             {/* Trusted badge */}
@@ -147,11 +156,10 @@ export default function ProductRange() {
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-full border-[3px] border-dashed border-[#0876AD]/40"
+                className="absolute inset-0 rounded-full border-[3px] border-dashed border-[var(--secondary)]/40"
               />
-              <div className="relative flex h-[88%] w-[88%] flex-col items-center justify-center 
-              rounded-full bg-[#0876AD] text-center
-               text-white shadow-[0_15px_35px_rgba(10,110,101,0.35)] ring-4 ring-white">
+
+              <div className="relative flex h-[88%] w-[88%] flex-col items-center justify-center rounded-full bg-[image:var(--button-gradient)] text-center text-[var(--text-light)] shadow-[0_15px_35px_rgba(7,62,95,0.25)] ring-4 ring-[var(--surface)]">
                 <span className="text-[10px] font-bold leading-tight sm:text-xs">
                   Trusted
                   <br />
@@ -159,87 +167,69 @@ export default function ProductRange() {
                   <br />
                   Range
                 </span>
+
                 <CheckCircle2 size={14} className="mt-1 opacity-90" />
               </div>
             </motion.div>
           </motion.div>
         </div>
 
-      
-
-{/* PRODUCT CARDS */}
-<motion.div
-  variants={container}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true, amount: 0.2 }}
-  className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4
-  [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
-  lg:mt-12 lg:grid lg:grid-cols-5 lg:gap-5 lg:overflow-visible lg:pb-0"
->
-  {products.map((item) => {
-    const Icon = item.icon;
-
-    return (
-      <motion.div
-        key={item.title}
-        variants={cardVariant}
-        whileHover={{ y: -7 }}
-        transition={{ type: "spring", stiffness: 250, damping: 20 }}
-        className={`group relative h-[270px] min-w-[70%] shrink-0
-        snap-start overflow-hidden rounded-[22px]
-        border border-white/80 bg-gradient-to-br ${item.bg}
-        shadow-[0_10px_30px_rgba(8,65,77,0.08)]
-        transition-shadow duration-500
-        hover:shadow-[0_22px_45px_rgba(8,65,77,0.16)]
-        sm:min-w-[42%] lg:h-[220px] lg:min-w-0`}
-      >
-        <Link
-          href={item.link}
-          className="absolute inset-0 z-10 flex flex-col p-5"
+        {/* PRODUCT CARDS */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:mt-12 lg:grid lg:grid-cols-5 lg:gap-5 lg:overflow-visible lg:pb-0"
         >
-          {/* Icon + Title */}
-          <div>
-            <Icon
-              size={25}
-              strokeWidth={1.8}
-              className={item.iconColor}
-            />
+          {products.map((item) => {
+            const Icon = item.icon;
 
-            <h3 className="mt-2 max-w-[85%] text-[16px] font-bold
-            leading-snug text-[#0B2E40] lg:text-[17px]">
-              {item.title}
-            </h3>
-          </div>
+            return (
+              <motion.div
+                key={item.title}
+                variants={cardVariant}
+                whileHover={{ y: -7 }}
+                transition={{ type: "spring", stiffness: 250, damping: 20 }}
+                className={`group relative h-[270px] min-w-[70%] shrink-0 snap-start overflow-hidden rounded-[22px] border border-[var(--border-color)] bg-gradient-to-br ${item.bg} shadow-[0_10px_30px_rgba(7,62,95,0.08)] transition-shadow duration-500 hover:shadow-[0_22px_45px_rgba(7,62,95,0.16)] sm:min-w-[42%] lg:h-[220px] lg:min-w-0`}
+              >
+                <Link
+                  href={item.link}
+                  className="absolute inset-0 z-10 flex flex-col p-5"
+                >
+                  {/* Icon + Title */}
+                  <div>
+                    <Icon
+                      size={25}
+                      strokeWidth={1.8}
+                      className={item.iconColor}
+                    />
 
-          {/* Product Image */}
-          <div className="absolute inset-x-0 bottom-0 flex h-[155px]
-          items-center justify-center px-4 pt-2">
-            <motion.img
-              src={item.image}
-              alt={item.title}
-              whileHover={{ scale: 1.08, rotate: -2 }}
-              transition={{ duration: 0.5, ease }}
-              className="h-full w-full object-contain object-center
-              drop-shadow-[0_10px_12px_rgba(0,0,0,0.12)]"
-            />
-          </div>
+                    <h3 className="mt-2 max-w-[85%] text-[16px] font-bold leading-snug text-[var(--primary)] lg:text-[17px]">
+                      {item.title}
+                    </h3>
+                  </div>
 
-          {/* Arrow */}
-          <span className="absolute bottom-3 right-3 z-20 flex
-          h-9 w-9 items-center justify-center rounded-full
-          bg-white text-[#0B2E40] shadow-md transition-all
-          duration-300 group-hover:bg-[#0876AD]
-          group-hover:text-white">
-            <ArrowRight size={17} />
-          </span>
-        </Link>
-      </motion.div>
-    );
-  })}
-</motion.div>
+                  {/* Product Image */}
+                  <div className="absolute inset-x-0 bottom-0 flex h-[155px] items-center justify-center px-4 pt-2">
+                    <motion.img
+                      src={item.image}
+                      alt={item.title}
+                      whileHover={{ scale: 1.08, rotate: -2 }}
+                      transition={{ duration: 0.5, ease }}
+                      className="h-full w-full object-contain object-center drop-shadow-[0_10px_12px_rgba(0,0,0,0.12)]"
+                    />
+                  </div>
 
-
+                  {/* Arrow */}
+                  <span className="absolute bottom-3 right-3 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-[var(--surface)] text-[var(--primary)] shadow-md transition-all duration-300 group-hover:bg-[var(--secondary)] group-hover:text-[var(--text-light)]">
+                    <ArrowRight size={17} />
+                  </span>
+                </Link>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );

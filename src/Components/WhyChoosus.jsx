@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -146,26 +145,47 @@ function Mortar({ size = 100 }) {
         height="38"
         rx="6.5"
         transform="rotate(32 8 -10)"
-        fill="#fff"
+        fill="var(--surface)"
       />
       <path
         d="M-38 -4H38C38 24 20 40 0 40S-38 24 -38 -4Z"
-        fill="#fff"
+        fill="var(--surface)"
       />
-      <rect x="-16" y="40" width="32" height="7" rx="3" fill="#fff" />
-      <rect x="-4" y="6" width="8" height="26" rx="2" fill="#0876AD" />
-      <rect x="-13" y="15" width="26" height="8" rx="2" fill="#0876AD" />
+      <rect
+        x="-16"
+        y="40"
+        width="32"
+        height="7"
+        rx="3"
+        fill="var(--surface)"
+      />
+      <rect
+        x="-4"
+        y="6"
+        width="8"
+        height="26"
+        rx="2"
+        fill="var(--secondary)"
+      />
+      <rect
+        x="-13"
+        y="15"
+        width="26"
+        height="8"
+        rx="2"
+        fill="var(--secondary)"
+      />
     </svg>
   );
 }
 
 function Check({ delay = 0 }) {
   return (
-    <span className="grid h-[26px] w-[26px] shrink-0 place-items-center rounded-full bg-[#0797A5]">
+    <span className="grid h-[26px] w-[26px] shrink-0 place-items-center rounded-full bg-[var(--secondary)]">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
         <motion.path
           d="M5 12.5l4.5 4.5L19 7"
-          stroke="#fff"
+          stroke="var(--text-light)"
           strokeWidth="3.4"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -247,7 +267,7 @@ const Caplet = ({
       width={l - 40}
       height="8"
       rx="4"
-      fill="#fff"
+      fill="var(--surface)"
       opacity=".55"
     />
   </g>
@@ -259,7 +279,7 @@ const Cap = ({
   l = 150,
   w = 56,
   rot = 0,
-  a = "#0876AD",
+  a = "var(--secondary)",
   b = "#fff",
 }) => (
   <g transform={`translate(${x} ${y}) rotate(${rot})`}>
@@ -292,13 +312,13 @@ const Cap = ({
       width={l / 2 - 12}
       height="7"
       rx="3.5"
-      fill="#fff"
+      fill="var(--surface)"
       opacity=".6"
     />
   </g>
 );
 
-const Box = ({ x, y, s = 80, h = 90, tone = "#fff" }) => (
+const Box = ({ x, y, s = 80, h = 90, tone = "var(--surface)" }) => (
   <g>
     <path
       d={`M${x} ${y}L${x + s} ${y + s / 2}L${x} ${y + s}L${x - s} ${
@@ -322,13 +342,13 @@ const Box = ({ x, y, s = 80, h = 90, tone = "#fff" }) => (
       d={`M${x} ${y + s}L${x + s} ${y + s / 2}V${y + s / 2 + 22}L${x} ${
         y + s + 22
       }Z`}
-      fill="#0876AD"
+      fill="var(--secondary)"
     />
     <path
       d={`M${x - s} ${y + s / 2}L${x} ${y + s}V${y + s + 22}L${x - s} ${
         y + s / 2 + 22
       }Z`}
-      fill="#0797A5"
+      fill="var(--accent)"
     />
   </g>
 );
@@ -346,12 +366,12 @@ function Scene({ type }) {
     >
       <defs>
         <linearGradient id="eb-sceneBg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#E8F7FA" />
-          <stop offset="1" stopColor="#b8cedd" />
+          <stop offset="0" stopColor="var(--surface-blue)" />
+          <stop offset="1" stopColor="var(--border-color)" />
         </linearGradient>
 
         <radialGradient id="eb-tab" cx=".35" cy=".3" r=".9">
-          <stop offset="0" stopColor="#fff" />
+          <stop offset="0" stopColor="var(--surface)" />
           <stop offset="1" stopColor="#dfe8ef" />
         </radialGradient>
       </defs>
@@ -390,8 +410,8 @@ function Scene({ type }) {
         <>
           <Cap x={250} y={90} l={110} w={42} rot={40} />
           <Cap x={160} y={230} l={190} w={70} rot={-28} />
-          <Cap x={190} y={380} l={190} w={70} rot={22} a="#0876AD" />
-          <Cap x={110} y={500} l={150} w={58} rot={-14} a="#0797A5" />
+          <Cap x={190} y={380} l={190} w={70} rot={22} a="var(--secondary)" />
+          <Cap x={110} y={500} l={150} w={58} rot={-14} a="var(--accent)" />
         </>
       )}
 
@@ -493,7 +513,7 @@ export default function WhyChooseUs() {
   const last = words.pop();
 
   return (
-    <section className={`${font.className} w-full bg-[#E8F7FA]`}>
+    <section className={`${font.className} w-full bg-[var(--surface-blue)]`}>
       <style>{`
         @keyframes eb-spin {
           to { transform: rotate(360deg); }
@@ -553,7 +573,7 @@ export default function WhyChooseUs() {
             transform: `scale(${scale})`,
             opacity: scale ? 1 : 0,
             background:
-              "linear-gradient(100deg,#FFFFFF 0%,#F5FBFD 35%,#E8F7FA 62%,#DCEFF5 100%)",
+              "linear-gradient(100deg,var(--surface) 0%,var(--background) 35%,var(--surface-blue) 62%,var(--surface-light) 100%)",
           }}
         >
           {/* ---------- BACKGROUND ---------- */}
@@ -567,14 +587,14 @@ export default function WhyChooseUs() {
           >
             <defs>
               <linearGradient id="eb-swoosh" x1="0" x2="1">
-                <stop offset="0" stopColor="#0876AD" stopOpacity="0" />
-                <stop offset=".5" stopColor="#0876AD" />
-                <stop offset="1" stopColor="#0797A5" />
+                <stop offset="0" stopColor="var(--secondary)" stopOpacity="0" />
+                <stop offset=".5" stopColor="var(--secondary)" />
+                <stop offset="1" stopColor="var(--accent)" />
               </linearGradient>
 
               <linearGradient id="eb-wave" x1="0" x2="1">
-                <stop offset="0" stopColor="#DCEFF5" />
-                <stop offset="1" stopColor="#0797A5" />
+                <stop offset="0" stopColor="var(--surface-light)" />
+                <stop offset="1" stopColor="var(--accent)" />
               </linearGradient>
 
               <filter id="eb-bokeh">
@@ -586,7 +606,7 @@ export default function WhyChooseUs() {
               cx="1200"
               cy="60"
               r="110"
-              fill="#fff"
+              fill="var(--surface)"
               opacity=".8"
               filter="url(#eb-bokeh)"
             />
@@ -595,7 +615,7 @@ export default function WhyChooseUs() {
               cx="900"
               cy="30"
               r="90"
-              fill="#DCEFF5"
+              fill="var(--surface-blue)"
               opacity=".7"
               filter="url(#eb-bokeh)"
             />
@@ -604,16 +624,14 @@ export default function WhyChooseUs() {
               cx="1820"
               cy="30"
               r="80"
-              fill="#0797A5"
+              fill="var(--accent)"
               opacity=".25"
               filter="url(#eb-bokeh)"
             />
 
-            {/* Large pale arc */}
-
             <path
               d="M300 0C560 20 760 130 800 330C830 520 700 700 480 815H0V0Z"
-              fill="#fff"
+              fill="var(--surface)"
               opacity=".9"
             />
 
@@ -624,11 +642,9 @@ export default function WhyChooseUs() {
               opacity=".85"
             />
 
-            {/* Bottom swooshes */}
-
             <path
               d="M0 815V770C120 730 240 700 380 700C250 715 120 760 70 815Z"
-              fill="#DCEFF5"
+              fill="var(--surface-light)"
               opacity=".8"
             />
 
@@ -640,7 +656,7 @@ export default function WhyChooseUs() {
 
             <path
               d="M0 740C140 690 280 690 420 700"
-              stroke="#B8DCEB"
+              stroke="var(--border-color)"
               strokeWidth="4"
               opacity=".7"
             />
@@ -654,12 +670,12 @@ export default function WhyChooseUs() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease }}
           >
-            <span className="text-[17px] font-bold tracking-[0.2em] text-[#0B2D50]">
+            <span className="text-[17px] font-bold tracking-[0.2em] text-[var(--primary)]">
               ELISA BIOTECH PVT. LTD.
             </span>
 
             <motion.span
-              className="h-[3px] rounded-full bg-[#0797A5]"
+              className="h-[3px] rounded-full bg-[var(--accent)]"
               initial={{ width: 0 }}
               animate={{ width: 44 }}
               transition={{ delay: 0.5, duration: 0.7, ease }}
@@ -667,7 +683,7 @@ export default function WhyChooseUs() {
           </motion.div>
 
           <motion.h1
-            className="absolute left-[89px] top-[150px] text-[56px] font-extrabold leading-[58px] tracking-[-0.025em] text-[#0B2D50]"
+            className="absolute left-[89px] top-[150px] text-[56px] font-extrabold leading-[58px] tracking-[-0.025em] text-[var(--primary)]"
             initial="hidden"
             animate="show"
             variants={{
@@ -688,7 +704,7 @@ export default function WhyChooseUs() {
                 <motion.span
                   className={`block ${
                     i === 1
-                      ? "bg-gradient-to-r from-[#0876AD] to-[#0797A5] bg-clip-text text-transparent"
+                      ? "bg-gradient-to-r from-[var(--secondary)] to-[var(--accent)] bg-clip-text text-transparent"
                       : ""
                   }`}
                   variants={{
@@ -706,7 +722,7 @@ export default function WhyChooseUs() {
           </motion.h1>
 
           <motion.p
-            className="absolute left-[89px] top-[338px] w-[470px] text-[20px] leading-[30px] text-[#526B80]"
+            className="absolute left-[89px] top-[338px] w-[470px] text-[20px] leading-[30px] text-[var(--text-secondary)]"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.7, ease }}
@@ -741,12 +757,12 @@ export default function WhyChooseUs() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="text-black"
+                className="text-[var(--secondary)]"
               >
                 <Icon size={46} strokeWidth={1.7} />
               </motion.span>
 
-              <span className="mt-2 text-center text-[18px] font-semibold leading-[22px] text-[#0B2D50]">
+              <span className="mt-2 text-center text-[18px] font-semibold leading-[22px] text-[var(--primary)]">
                 {t[0]}
                 <br />
                 {t[1]}
@@ -754,8 +770,8 @@ export default function WhyChooseUs() {
             </motion.div>
           ))}
 
-          <span className="absolute left-[196px] top-[478px] h-[70px] w-px bg-[#C7DDE7]" />
-          <span className="absolute left-[335px] top-[478px] h-[70px] w-px bg-[#C7DDE7]" />
+          <span className="absolute left-[196px] top-[478px] h-[70px] w-px bg-[var(--border-color)]" />
+          <span className="absolute left-[335px] top-[478px] h-[70px] w-px bg-[var(--border-color)]" />
 
           {/* ---------- READ MORE BUTTON ---------- */}
 
@@ -767,11 +783,11 @@ export default function WhyChooseUs() {
           >
             <Link
               href="/about-us"
-              className="group relative flex h-[60px] w-[240px] items-center justify-between overflow-hidden rounded-full bg-gradient-to-r from-[#0876AD] to-[#0B2D50] pl-[34px] pr-[10px] text-[20px] font-semibold text-white shadow-[0_14px_30px_rgba(11,45,80,0.22)]"
+              className="group relative flex h-[60px] w-[240px] items-center justify-between overflow-hidden rounded-full bg-[image:var(--button-gradient)] pl-[34px] pr-[10px] text-[20px] font-semibold text-[var(--text-light)] shadow-[0_14px_30px_rgba(11,45,80,0.22)] transition-all duration-300 hover:bg-[image:var(--button-hover)]"
             >
               <span className="relative z-10">Read More</span>
 
-              <span className="relative z-10 grid h-[44px] w-[44px] place-items-center rounded-full bg-white text-[#0876AD] transition-transform duration-300 group-hover:translate-x-1">
+              <span className="relative z-10 grid h-[44px] w-[44px] place-items-center rounded-full bg-[var(--surface)] text-[var(--secondary)] transition-transform duration-300 group-hover:translate-x-1">
                 <ArrowRight size={22} strokeWidth={2.4} />
               </span>
 
@@ -799,18 +815,18 @@ export default function WhyChooseUs() {
             >
               <defs>
                 <linearGradient id="eb-glass" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stopColor="#FFFFFF" />
-                  <stop offset="1" stopColor="#E8F7FA" />
+                  <stop offset="0" stopColor="var(--surface)" />
+                  <stop offset="1" stopColor="var(--surface-blue)" />
                 </linearGradient>
 
                 <linearGradient id="eb-active" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stopColor="#0876AD" />
-                  <stop offset="1" stopColor="#0797A5" />
+                  <stop offset="0" stopColor="var(--secondary)" />
+                  <stop offset="1" stopColor="var(--accent)" />
                 </linearGradient>
 
                 <linearGradient id="eb-core" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stopColor="#0876AD" />
-                  <stop offset="1" stopColor="#0B2D50" />
+                  <stop offset="0" stopColor="var(--secondary)" />
+                  <stop offset="1" stopColor="var(--primary)" />
                 </linearGradient>
 
                 <filter
@@ -824,7 +840,7 @@ export default function WhyChooseUs() {
                     dx="0"
                     dy="10"
                     stdDeviation="10"
-                    floodColor="#0B2D50"
+                    floodColor="#073E5F"
                     floodOpacity=".16"
                   />
                 </filter>
@@ -836,18 +852,18 @@ export default function WhyChooseUs() {
 
               <circle
                 r="352"
-                fill="#fff"
+                fill="var(--surface)"
                 opacity=".28"
-                stroke="#fff"
+                stroke="var(--surface)"
                 strokeOpacity=".8"
                 strokeWidth="2"
               />
 
               <circle
                 r="125"
-                fill="#fff"
+                fill="var(--surface)"
                 opacity=".65"
-                stroke="#D5E6EE"
+                stroke="var(--border-color)"
                 strokeWidth="2"
                 filter="url(#eb-shadow)"
               />
@@ -858,16 +874,16 @@ export default function WhyChooseUs() {
                 <circle
                   r="182"
                   fill="none"
-                  stroke="#0876AD"
+                  stroke="var(--secondary)"
                   strokeWidth="2"
                   strokeDasharray="200 940"
                 />
-                <circle cx="182" cy="0" r="7" fill="#0876AD" />
+                <circle cx="182" cy="0" r="7" fill="var(--secondary)" />
                 <circle
                   cx="182"
                   cy="0"
                   r="14"
-                  fill="#0876AD"
+                  fill="var(--secondary)"
                   opacity=".25"
                 />
               </g>
@@ -876,7 +892,7 @@ export default function WhyChooseUs() {
                 <circle
                   r="198"
                   fill="none"
-                  stroke="#0797A5"
+                  stroke="var(--accent)"
                   strokeWidth="1.5"
                   strokeDasharray="4 14"
                   opacity=".7"
@@ -903,7 +919,7 @@ export default function WhyChooseUs() {
                   <path
                     d={d}
                     fill="url(#eb-glass)"
-                    stroke="#F3F8FB"
+                    stroke="var(--surface-light)"
                     strokeWidth="20"
                     strokeLinejoin="round"
                     filter="url(#eb-shadow)"
@@ -925,7 +941,7 @@ export default function WhyChooseUs() {
               >
                 <path
                   d={highlightPath}
-                  fill="#0797A5"
+                  fill="var(--accent)"
                   filter="url(#eb-blurglow)"
                   className="eb-glow"
                 />
@@ -941,7 +957,7 @@ export default function WhyChooseUs() {
                 <path
                   d={highlightPath}
                   fill="none"
-                  stroke="#fff"
+                  stroke="var(--surface)"
                   strokeOpacity=".55"
                   strokeWidth="2.5"
                 />
@@ -953,7 +969,7 @@ export default function WhyChooseUs() {
                 r="86"
                 className="eb-o eb-ripple"
                 fill="none"
-                stroke="#0876AD"
+                stroke="var(--secondary)"
                 strokeWidth="2"
               />
 
@@ -961,7 +977,7 @@ export default function WhyChooseUs() {
                 r="86"
                 className="eb-o eb-ripple"
                 fill="none"
-                stroke="#0797A5"
+                stroke="var(--accent)"
                 strokeWidth="2"
                 style={{ animationDelay: "1.8s" }}
               />
@@ -969,7 +985,7 @@ export default function WhyChooseUs() {
               <circle
                 r="86"
                 fill="url(#eb-core)"
-                stroke="#fff"
+                stroke="var(--surface)"
                 strokeWidth="4"
                 filter="url(#eb-shadow)"
               />
@@ -1012,7 +1028,7 @@ export default function WhyChooseUs() {
                       damping: 16,
                     }}
                     className={`transition-colors duration-500 ${
-                      on ? "text-white" : "text-[#0876AD]"
+                      on ? "text-[var(--text-light)]" : "text-[var(--secondary)]"
                     }`}
                   >
                     <it.Icon size={50} strokeWidth={1.8} />
@@ -1020,7 +1036,7 @@ export default function WhyChooseUs() {
 
                   <span
                     className={`mt-2 text-center text-[22px] font-semibold leading-[27px] transition-colors duration-500 ${
-                      on ? "text-white" : "text-[#0B2D50]"
+                      on ? "text-[var(--text-light)]" : "text-[var(--primary)]"
                     }`}
                   >
                     {it.label[0]}
@@ -1038,7 +1054,7 @@ export default function WhyChooseUs() {
             className="absolute left-[1212px] top-[93px] h-[607px] w-[800px] overflow-hidden rounded-l-[90px] border border-white/80 shadow-[0_30px_70px_rgba(11,45,80,0.14)]"
             style={{
               background:
-                "linear-gradient(120deg,rgba(255,255,255,.85),rgba(220,239,245,.85))",
+                "linear-gradient(120deg,rgba(255,255,255,.85),rgba(234,244,247,.85))",
             }}
           >
             {!reduce && (
@@ -1057,7 +1073,7 @@ export default function WhyChooseUs() {
 
           {/* ---------- COUNTER + PROGRESS ---------- */}
 
-          <div className="absolute left-[1277px] top-[128px] flex h-[28px] items-center text-[20px] font-semibold text-[#0876AD]">
+          <div className="absolute left-[1277px] top-[128px] flex h-[28px] items-center text-[20px] font-semibold text-[var(--secondary)]">
             <span className="relative inline-block h-[28px] w-[30px] overflow-hidden">
               <AnimatePresence initial={false} mode="popLayout">
                 <motion.span
@@ -1073,11 +1089,11 @@ export default function WhyChooseUs() {
               </AnimatePresence>
             </span>
 
-            <span className="text-[#718699]">&nbsp;/ 04</span>
+            <span className="text-[var(--text-secondary)]">&nbsp;/ 04</span>
           </div>
 
           <div
-            className="absolute top-[141px] h-[2px] rounded-full bg-[#C7DDE7]"
+            className="absolute top-[141px] h-[2px] rounded-full bg-[var(--border-color)]"
             style={{
               left: TRACK_START,
               width: 1570 - TRACK_START,
@@ -1085,7 +1101,7 @@ export default function WhyChooseUs() {
           />
 
           <motion.div
-            className="absolute top-[141px] h-[2px] rounded-full bg-[#0797A5]"
+            className="absolute top-[141px] h-[2px] rounded-full bg-[var(--accent)]"
             style={{ left: TRACK_START }}
             animate={{ width: NODE_X[active] - TRACK_START }}
             transition={{ duration: 0.7, ease }}
@@ -1107,13 +1123,13 @@ export default function WhyChooseUs() {
                   width: i === active ? 18 : 16,
                   height: i === active ? 18 : 16,
                   backgroundColor:
-                    i <= active ? "#0797A5" : "#FFFFFF",
+                    i <= active ? "var(--accent)" : "var(--surface)",
                   borderColor:
-                    i <= active ? "#0797A5" : "#C7DDE7",
+                    i <= active ? "var(--accent)" : "var(--border-color)",
                   boxShadow:
                     i === active
-                      ? "0 0 0 6px rgba(7,151,165,0.2)"
-                      : "0 0 0 0px rgba(7,151,165,0)",
+                      ? "0 0 0 6px rgba(25,160,184,0.2)"
+                      : "0 0 0 0px rgba(25,160,184,0)",
                 }}
               />
             </button>
@@ -1133,16 +1149,16 @@ export default function WhyChooseUs() {
               >
                 <motion.h2
                   variants={rise}
-                  className="absolute left-0 top-[186px] w-[460px] whitespace-nowrap text-[40px] font-bold leading-[52px] tracking-[-0.02em] text-[#0B2D50]"
+                  className="absolute left-0 top-[186px] w-[460px] whitespace-nowrap text-[40px] font-bold leading-[52px] tracking-[-0.02em] text-[var(--primary)]"
                 >
                   {words.join(" ")}
                   {words.length ? " " : ""}
-                  <span className="text-black">{last}</span>
+                  <span className="text-[var(--dark)]">{last}</span>
                 </motion.h2>
 
                 <motion.p
                   variants={rise}
-                  className="absolute left-0 top-[262px] w-[385px] text-[20px] leading-[29px] text-[#526B80]"
+                  className="absolute left-0 top-[262px] w-[385px] text-[20px] leading-[29px] text-[var(--text-secondary)]"
                 >
                   {item.text}
                 </motion.p>
@@ -1152,7 +1168,7 @@ export default function WhyChooseUs() {
                     <motion.li
                       key={p}
                       variants={rowIn}
-                      className="flex items-center gap-4 text-[19px] text-[#0B2D50]"
+                      className="flex items-center gap-4 text-[19px] text-[var(--primary)]"
                     >
                       <Check delay={0.25 + i * 0.08} />
                       {p}
@@ -1166,7 +1182,7 @@ export default function WhyChooseUs() {
                 >
                   <Link
                     href={item.href}
-                    className="group flex h-[62px] items-center gap-6 rounded-full border-2 border-[#0876AD] bg-white/60 px-10 text-[20px] font-semibold text-[#0B2D50] transition-colors duration-300 hover:bg-[#0876AD] hover:text-white"
+                    className="group flex h-[62px] items-center gap-6 rounded-full border-2 border-[var(--secondary)] bg-white/60 px-10 text-[20px] font-semibold text-[var(--primary)] transition-colors duration-300 hover:bg-[var(--secondary)] hover:text-[var(--text-light)]"
                   >
                     {item.cta}
 
@@ -1187,10 +1203,10 @@ export default function WhyChooseUs() {
             className="absolute left-[1625px] top-[130px] h-[545px] w-[340px] rotate-[14deg] rounded-[170px] p-[6px] shadow-[0_0_40px_rgba(8,118,173,0.25)]"
             style={{
               background:
-                "linear-gradient(160deg,#FFFFFF,#0797A5 55%,#DCEFF5)",
+                "linear-gradient(160deg,var(--surface),var(--accent) 55%,var(--surface-light))",
             }}
           >
-            <div className="relative h-full w-full overflow-hidden rounded-[164px] bg-[#E8F7FA]">
+            <div className="relative h-full w-full overflow-hidden rounded-[164px] bg-[var(--surface-blue)]">
               <AnimatePresence mode="popLayout" initial={false}>
                 <motion.div
                   key={item.scene}

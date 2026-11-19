@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useRef, useState, useEffect } from "react";
@@ -68,7 +67,7 @@ export default function Products() {
   return (
     <section
       id="products"
-      className="relative isolate min-h-[680px] overflow-hidden bg-[#062b49] text-white lg:h-[650px] lg:min-h-0"
+      className="relative isolate min-h-[680px] overflow-hidden bg-[var(--primary-dark)] text-[var(--text-light)] lg:h-[650px] lg:min-h-0"
     >
       {/* BACKGROUND PRODUCT IMAGE */}
       <AnimatePresence mode="wait">
@@ -88,13 +87,13 @@ export default function Products() {
       </AnimatePresence>
 
       {/* DARK OVERLAY */}
-      <div className="absolute inset-0 -z-10 bg-[#061f38]/75" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#031c32]/95 via-[#073b60]/65 to-[#041f39]/60" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#041b30]/60 via-transparent to-[#062a48]/25" />
+      <div className="absolute inset-0 -z-10 bg-[var(--primary-dark)]/75" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--primary-dark)]/95 via-[var(--primary)]/65 to-[var(--primary-dark)]/60" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--primary-dark)]/60 via-transparent to-[var(--primary)]/25" />
 
       {/* BACKGROUND LIGHT */}
       <motion.div
-        className="pointer-events-none absolute -right-20 top-0 -z-10 h-[500px] w-[500px] rounded-full bg-[#05b8bd]/20 blur-[120px]"
+        className="pointer-events-none absolute -right-20 top-0 -z-10 h-[500px] w-[500px] rounded-full bg-[var(--accent)]/20 blur-[120px]"
         animate={{
           scale: [1, 1.2, 1],
           x: [0, -35, 0],
@@ -120,7 +119,7 @@ export default function Products() {
               transition={{ duration: 0.8, ease }}
               className="mb-5 flex items-center gap-3"
             >
-              <span className="h-[2px] w-9 bg-[#14c2bd]" />
+              <span className="h-[2px] w-9 bg-[var(--accent)]" />
               <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/80">
                 Elisa Biotech Collection
               </span>
@@ -146,12 +145,11 @@ export default function Products() {
                 }}
                 transition={{ duration: 0.5, ease }}
               >
-                <p className="mb-3 text-sm font-semibold text-[#80d5d5]">
+                <p className="mb-3 text-sm font-semibold text-[var(--accent)]">
                   {activeProduct.category || "Pharmaceutical Products"}
                 </p>
 
-                <h2 className="text-[36px] font-bold uppercase leading-[1.05] tracking-[-0.045em]
-                 text-white sm:text-6xl lg:text-[50px]">
+                <h2 className="text-[36px] font-bold uppercase leading-[1.05] tracking-[-0.045em] text-white sm:text-6xl lg:text-[50px]">
                   {activeProduct.name}
                 </h2>
 
@@ -163,7 +161,7 @@ export default function Products() {
 
                 <Link
                   href={`/products/${activeProduct.slug}`}
-                  className="group mt-8 inline-flex min-h-[50px] items-center gap-5 rounded-full bg-[#08a99e] px-6 text-sm font-semibold text-white shadow-[0_10px_35px_rgba(0,190,180,0.2)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#0bc0b2]"
+                  className="group mt-8 inline-flex min-h-[50px] items-center gap-5 rounded-full bg-[image:var(--button-gradient)] px-6 text-sm font-semibold text-[var(--text-light)] shadow-[0_10px_35px_rgba(7,62,95,0.2)] transition-all duration-300 hover:-translate-y-1 hover:bg-[image:var(--button-hover)]"
                 >
                   Explore Product
 
@@ -187,7 +185,7 @@ export default function Products() {
 
               <div className="ml-3 h-[2px] w-20 overflow-hidden bg-white/20">
                 <motion.div
-                  className="h-full bg-[#13c3bd]"
+                  className="h-full bg-[var(--accent)]"
                   animate={{
                     width: `${((activeIndex + 1) / products.length) * 100}%`,
                   }}
@@ -201,8 +199,7 @@ export default function Products() {
           <div className="relative z-20 min-w-0">
             <div
               ref={cardContainerRef}
-              className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth 
-              pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
               {products.map((product, index) => {
                 const selected = activeIndex === index;
@@ -216,11 +213,9 @@ export default function Products() {
                     whileTap={{ scale: 0.98 }}
                     aria-pressed={selected}
                     aria-label={`Select ${product.name}`}
-                    className={`group relative h-[410px] w-[400px] shrink-0 snap-center overflow-hidden 
-                      rounded-2xl border text-left transition-all duration-500  
-                       ${
+                    className={`group relative h-[410px] w-[400px] shrink-0 snap-center overflow-hidden rounded-2xl border text-left transition-all duration-500 ${
                       selected
-                        ? "border-[#16c5bd] shadow-[0_0_25px_rgba(12,190,185,0.22)]"
+                        ? "border-[var(--accent)] shadow-[0_0_25px_rgba(25,160,184,0.22)]"
                         : "border-white/20 hover:border-white/60"
                     }`}
                   >
@@ -235,7 +230,7 @@ export default function Products() {
                       }`}
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#031827]/95 via-[#062b46]/15 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary-dark)]/95 via-[var(--primary)]/15 to-transparent" />
 
                     <div className="absolute bottom-0 left-0 w-full p-4">
                       <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-white/65">
@@ -262,7 +257,7 @@ export default function Products() {
                   whileHover={{ scale: 1.08, x: -3 }}
                   whileTap={{ scale: 0.92 }}
                   aria-label="Previous product"
-                  className="relative z-50 flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/50 bg-white/15 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:border-[#12bbb6] hover:bg-[#12bbb6]"
+                  className="relative z-50 flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/50 bg-white/15 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:border-[var(--accent)] hover:bg-[var(--accent)]"
                 >
                   <ChevronLeft
                     size={26}
@@ -278,7 +273,7 @@ export default function Products() {
                   whileHover={{ scale: 1.08, x: 3 }}
                   whileTap={{ scale: 0.92 }}
                   aria-label="Next product"
-                  className="relative z-50 flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/50 bg-white/15 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:border-[#12bbb6] hover:bg-[#12bbb6]"
+                  className="relative z-50 flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/50 bg-white/15 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:border-[var(--accent)] hover:bg-[var(--accent)]"
                 >
                   <ChevronRight
                     size={26}
@@ -290,7 +285,7 @@ export default function Products() {
                 {/* PROGRESS BAR */}
                 <div className="ml-2 hidden h-[2px] w-28 overflow-hidden bg-white/25 sm:block">
                   <motion.div
-                    className="h-full bg-[#14c2bd]"
+                    className="h-full bg-[var(--accent)]"
                     animate={{
                       width: `${((activeIndex + 1) / products.length) * 100}%`,
                     }}
@@ -317,7 +312,7 @@ export default function Products() {
       </div>
 
       {/* BOTTOM ACCENT */}
-      <div className="absolute bottom-0 left-0 h-[3px] w-full bg-gradient-to-r from-transparent via-[#13b9b6] to-transparent" />
+      <div className="absolute bottom-0 left-0 h-[3px] w-full bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent" />
     </section>
   );
 }

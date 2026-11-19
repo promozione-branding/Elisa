@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -66,16 +65,16 @@ export default function Testimonials() {
   const item = testimonials[active];
 
   return (
-    <section className="relative overflow-hidden bg-[#0B2D50] min-h-screen flex flex-col justify-center py-12 md:py-16 text-white">
+    <section className="relative overflow-hidden bg-[var(--primary-dark)] min-h-screen flex flex-col justify-center py-12 md:py-16 text-[var(--text-light)]">
 
       {/* Background decorations */}
-      <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-[#0876AD]/20 blur-[120px]" />
-      <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-[#16A6B5]/15 blur-[120px]" />
+      <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-[var(--secondary)]/20 blur-[120px]" />
+      <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-[var(--accent)]/15 blur-[120px]" />
 
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-        className="absolute top-20 right-[12%] text-[#16A6B5]/10"
+        className="absolute top-20 right-[12%] text-[var(--accent)]/10"
       >
         <Atom size={180} strokeWidth={0.6} />
       </motion.div>
@@ -83,7 +82,7 @@ export default function Testimonials() {
       <motion.div
         animate={{ y: [0, -18, 0], rotate: [0, 12, 0] }}
         transition={{ duration: 7, repeat: Infinity }}
-        className="absolute bottom-16 left-[7%] text-[#0876AD]/15"
+        className="absolute bottom-16 left-[7%] text-[var(--secondary)]/15"
       >
         <Dna size={110} strokeWidth={0.8} />
       </motion.div>
@@ -100,8 +99,8 @@ export default function Testimonials() {
               viewport={{ once: true }}
               className="flex items-center gap-3 mb-6"
             >
-              <span className="w-10 h-[2px] bg-[#16A6B5]" />
-              <span className="text-[#16A6B5] uppercase tracking-[0.3em] text-xs font-semibold">
+              <span className="w-10 h-[2px] bg-[var(--accent)]" />
+              <span className="text-[var(--accent)] uppercase tracking-[0.3em] text-xs font-semibold">
                 Client Experiences
               </span>
             </motion.div>
@@ -114,7 +113,7 @@ export default function Testimonials() {
               className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.1] tracking-tight"
             >
               Trust Built Through
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0876AD] to-[#16A6B5]">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[var(--secondary)] to-[var(--accent)]">
                 Every Discovery.
               </span>
             </motion.h2>
@@ -124,7 +123,7 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[#D3E5EF] text-base md:text-lg leading-8 max-w-lg lg:ml-auto"
+            className="text-[var(--surface-blue)] text-base md:text-lg leading-8 max-w-lg lg:ml-auto"
           >
             Since 2007, Elisa Biotech has been committed to delivering
             quality, reliability and trusted solutions. Here's what our
@@ -140,7 +139,7 @@ export default function Testimonials() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative min-h-[350px] rounded-[28px] overflow-hidden bg-gradient-to-br from-[#0876AD] to-[#0B2D50] border border-[#16A6B5]/30 p-6 md:p-10 flex flex-col justify-between"
+            className="relative min-h-[350px] rounded-[28px] overflow-hidden bg-gradient-to-br from-[var(--secondary)] to-[var(--primary-dark)] border border-[var(--accent)]/30 p-6 md:p-10 flex flex-col justify-between"
           >
             <div>
               <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white mb-10">
@@ -152,13 +151,13 @@ export default function Testimonials() {
                 <br />
                 That Speaks
                 <br />
-                <span className="text-[#8DE0E8]">For Itself.</span>
+                <span className="text-[var(--accent)]">For Itself.</span>
               </h3>
             </div>
 
             <div className="pt-8 mt-8 border-t border-white/20">
               <p className="text-4xl font-bold text-white">2007</p>
-              <p className="text-xs tracking-[0.2em] uppercase text-[#BCECF1] mt-2">
+              <p className="text-xs tracking-[0.2em] uppercase text-[var(--surface-blue)] mt-2">
                 Our Journey Began
               </p>
             </div>
@@ -168,9 +167,9 @@ export default function Testimonials() {
           </motion.div>
 
           {/* Testimonial card */}
-          <div className="relative rounded-[28px] bg-[#E8F7FA] text-[#0B2D50] p-6 md:p-12 min-h-[450px] flex flex-col justify-between overflow-hidden">
+          <div className="relative rounded-[28px] bg-[var(--surface-blue)] text-[var(--primary)] p-6 md:p-12 min-h-[450px] flex flex-col justify-between overflow-hidden">
 
-            <div className="absolute -right-10 -top-10 w-64 h-64 rounded-full bg-[#0876AD]/10 blur-3xl" />
+            <div className="absolute -right-10 -top-10 w-64 h-64 rounded-full bg-[var(--secondary)]/10 blur-3xl" />
 
             <AnimatePresence mode="wait">
               <motion.div
@@ -182,11 +181,11 @@ export default function Testimonials() {
                 className="relative z-10 flex flex-col h-full"
               >
                 <div className="flex justify-between items-start">
-                  <div className="text-[#0876AD]">
+                  <div className="text-[var(--secondary)]">
                     <Quote size={58} fill="currentColor" strokeWidth={0} />
                   </div>
 
-                  <span className="text-xs uppercase tracking-[0.2em] text-[#0876AD]/70 font-semibold">
+                  <span className="text-xs uppercase tracking-[0.2em] text-[var(--secondary)]/70 font-semibold">
                     0{active + 1} / 0{testimonials.length}
                   </span>
                 </div>
@@ -198,23 +197,23 @@ export default function Testimonials() {
                     ))}
                   </div>
 
-                  <p className="text-xl sm:text-2xl md:text-[20px] leading-[1.55] font-medium tracking-tight text-[#183B50]">
+                  <p className="text-xl sm:text-2xl md:text-[20px] leading-[1.55] font-medium tracking-tight text-[var(--dark)]">
                     "{item.text}"
                   </p>
                 </div>
 
-                <div className="mt-auto pt-7 border-t border-[#B9DCE7] flex flex-wrap items-center justify-between gap-5">
+                <div className="mt-auto pt-7 border-t border-[var(--border-color)] flex flex-wrap items-center justify-between gap-5">
 
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#0876AD] to-[#16A6B5] flex items-center justify-center text-white text-lg font-bold shadow-lg shadow-[#0876AD]/20">
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] flex items-center justify-center text-white text-lg font-bold shadow-lg shadow-[var(--primary)]/20">
                       {item.initials}
                     </div>
 
                     <div>
-                      <h4 className="font-bold text-base text-[#0B2D50]">
+                      <h4 className="font-bold text-base text-[var(--primary-dark)]">
                         {item.name}
                       </h4>
-                      <p className="text-sm text-[#547080] mt-1">
+                      <p className="text-sm text-[var(--text-secondary)] mt-1">
                         {item.role}, {item.company}
                       </p>
                     </div>
@@ -224,7 +223,7 @@ export default function Testimonials() {
                     <button
                       onClick={prev}
                       aria-label="Previous testimonial"
-                      className="w-12 h-12 rounded-full border border-[#0876AD]/40 text-[#0B2D50] hover:bg-[#0876AD] hover:text-white hover:border-[#0876AD] transition-all flex items-center justify-center"
+                      className="w-12 h-12 rounded-full border border-[var(--secondary)]/40 text-[var(--primary)] hover:bg-[var(--secondary)] hover:text-white hover:border-[var(--secondary)] transition-all flex items-center justify-center"
                     >
                       <ArrowLeft size={19} />
                     </button>
@@ -232,7 +231,7 @@ export default function Testimonials() {
                     <button
                       onClick={next}
                       aria-label="Next testimonial"
-                      className="w-12 h-12 rounded-full bg-[#0876AD] text-white hover:bg-[#0B2D50] transition-all flex items-center justify-center"
+                      className="w-12 h-12 rounded-full bg-[var(--secondary)] text-white hover:bg-[var(--primary-dark)] transition-all flex items-center justify-center"
                     >
                       <ArrowRight size={19} />
                     </button>
@@ -252,7 +251,7 @@ export default function Testimonials() {
               aria-label={`Go to testimonial ${index + 1}`}
               className={`h-1.5 rounded-full transition-all duration-500 ${
                 active === index
-                  ? "w-12 bg-[#16A6B5]"
+                  ? "w-12 bg-[var(--accent)]"
                   : "w-5 bg-white/25 hover:bg-white/60"
               }`}
             />

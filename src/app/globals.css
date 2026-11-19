@@ -1,27 +1,34 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #073E5F;
+  --primary-dark: #052D46;
+  --secondary: #0A6F8E;
+  --accent: #19A0B8;
+
+  --dark: #252B30;
+  --dark-secondary: #39434B;
+
+  --background: #F5F8FA;
+  --surface: #FFFFFF;
+  --surface-blue: #EAF4F7;
+  --surface-light: #F0F6F8;
+
+  --text-primary: #252B30;
+  --text-secondary: #64727D;
+  --text-light: #FFFFFF;
+
+  --border-color: #DFE8ED;
+
+  --button-gradient: linear-gradient(to right, #07395A, #0A6F8E);
+  --button-hover: linear-gradient(to right, #052D46, #075773);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  font-family: var(--font-neue-montreal), sans-serif;
-}
 
 h1,
 h2,
@@ -33,28 +40,50 @@ h6 {
   font-weight: 700;
 }
 
-{/* Tailwind Custom Keyframes */}
-      
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(35px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
 
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-13px); }
-        }
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
 
-        @keyframes capsule {
-          0%, 100% { transform: rotate(38deg) translateY(0); }
-          50% { transform: rotate(38deg) translateY(-10px); }
-        }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-        @media (prefers-reduced-motion: reduce) {
-          *, *::before, *::after {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            scroll-behavior: auto !important;
-          }
-        }
-      
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-13px);
+  }
+}
+
+@keyframes capsule {
+
+  0%,
+  100% {
+    transform: rotate(38deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(38deg) translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

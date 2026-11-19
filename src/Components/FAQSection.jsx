@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -47,11 +46,11 @@ export default function FAQSection() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#E8F7FA] flex items-center py-10 lg:py-12">
+    <section className="relative min-h-screen overflow-hidden bg-[var(--surface-blue)] flex items-center py-10 lg:py-12">
 
       {/* Background details */}
-      <div className="absolute top-0 left-0 w-80 h-80 bg-[#0876AD]/10 rounded-full blur-[100px]" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#16A6B5]/15 rounded-full blur-[110px]" />
+      <div className="absolute top-0 left-0 w-80 h-80 bg-[var(--secondary)]/10 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[var(--accent)]/15 rounded-full blur-[110px]" />
 
       <div className="relative z-10 max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12">
 
@@ -67,9 +66,9 @@ export default function FAQSection() {
           >
 
             {/* Image shape */}
-            <div className="absolute inset-0 rounded-[48%_48%_42%_42%] bg-gradient-to-br from-[#0876AD] to-[#0B2D50] rotate-[-5deg] scale-[1.015]" />
+            <div className="absolute inset-0 rounded-[48%_48%_42%_42%] bg-gradient-to-br from-[var(--secondary)] to-[var(--primary-dark)] rotate-[-5deg] scale-[1.015]" />
 
-            <div className="relative w-full h-[520px] lg:h-[650px] overflow-hidden rounded-[48%_48%_42%_42%] border-[7px] border-white shadow-2xl">
+            <div className="relative w-full h-[520px] lg:h-[650px] overflow-hidden rounded-[48%_48%_42%_42%] border-[7px] border-[var(--surface)] shadow-2xl">
 
               <Image
                 src="/Pharmaceutical Product Display Collection.png"
@@ -80,7 +79,7 @@ export default function FAQSection() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B2D50]/65 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary-dark)]/65 via-transparent to-transparent" />
 
             </div>
 
@@ -88,7 +87,7 @@ export default function FAQSection() {
             <motion.div
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
-              className="absolute top-[12%] left-[-2%] md:left-[-5%] w-[82px] h-[82px] rounded-3xl bg-[#0876AD] text-white shadow-xl flex items-center justify-center border-4 border-white"
+              className="absolute top-[12%] left-[-2%] md:left-[-5%] w-[82px] h-[82px] rounded-3xl bg-[var(--secondary)] text-white shadow-xl flex items-center justify-center border-4 border-[var(--surface)]"
             >
               <FlaskConical size={34} />
             </motion.div>
@@ -101,13 +100,13 @@ export default function FAQSection() {
                 repeat: Infinity,
                 ease: "linear",
               }}
-              className="absolute top-[8%] right-[3%] text-[#16A6B5]/30 pointer-events-none"
+              className="absolute top-[8%] right-[3%] text-[var(--accent)]/30 pointer-events-none"
             >
               <Atom size={95} strokeWidth={0.8} />
             </motion.div>
 
             {/* Decorative DNA */}
-            <div className="absolute bottom-[6%] left-[0%] text-[#0876AD]/25 pointer-events-none">
+            <div className="absolute bottom-[6%] left-[0%] text-[var(--secondary)]/25 pointer-events-none">
               <Dna size={90} strokeWidth={0.8} />
             </div>
           </motion.div>
@@ -121,8 +120,8 @@ export default function FAQSection() {
               viewport={{ once: true }}
               className="flex items-center gap-3 mb-6"
             >
-              <span className="w-12 h-[3px] bg-[#0876AD]" />
-              <span className="text-xs sm:text-sm uppercase tracking-[0.24em] font-bold text-[#0876AD]">
+              <span className="w-12 h-[3px] bg-[var(--secondary)]" />
+              <span className="text-xs sm:text-sm uppercase tracking-[0.24em] font-bold text-[var(--secondary)]">
                 Frequently Asked Questions
               </span>
             </motion.div>
@@ -132,10 +131,10 @@ export default function FAQSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="text-[42px] sm:text-5xl xl:text-[45px] leading-[1.08] font-bold tracking-tight py-2 text-[#0B2D50]"
+              className="text-[42px] sm:text-5xl xl:text-[45px] leading-[1.08] font-bold tracking-tight py-2 text-[var(--primary-dark)]"
             >
               Have Questions?
-              <span className="block text-[#0876AD]">
+              <span className="block text-[var(--secondary)]">
                 We've Got Answers.
               </span>
             </motion.h2>
@@ -157,8 +156,8 @@ export default function FAQSection() {
                     }}
                     className={`overflow-hidden rounded-2xl transition-all duration-300 ${
                       isActive
-                        ? "bg-white shadow-[0_12px_35px_rgba(11,45,80,0.12)]"
-                        : "bg-white/90 hover:bg-white shadow-sm"
+                        ? "bg-[var(--surface)] shadow-[0_12px_35px_rgba(7,62,95,0.12)]"
+                        : "bg-[var(--surface)]/90 hover:bg-[var(--surface)] shadow-sm"
                     }`}
                   >
                     <button
@@ -166,15 +165,15 @@ export default function FAQSection() {
                       aria-expanded={isActive}
                       className={`w-full flex items-center gap-4 px-5 py-4 text-left transition-all ${
                         isActive
-                          ? "bg-gradient-to-r from-[#0B2D50] to-[#0876AD] text-white"
-                          : "text-[#0B2D50]"
+                          ? "bg-gradient-to-r from-[var(--primary-dark)] to-[var(--secondary)] text-white"
+                          : "text-[var(--primary-dark)]"
                       }`}
                     >
                       <span
                         className={`w-11 h-11 shrink-0 rounded-full flex items-center justify-center font-bold ${
                           isActive
-                            ? "bg-[#16A6B5] text-white"
-                            : "bg-[#E8F7FA] text-[#0876AD]"
+                            ? "bg-[var(--accent)] text-white"
+                            : "bg-[var(--surface-blue)] text-[var(--secondary)]"
                         }`}
                       >
                         Q
@@ -205,7 +204,7 @@ export default function FAQSection() {
                           }}
                           className="overflow-hidden"
                         >
-                          <p className="px-6 sm:px-8 py-5 pl-[76px] text-sm sm:text-[15px] leading-7 text-[#536879]">
+                          <p className="px-6 sm:px-8 py-5 pl-[76px] text-sm sm:text-[15px] leading-7 text-[var(--text-secondary)]">
                             {faq.answer}
                           </p>
                         </motion.div>

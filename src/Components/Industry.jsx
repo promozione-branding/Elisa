@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -76,15 +75,15 @@ export default function Industries() {
   return (
     <section
       id="industries"
-      className="relative isolate overflow-hidden bg-gradient-to-br from-[#e8f2f6] via-[#f7fafc] to-[#e5f1f5] py-14 sm:py-16 lg:py-20"
+      className="relative isolate overflow-hidden bg-gradient-to-br from-[var(--surface-blue)] via-[var(--background)] to-[var(--surface-light)] py-14 sm:py-16 lg:py-20"
     >
       {/* BACKGROUND DECORATION */}
 
-      <div className="pointer-events-none absolute -right-40 top-0 h-[500px] w-[500px] rounded-full bg-[#12a9a3]/10 blur-[120px]" />
+      <div className="pointer-events-none absolute -right-40 top-0 h-[500px] w-[500px] rounded-full bg-[var(--secondary)]/10 blur-[120px]" />
 
-      <div className="pointer-events-none absolute -bottom-40 -left-40 h-[450px] w-[450px] rounded-full bg-[#0b6676]/10 blur-[120px]" />
+      <div className="pointer-events-none absolute -bottom-40 -left-40 h-[450px] w-[450px] rounded-full bg-[var(--primary)]/10 blur-[120px]" />
 
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#17cbc5]/5 blur-[130px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--accent)]/5 blur-[130px]" />
 
       <div className="relative mx-auto max-w-[1450px] px-5 sm:px-8 lg:px-12">
 
@@ -99,22 +98,22 @@ export default function Industries() {
         >
           <div>
             <div className="mb-5 flex items-center gap-3">
-              <span className="h-[3px] w-10 rounded-full bg-[#12a9a3]" />
+              <span className="h-[3px] w-10 rounded-full bg-[var(--accent)]" />
 
-              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#0b6676]">
+              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[var(--secondary)]">
                 Our Expertise
               </span>
             </div>
 
-            <h2 className="text-4xl font-extrabold leading-[1.05] tracking-[-0.045em] text-[#0a2e4d] sm:text-6xl lg:text-[58px]">
+            <h2 className="text-4xl font-extrabold leading-[1.05] tracking-[-0.045em] text-[var(--primary)] sm:text-6xl lg:text-[58px]">
               Industries That
-              <span className="block bg-[#0D3F67] bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-[var(--secondary)] to-[var(--accent)] bg-clip-text text-transparent">
                 We Empower.
               </span>
             </h2>
           </div>
 
-          <p className="max-w-[390px] text-sm leading-8 text-[#526c7e] md:pb-2 md:text-base">
+          <p className="max-w-[390px] text-sm leading-8 text-[var(--text-secondary)] md:pb-2 md:text-base">
             Delivering trusted pharmaceutical products and wholesale
             solutions across a wide range of industries.
           </p>
@@ -131,7 +130,7 @@ export default function Industries() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease }}
-            className="group relative h-[420px] overflow-hidden rounded-[26px] border border-white/80 bg-[#0a2e4d] shadow-[0_20px_55px_rgba(10,46,77,0.14)] sm:h-[550px] lg:h-[80vh] lg:min-h-[560px] lg:max-h-[850px]"
+            className="group relative h-[420px] overflow-hidden rounded-[26px] border border-white/80 bg-[var(--primary-dark)] shadow-[0_20px_55px_rgba(7,62,95,0.14)] sm:h-[550px] lg:h-[80vh] lg:min-h-[560px] lg:max-h-[850px]"
           >
             {/* INDUSTRY IMAGE */}
 
@@ -150,12 +149,12 @@ export default function Industries() {
 
             {/* IMAGE OVERLAY */}
 
-            <div className="absolute inset-0 bg-gradient-to-t from-[#061e34] via-[#0a2e4d]/35 to-[#0a2e4d]/5" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary-dark)] via-[var(--primary)]/35 to-[var(--primary)]/5" />
 
             {/* TOP LABEL */}
 
-            <div className="absolute left-5 top-5 flex items-center gap-3 rounded-full border border-white/30 bg-[#0a2e4d]/35 px-4 py-2.5 text-white backdrop-blur-md sm:left-8 sm:top-8">
-              <span className="h-2 w-2 rounded-full bg-[#17cbc5] shadow-[0_0_12px_#17cbc5]" />
+            <div className="absolute left-5 top-5 flex items-center gap-3 rounded-full border border-white/30 bg-[var(--primary-dark)]/35 px-4 py-2.5 text-white backdrop-blur-md sm:left-8 sm:top-8">
+              <span className="h-2 w-2 rounded-full bg-[var(--accent)] shadow-[0_0_12px_var(--accent)]" />
 
               <span className="text-[10px] font-bold uppercase tracking-[0.2em]">
                 Featured Industry
@@ -179,13 +178,11 @@ export default function Industries() {
                 transition={{ duration: 0.4, ease }}
                 className="absolute bottom-0 left-0 w-full p-6 text-white sm:p-8 lg:p-9"
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center 
-                rounded-xl border border-white/30 bg-white/15 text-[##0D3F67] backdrop-blur-md">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-white/30 bg-white/15 text-white backdrop-blur-md">
                   <current.icon size={24} strokeWidth={1.7} />
                 </div>
 
-                <h3 className="max-w-[550px] text-3xl font-extrabold tracking-tight sm:text-5xl 
-                lg:text-[48px]">
+                <h3 className="max-w-[550px] text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-[48px]">
                   {current.title}
                 </h3>
 
@@ -206,7 +203,7 @@ export default function Industries() {
                   aria-pressed={active === index}
                   className={`h-1.5 rounded-full transition-all duration-500 ${
                     active === index
-                      ? "w-10 bg-[#17cbc5]"
+                      ? "w-10 bg-[var(--accent)]"
                       : "w-3 bg-white/50 hover:bg-white"
                   }`}
                 />
@@ -220,12 +217,12 @@ export default function Industries() {
 
             {/* LIST HEADER */}
 
-            <div className="mb-3 flex items-center justify-between border-b border-[#c9dce5] pb-4">
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#526c7e]">
+            <div className="mb-3 flex items-center justify-between border-b border-[var(--border-color)] pb-4">
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--text-secondary)]">
                 Explore Our Industries
               </span>
 
-              <span className="text-xs font-bold text-[#0b7f93]">
+              <span className="text-xs font-bold text-[var(--secondary)]">
                 05 Sectors
               </span>
             </div>
@@ -254,7 +251,7 @@ export default function Industries() {
                     <Link
                       href={industry.href}
                       onClick={() => setActive(index)}
-                      className={`group relative flex items-center gap-4 border-b border-[#c9dce5] py-4 transition-all duration-300 sm:gap-5 sm:py-5 ${
+                      className={`group relative flex items-center gap-4 border-b border-[var(--border-color)] py-4 transition-all duration-300 sm:gap-5 sm:py-5 ${
                         isActive ? "pl-3" : ""
                       }`}
                     >
@@ -266,7 +263,7 @@ export default function Industries() {
                           height: isActive ? "65%" : "0%",
                           opacity: isActive ? 1 : 0,
                         }}
-                        className="absolute left-0 top-1/2 w-[3px] -translate-y-1/2 rounded-full bg-[#12a9a3]"
+                        className="absolute left-0 top-1/2 w-[3px] -translate-y-1/2 rounded-full bg-[var(--accent)]"
                       />
 
                       {/* NUMBER */}
@@ -274,8 +271,8 @@ export default function Industries() {
                       <span
                         className={`text-xs font-bold transition-colors ${
                           isActive
-                            ? "text-[#0D3F67]"
-                            : "text-[#94aab7]"
+                            ? "text-[var(--secondary)]"
+                            : "text-[var(--text-secondary)]/60"
                         }`}
                       >
                         {industry.number}
@@ -289,8 +286,8 @@ export default function Industries() {
                         }}
                         className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-all duration-300 sm:h-12 sm:w-12 ${
                           isActive
-                            ? "bg-gradient-to-br from-[#0D3F67] to-[#0b6676] text-white shadow-[0_8px_20px_rgba(11,102,118,0.22)]"
-                            : "border border-white bg-white/80 text-[#0D3F67] group-hover:bg-[#dceff3]"
+                            ? "bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] text-white shadow-[0_8px_20px_rgba(7,111,142,0.22)]"
+                            : "border border-[var(--border-color)] bg-[var(--surface)]/80 text-[var(--primary)] group-hover:bg-[var(--surface-blue)]"
                         }`}
                       >
                         <Icon size={22} strokeWidth={1.7} />
@@ -302,8 +299,8 @@ export default function Industries() {
                         <h3
                           className={`text-base font-bold tracking-tight transition-colors sm:text-lg ${
                             isActive
-                              ? "text-[#0D3F67]"
-                              : "text-[#0a2e4d]"
+                              ? "text-[var(--primary)]"
+                              : "text-[var(--dark)]"
                           }`}
                         >
                           {industry.title}
@@ -312,8 +309,8 @@ export default function Industries() {
                         <p
                           className={`mt-1.5 max-w-[350px] text-[13px] leading-[1.6] transition-colors sm:text-xs ${
                             isActive
-                              ? "text-[#526c7e]"
-                              : "text-[#8399a7]"
+                              ? "text-[var(--text-secondary)]"
+                              : "text-[var(--text-secondary)]/75"
                           }`}
                         >
                           {industry.description}
@@ -329,8 +326,8 @@ export default function Industries() {
                         }}
                         className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
                           isActive
-                            ? "bg-gradient-to-br from-[#12b5a6] to-[#0D3F67] text-white shadow-md shadow-[#0b6676]/20"
-                            : "border border-[#d5e5eb] bg-white/80 text-[#0D3F67] group-hover:bg-[# 0D3F67]"
+                            ? "bg-gradient-to-br from-[var(--accent)] to-[var(--primary)] text-white shadow-md shadow-[var(--secondary)]/20"
+                            : "border border-[var(--border-color)] bg-[var(--surface)]/80 text-[var(--primary)] group-hover:bg-[var(--surface-blue)]"
                         }`}
                       >
                         <ArrowUpRight size={19} />
@@ -346,7 +343,7 @@ export default function Industries() {
 
       {/* BOTTOM ACCENT */}
 
-      <div className="absolute bottom-0 left-0 h-[3px] w-full bg-gradient-to-r from-transparent via-[#12b5a3] to-transparent" />
+      <div className="absolute bottom-0 left-0 h-[3px] w-full bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent" />
     </section>
   );
 }
